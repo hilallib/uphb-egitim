@@ -108,6 +108,13 @@
           .to(fades, { opacity: 0, y: -70, stagger: 0.03, ease: "power1.in" }, 0.74);
       }
 
+      // derinlik: sahne biterken geriye gömülür (yeni bölüm üzerine akar)
+      var pin = scene.querySelector(".pin");
+      gsap.fromTo(pin, { scale: 1, opacity: 1, borderRadius: 0 }, {
+        scale: 0.93, opacity: 0.45, borderRadius: 28, ease: "none",
+        scrollTrigger: { trigger: scene, start: "bottom 90%", end: "bottom 25%", scrub: true }
+      });
+
       // çağ geçişi: sahneye girerken ışık sıçraması
       if (!isHero) {
         ScrollTrigger.create({
