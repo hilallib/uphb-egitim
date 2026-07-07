@@ -15,13 +15,14 @@
   --sans: "Inter", -apple-system, "Segoe UI", sans-serif;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { overflow-x: clip; }
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
   font-size: 17px;
   line-height: 1.65;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 ::selection { background: var(--pink); color: #fff; }
 
@@ -1104,11 +1105,14 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
   .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .grain { opacity: .05; }
   .scene { height: auto; }
-  .scene .pin { position: relative; height: auto; min-height: 92vh; display: flex; }
+  .scene .pin { position: relative; height: 100svh; min-height: 100svh; display: block; }
   .scene .bg { position: absolute; inset: 0; }
-  .scene .bg img { transform: none !important; }
+  .scene .bg img, .scene .bg video { transform: none !important; width: 100%; height: 100%; object-fit: cover; }
   .scene .act { display: none; }
-  .scene .content { position: relative; justify-content: flex-end; padding: 46vh 7vw 9vh; }
+  .scene .content { position: absolute; left: 0; right: 0; bottom: 0; top: auto; width: auto; max-width: none; justify-content: flex-end; padding: 0 6vw 13svh; }
+  .date-badge { flex-wrap: wrap; row-gap: 4px; font-size: 12.5px; letter-spacing: .05em; padding: 9px 16px; }
+  .lead { max-width: 100%; }
+  h1 { font-size: clamp(38px, 11vw, 64px); }
   .interlude { padding: 13vh 7vw; }
   .portals, .outcomes, .includes, .manifesto .duo { grid-template-columns: 1fr; }
   .portal { min-height: 380px; }

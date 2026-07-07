@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v13">
+<link rel="stylesheet" href="css/style.css?v15">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 <body class="page-gun2">
@@ -157,7 +157,12 @@
   <!-- ═══ TAM EKRAN SAHNE: EVRİM YÜRÜYÜŞÜ ═══ -->
   <section class="scene" data-mood="dark">
     <div class="pin">
-<div class="layer bg"><img src="assets/scene-evrim.jpg" alt="Evrim yürüyüşü — ateşten posthuman ışığa" loading="lazy"></div>
+<div class="layer bg">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/scene-evrim.jpg">
+          <source src="assets/video-evrim.mp4" type="video/mp4">
+        </video>
+        <img src="assets/scene-evrim.jpg" alt="Evrim yürüyüşü — ateşten posthuman ışığa" class="bg-fallback" loading="lazy">
+      </div>
       <div class="layer wash"></div>
       <div class="layer haze"></div>
 
@@ -258,13 +263,13 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="js/main.js?v13"></script>
+<script src="js/main.js?v15"></script>
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
   "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
 } }
 </script>
-<script type="module" src="js/scene.js?v13"></script>
+<script type="module" src="js/scene.js?v15"></script>
 </body>
 </html>
