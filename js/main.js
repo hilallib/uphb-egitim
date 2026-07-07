@@ -6,6 +6,22 @@
   if (reduced) document.documentElement.classList.add("no-motion");
   if (qa) document.documentElement.classList.add("qa");
 
+  /* mobil menü */
+  var burger = document.getElementById("navBurger");
+  var mmenu = document.getElementById("mobileMenu");
+  if (burger && mmenu) {
+    burger.addEventListener("click", function () {
+      burger.classList.toggle("open");
+      mmenu.classList.toggle("open");
+    });
+    mmenu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        burger.classList.remove("open");
+        mmenu.classList.remove("open");
+      });
+    });
+  }
+
   /* video arka planlar: oynamazsa fallback görsele düş */
   document.querySelectorAll(".scene .bg video").forEach(function (v) {
     v.addEventListener("error", function () { v.classList.add("dead"); }, true);
