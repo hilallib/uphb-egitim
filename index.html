@@ -13,7 +13,9 @@
 </head>
 <body class="page-index">
 
-<canvas id="scene" data-scene="agora"></canvas>
+<canvas id="scene" data-scene="day"></canvas>
+<div class="grain"></div>
+<div class="vignette"></div>
 
 <header class="topbar">
   <a href="index.html"><img src="assets/logo-beyaz.png" alt="UP-HB Academy"></a>
@@ -25,64 +27,104 @@
   </nav>
 </header>
 
-<main class="content">
+<main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"><img src="assets/hypatia.jpg" alt="İlk Çağ — antik sütunlar arasında bilgelik" fetchpriority="high"></div>
-    <div class="date-badge" data-reveal><span class="dot"></span> 15–16 Ağustos 2026 &nbsp;·&nbsp; 2 gün &nbsp;·&nbsp; 10 saat &nbsp;·&nbsp; Canlı atölye</div>
-    <h1 class="headline" data-reveal>Üretken YZ<br>&amp; Vibe Coding</h1>
-    <p class="sub" data-reveal>Analog Patron — Dijital Ekip</p>
-    <p class="lead" data-reveal>Bilgelik İlk Çağ'da soruldu.<br>Üretmek bu çağda senin elinde.</p>
-    <div class="cta-row" data-reveal>
-      <a class="btn btn-primary" href="#kayit">Kayıt Ol — 10.000 TL</a>
-      <a class="btn btn-ghost" href="#konsept">Yolculuğu Keşfet ↓</a>
+  <!-- ═══ PERDE 0 · HERO: AGORA ═══ -->
+  <section class="scene" data-mood="gold">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-agora.jpg" alt="İlk Çağ agorası — filozoflar yüzen hologram ekranlarla" fetchpriority="high"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>ΑΩ</span></div>
+      <div class="layer content">
+        <div class="date-badge" data-fade><span class="dot"></span> 15–16 Ağustos 2026 &nbsp;·&nbsp; 2 gün &nbsp;·&nbsp; 10 saat &nbsp;·&nbsp; Canlı atölye</div>
+        <h1 data-fade>Üretken YZ<br><span class="hl">&amp; Vibe Coding</span></h1>
+        <p class="sub" data-fade>Analog Patron — Dijital Ekip</p>
+        <p class="lead" data-fade>Bilgelik İlk Çağ'da soruldu.<br>Üretmek bu çağda senin elinde.</p>
+        <div class="cta-row" data-fade>
+          <a class="btn btn-primary" href="#kayit">Kayıt Ol — 10.000 TL</a>
+          <a class="btn btn-ghost" href="#perde1">Hikâyeye Gir ↓</a>
+        </div>
+      </div>
+      <div class="scroll-hint">Kaydır</div>
     </div>
   </section>
 
-  <!-- SOKRATES → PROMPT -->
-  <section id="konsept" class="quote-morph">
-    <p class="kicker" data-reveal>İlk Çağ'dan Bu Çağa</p>
-    <blockquote data-reveal>"Sorgulanmamış bir hayat,<br>yaşanmaya değmez."</blockquote>
-    <p class="attribution" data-reveal>Sokrates · Atina Agorası · M.Ö. 399</p>
-    <div class="prompt-field" data-reveal>
-      <span class="p-mark">&gt;</span>
-      <span id="typed-prompt">Sorgulamayı biliyorsun. Şimdi üretmeyi öğren</span><span class="cursor"></span>
+  <!-- ═══ PERDE I · SORU: MERMER EL ═══ -->
+  <section class="scene" data-mood="dark" id="perde1">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-el.jpg" alt="Mermer heykel eli, holografik karta uzanıyor" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>I</span></div>
+      <div class="layer content">
+        <p class="kicker" data-fade>Perde I · Soru</p>
+        <h2 data-fade>Her şey bir soruyla başladı.<br>İki bin dört yüz yıl önce.</h2>
+        <p class="lead" data-fade>"Sorgulanmamış bir hayat, yaşanmaya değmez." — Sokrates bunu agorada söyledi. Bugün aynı merak, taş ellerden dijital olana uzanıyor. Soru hâlâ senin sorun: <b>Ne üreteceksin?</b></p>
+        <div class="prompt-field" data-fade>
+          <span class="p-mark">&gt;</span>
+          <span>Sorgulamayı biliyorsun. Şimdi üretmeyi öğren</span><span class="cursor"></span>
+        </div>
+      </div>
     </div>
-    <p class="lead" style="margin: 46px auto 0; text-align:center;" data-reveal>
-      İki bin dört yüz yıl önce agora'da soru sormakla başlayan yolculuk, bugün bir prompt satırında devam ediyor.
-      Bu eğitimde felsefenin sorgulama gücünü, üretken yapay zekânın üretim gücüyle birleştiriyoruz.
-    </p>
   </section>
 
-  <!-- PORTALLAR -->
-  <section>
+  <!-- ═══ PERDE II · DÖNÜŞÜM: FRESK ═══ -->
+  <section class="scene" data-mood="dark">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-fresk.jpg" alt="Fresk figürleri dijital ekranlara dönüşüyor" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>II</span></div>
+      <div class="layer content">
+        <p class="kicker pink" data-fade>Perde II · Dönüşüm</p>
+        <h2 data-fade>Fresk canlanıyor.<br><span class="hl">Bilgelik artık üretiyor.</span></h2>
+        <p class="lead" data-fade>Duvardaki figürler ekranlara, ekranlar eserlere dönüşüyor. Bu eğitimde izleyici değilsin — freskin içine giriyorsun. İki gün, iki dünya: önce üretken yapay zekâ, sonra kod yazmadan yazılım.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── İKİ KAPI ─── -->
+  <section class="interlude">
     <p class="kicker" data-reveal>İki Gün · İki Dünya</p>
-    <h2 data-reveal>Yolculuğunu seç,<br>iki kapıdan da geç.</h2>
-    <div class="portals" style="margin-top:56px;">
+    <h2 data-reveal>Yolculuğunu seç,<br><span class="hl">iki kapıdan da geç.</span></h2>
+    <div class="portals">
       <a class="portal p1" href="gun1.html" data-reveal>
-        <div class="arch-glow"></div>
-        <div class="p-day">Gün 1 · 15 Ağustos</div>
-        <h3>Üretken YZ</h3>
-        <p class="p-theme">"İlk Çağ'dan Üretken Zekâya"</p>
-        <p>Senaryodan görsele, sesten kurguya: 5 saatin sonunda elinde 1.5 dakikalık profesyonel bir video var.</p>
-        <span class="p-go">Gün 1'i keşfet →</span>
+        <div class="p-img"><img src="assets/scene-tapinak.jpg" alt="" loading="lazy"></div>
+        <div class="p-body">
+          <div class="p-day">Gün 1 · 15 Ağustos</div>
+          <h3>Üretken YZ</h3>
+          <p class="p-theme">"İlk Çağ'dan Üretken Zekâya"</p>
+          <p>Senaryodan görsele, sesten kurguya: 5 saatin sonunda elinde 1.5 dakikalık profesyonel bir video var.</p>
+          <span class="p-go">Gün 1'i keşfet →</span>
+        </div>
       </a>
       <a class="portal p2" href="gun2.html" data-reveal>
-        <div class="arch-glow"></div>
-        <div class="p-day">Gün 2 · 16 Ağustos</div>
-        <h3>Vibe Coding</h3>
-        <p class="p-theme">"Agora'dan Agent'a"</p>
-        <p>Kod yazmadan yazılım üret: kendi AI Agent'ını kur, GitHub'a bağla, canlı dashboard'unla izle.</p>
-        <span class="p-go">Gün 2'yi keşfet →</span>
+        <div class="p-img"><img src="assets/scene-el.jpg" alt="" loading="lazy"></div>
+        <div class="p-body">
+          <div class="p-day">Gün 2 · 16 Ağustos</div>
+          <h3>Vibe Coding</h3>
+          <p class="p-theme">"Agora'dan Agent'a"</p>
+          <p>Kod yazmadan yazılım üret: kendi AI Agent'ını kur, GitHub'a bağla, canlı dashboard'unla izle.</p>
+          <span class="p-go">Gün 2'yi keşfet →</span>
+        </div>
       </a>
     </div>
   </section>
 
-  <!-- 3 SOMUT ÇIKTI -->
-  <section>
-    <p class="kicker" data-reveal>Boş Teori Yok</p>
-    <h2 data-reveal>Eğitimden 3 somut çıktıyla ayrılıyorsun.</h2>
+  <!-- ═══ PERDE III · ESER: TAPINAK ═══ -->
+  <section class="scene" data-mood="gold">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-tapinak.jpg" alt="Tapınakta yüzen video kareleri" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>III</span></div>
+      <div class="layer content">
+        <p class="kicker" data-fade>Perde III · Eser</p>
+        <h2 data-fade>Boş teori yok.<br><span class="hl">Tapınaktan eserinle çıkıyorsun.</span></h2>
+        <p class="lead" data-fade>İki günün sonunda elinde üç somut şey var — sunum dosyası değil, "not aldım" değil: yayınlanmaya hazır işler.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 3 ÇIKTI ─── -->
+  <section class="interlude">
     <div class="outcomes">
       <div class="outcome" data-reveal>
         <div class="o-num">01</div>
@@ -100,12 +142,6 @@
         <p>Ekibinin ürettiklerini tek ekranda izleyen, telefondan bile açılan kendi kontrol panelin.</p>
       </div>
     </div>
-  </section>
-
-  <!-- DAHİL OLANLAR -->
-  <section>
-    <p class="kicker" data-reveal>Eğitimin Yanında</p>
-    <h2 data-reveal>Yalnız bırakmıyoruz.</h2>
     <div class="includes">
       <div class="include" data-reveal><span class="i-mark">◆</span><p><b>Hilal Baktaş ile 1 saat birebir ön görüşme</b>Eğitimden önce proje senaryon birlikte kurgulanır, araçların kurulur.</p></div>
       <div class="include" data-reveal><span class="i-mark">◆</span><p><b>30 gün mentorluk</b>Eğitim bitince değil, sen üretmeye başlayınca yanındayız.</p></div>
@@ -114,11 +150,11 @@
     </div>
   </section>
 
-  <!-- EĞİTMEN -->
-  <section class="instructor">
+  <!-- ═══ PERDE IV · SEN: EĞİTMEN + KAYIT ═══ -->
+  <section class="interlude instructor">
     <div class="portrait" data-reveal><img src="assets/hilal-portre.jpg" alt="Hilal Baktaş"></div>
     <div class="bio">
-      <p class="kicker" data-reveal>Eğitmen</p>
+      <p class="kicker" data-reveal>Perde IV · Rehberin</p>
       <h2 data-reveal>Hilal Baktaş</h2>
       <p class="lead" data-reveal>Felsefeci, projeci, eğitmen. Felsefenin sorgulama derinliğini yapay zekânın üretim gücüyle harmanlıyor: Analog kalp, dijital zekâ.</p>
       <div class="creds">
@@ -130,10 +166,9 @@
     </div>
   </section>
 
-  <!-- FİYAT / KAYIT -->
-  <section id="kayit" class="pricing">
+  <section id="kayit" class="interlude pricing">
     <p class="kicker" data-reveal>Kayıt</p>
-    <h2 data-reveal>Tek fiyat. Dürüst fiyat.</h2>
+    <h2 data-reveal>Tek fiyat. <span class="hl">Dürüst fiyat.</span></h2>
     <div class="price-card" data-reveal>
       <div class="p-label">2 Günlük Eğitim · 15–16 Ağustos 2026</div>
       <div class="p-amount">10.000 <small>TL</small></div>
@@ -153,8 +188,8 @@
 
 <footer>
   <img src="assets/logo-beyaz.png" alt="UP-HB Academy">
-  <p style="font-family:var(--serif); font-style:italic; color:var(--gold);">"Analog Kalp, Dijital Zekâ."</p>
-  <div><span class="made-with">⚡ Bu sayfa vibe coding ile yapıldı</span></div>
+  <p class="sub" style="margin:0 auto 6px; font-family:var(--serif); font-style:italic;">"Analog Kalp, Dijital Zekâ."</p>
+  <div><span class="made-with">⚡ Bu sayfa vibe coding ile yapıldı — görseller dahil</span></div>
   <p class="fine">© 2026 UP-HB Academy · hb-academy.com.tr</p>
 </footer>
 

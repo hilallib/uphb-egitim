@@ -10,22 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-<style>
-  /* Gece paleti — İskenderiye Kütüphanesi */
-  body.page-gun2 { background: #05060c; }
-  .page-gun2 .hero-bg img { opacity: 0.28; filter: saturate(0.7) brightness(0.8) hue-rotate(-15deg); }
-  .page-gun2 .hero-bg::after {
-    background:
-      radial-gradient(ellipse 60% 50% at 30% 20%, rgba(0,3,255,0.18), transparent 70%),
-      radial-gradient(ellipse 50% 40% at 80% 70%, rgba(0,255,244,0.08), transparent 70%),
-      linear-gradient(to bottom, rgba(5,6,12,0.3), rgba(5,6,12,0.95) 88%);
-  }
-  .page-gun2 .sub { color: var(--turq); }
-</style>
 </head>
 <body class="page-gun2">
 
-<canvas id="scene" data-scene="library"></canvas>
+<canvas id="scene" data-scene="night"></canvas>
+<div class="grain"></div>
+<div class="vignette"></div>
 
 <header class="topbar">
   <a href="index.html"><img src="assets/logo-beyaz.png" alt="UP-HB Academy"></a>
@@ -37,43 +27,54 @@
   </nav>
 </header>
 
-<main class="content">
+<main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"><img src="assets/hypatia.jpg" alt="İskenderiye Kütüphanesi — gece" fetchpriority="high"></div>
-    <div class="date-badge" data-reveal><span class="dot"></span> Gün 2 &nbsp;·&nbsp; 16 Ağustos 2026 &nbsp;·&nbsp; 5 saat</div>
-    <h1 class="headline" data-reveal>Vibe Coding</h1>
-    <p class="sub" data-reveal>Agora'dan Agent'a</p>
-    <p class="lead" data-reveal><b>Kod yazma. İste.</b><br>Yazılımın yeni dili Türkçe kadar doğal.</p>
-    <div class="cta-row" data-reveal>
-      <a class="btn btn-primary" href="index.html#kayit">Kayıt Ol — 10.000 TL</a>
-      <a class="btn btn-ghost" href="#program">Programı Gör ↓</a>
+  <!-- ═══ HERO: MERMER EL — İSTEK ═══ -->
+  <section class="scene" data-mood="dark">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-el.jpg" alt="Mermer el, neon holograma uzanıyor" fetchpriority="high"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>2</span></div>
+      <div class="layer content">
+        <div class="date-badge" data-fade><span class="dot"></span> Gün 2 &nbsp;·&nbsp; 16 Ağustos 2026 &nbsp;·&nbsp; 5 saat</div>
+        <h1 data-fade><span class="hl">Vibe Coding</span></h1>
+        <p class="sub" data-fade>Agora'dan Agent'a</p>
+        <p class="lead" data-fade><b>Kod yazma. İste.</b><br>Yazılımın yeni dili Türkçe kadar doğal.</p>
+        <div class="cta-row" data-fade>
+          <a class="btn btn-primary" href="index.html#kayit">Kayıt Ol — 10.000 TL</a>
+          <a class="btn btn-ghost" href="#program">Programı Gör ↓</a>
+        </div>
+      </div>
+      <div class="scroll-hint">Kaydır</div>
     </div>
   </section>
 
-  <!-- KAVRAM: PARŞÖMEN → KOD -->
-  <section class="quote-morph">
-    <p class="kicker" data-reveal>Kavram</p>
-    <blockquote data-reveal>Parşömene yazılan her satır bir düşünceydi.<br>Şimdi her düşünce, çalışan bir yazılım.</blockquote>
-    <div class="prompt-field" data-reveal>
-      <span class="p-mark">&gt;</span>
-      <span>Bana müşterilerimi takip eden bir asistan yap</span><span class="cursor"></span>
+  <!-- ═══ SAHNE: FRESK — DÖNÜŞÜM ═══ -->
+  <section class="scene" data-mood="dark">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-fresk.jpg" alt="Parşömenler koda dönüşüyor" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>Ω</span></div>
+      <div class="layer content">
+        <p class="kicker" data-fade>Kavram · Niyet</p>
+        <h2 data-fade>Parşömene yazılan her satır bir düşünceydi.<br><span class="hl">Şimdi her düşünce, çalışan bir yazılım.</span></h2>
+        <p class="lead" data-fade>Vibe coding, kod yazmadan yazılım üretmenin adı: sen niyetini anlatırsın, yapay zekâ inşa eder. İskenderiye'nin kâtipleri gibi ezberlemezsin — İskenderiye'nin filozofları gibi <b>yönetirsin.</b></p>
+        <div class="prompt-field" data-fade>
+          <span class="p-mark">&gt;</span>
+          <span>Bana müşterilerimi takip eden bir asistan yap</span><span class="cursor"></span>
+        </div>
+      </div>
     </div>
-    <p class="lead" style="margin: 46px auto 0; text-align:center;" data-reveal>
-      Vibe coding, kod yazmadan yazılım üretmenin adı: sen niyetini anlatırsın, yapay zekâ inşa eder.
-      İskenderiye'nin kâtipleri gibi ezberlemezsin — İskenderiye'nin filozofları gibi <b>yönetirsin.</b>
-    </p>
   </section>
 
-  <!-- PROGRAM: 5 PARŞÖMEN -->
-  <section id="program">
+  <!-- ─── PROGRAM: 5 PARŞÖMEN ─── -->
+  <section id="program" class="interlude">
     <p class="kicker" data-reveal>Program · 5 Saat</p>
-    <h2 data-reveal>Beş parşömen.<br>Beş güç.</h2>
+    <h2 data-reveal>Beş parşömen.<br><span class="hl">Beş güç.</span></h2>
     <div class="program">
       <details class="tablet" data-reveal open>
         <summary><span class="t-num">01</span><h3>Vibe Coding Temelleri</h3><span class="t-chip">60 dk</span></summary>
-        <div class="t-body">Kod yazmadan yazılım üretmek ne demek? AI Agent kavramı, niyet-odaklı üretim mantığı ve "isteyen ama yöneten" zihniyeti. Örneklerle: bu sayfanın kendisi de vibe coding ile yapıldı.</div>
+        <div class="t-body">Kod yazmadan yazılım üretmek ne demek? AI Agent kavramı, niyet-odaklı üretim mantığı ve "isteyen ama yöneten" zihniyeti. Canlı kanıt: gezdiğin bu site de vibe coding ile yapıldı — görselleri dahil.</div>
       </details>
       <details class="tablet" data-reveal>
         <summary><span class="t-num">02</span><h3>Claude Code ile İlk Prompt</h3><span class="t-chip">60 dk</span></summary>
@@ -94,10 +95,10 @@
     </div>
   </section>
 
-  <!-- ÇIKTI: LAPTOP + DASHBOARD -->
-  <section>
+  <!-- ─── ÇIKTI: LAPTOP + DASHBOARD ─── -->
+  <section class="interlude">
     <p class="kicker" data-reveal>Günün Çıktısı</p>
-    <h2 data-reveal>Kendi dijital ekibin + kontrol panelin.</h2>
+    <h2 data-reveal>Kendi dijital ekibin<br><span class="hl">+ kontrol panelin.</span></h2>
     <div class="duo-stage">
       <div class="laptop" data-reveal>
         <div class="lid"><div class="term">
@@ -122,36 +123,35 @@
     </div>
   </section>
 
-  <!-- MANİFESTO -->
-  <section class="manifesto">
-    <p class="kicker" data-reveal>Manifesto</p>
-    <h2 data-reveal>Analog Patron,<br>Dijital Ekip.</h2>
-    <div class="duo">
-      <div class="side analog" data-reveal>
-        <h3>İnsan yönetir</h3>
-        <p>Bilgelik, sezgi, karar ve vicdan sende. Sorular hâlâ İlk Çağ'daki kadar insani: Ne üretmeli? Kime hizmet etmeli?</p>
-      </div>
-      <div class="amp" data-reveal>&amp;</div>
-      <div class="side dijital" data-reveal>
-        <h3>Dijital ekip üretir</h3>
-        <p>Yazan, tarayan, raporlayan, tasarlayan agent'lar — yorulmadan, gece gündüz, senin yönettiğin ritimde.</p>
+  <!-- ═══ SAHNE: AMFİ — MANİFESTO ═══ -->
+  <section class="scene" data-mood="dark">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-amfi.jpg" alt="Amfitiyatro — ışık sahnede" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>&amp;</span></div>
+      <div class="layer content">
+        <p class="kicker pink" data-fade>Manifesto</p>
+        <h2 data-fade>Analog Patron,<br><span class="hl">Dijital Ekip.</span></h2>
+        <p class="lead" data-fade>Bilgelik, sezgi, karar ve vicdan sende — sorular hâlâ İlk Çağ'daki kadar insani. Yazan, tarayan, raporlayan agent'lar ise yorulmadan, gece gündüz, senin yönettiğin ritimde üretir. <b>İnsan kaldıkça teknoloji anlam kazanır.</b></p>
       </div>
     </div>
-    <p class="lead" style="margin: 50px auto 0; text-align:center;" data-reveal>İnsan kaldıkça teknoloji anlam kazanır.</p>
   </section>
 
-  <!-- KÖPRÜ -->
-  <section class="bridge">
+  <!-- ─── KÖPRÜ ─── -->
+  <section class="interlude bridge">
     <p class="kicker" data-reveal>Baştan Bak</p>
     <p data-reveal><a class="big-link" href="gun1.html">← Gün 1: Üretken YZ — İlk Çağ'dan Üretken Zekâya</a></p>
+    <div class="cta-row" style="justify-content:center;" data-reveal>
+      <a class="btn btn-primary" href="index.html#kayit">Kayıt Ol — 10.000 TL</a>
+    </div>
   </section>
 
 </main>
 
 <footer>
   <img src="assets/logo-beyaz.png" alt="UP-HB Academy">
-  <p style="font-family:var(--serif); font-style:italic; color:var(--gold);">"Analog Kalp, Dijital Zekâ."</p>
-  <div><span class="made-with">⚡ Bu sayfa vibe coding ile yapıldı</span></div>
+  <p class="sub" style="margin:0 auto 6px;">"Analog Kalp, Dijital Zekâ."</p>
+  <div><span class="made-with">⚡ Bu sayfa vibe coding ile yapıldı — görseller dahil</span></div>
   <p class="fine">© 2026 UP-HB Academy · hb-academy.com.tr</p>
 </footer>
 

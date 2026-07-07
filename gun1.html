@@ -13,7 +13,9 @@
 </head>
 <body class="page-gun1">
 
-<canvas id="scene" data-scene="temple"></canvas>
+<canvas id="scene" data-scene="day"></canvas>
+<div class="grain"></div>
+<div class="vignette"></div>
 
 <header class="topbar">
   <a href="index.html"><img src="assets/logo-beyaz.png" alt="UP-HB Academy"></a>
@@ -25,39 +27,50 @@
   </nav>
 </header>
 
-<main class="content">
+<main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"><img src="assets/hypatia.jpg" alt="İlk Çağ" fetchpriority="high"></div>
-    <div class="date-badge" data-reveal><span class="dot"></span> Gün 1 &nbsp;·&nbsp; 15 Ağustos 2026 &nbsp;·&nbsp; 5 saat</div>
-    <h1 class="headline" data-reveal>Üretken YZ</h1>
-    <p class="sub" data-reveal>İlk Çağ'dan Üretken Zekâya</p>
-    <p class="lead" data-reveal>Fikrin var. Bu 5 saatin sonunda fikrin değil, <b>filmin</b> olacak.</p>
-    <div class="cta-row" data-reveal>
-      <a class="btn btn-primary" href="index.html#kayit">Kayıt Ol — 10.000 TL</a>
-      <a class="btn btn-ghost" href="#program">Programı Gör ↓</a>
+  <!-- ═══ HERO: TAPINAK ═══ -->
+  <section class="scene" data-mood="gold">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-tapinak.jpg" alt="Tapınakta yüzen video kareleri" fetchpriority="high"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>1</span></div>
+      <div class="layer content">
+        <div class="date-badge" data-fade><span class="dot"></span> Gün 1 &nbsp;·&nbsp; 15 Ağustos 2026 &nbsp;·&nbsp; 5 saat</div>
+        <h1 data-fade><span class="hl">Üretken YZ</span></h1>
+        <p class="sub" data-fade>İlk Çağ'dan Üretken Zekâya</p>
+        <p class="lead" data-fade>Fikrin var. Bu 5 saatin sonunda fikrin değil, <b>filmin</b> olacak.</p>
+        <div class="cta-row" data-fade>
+          <a class="btn btn-primary" href="index.html#kayit">Kayıt Ol — 10.000 TL</a>
+          <a class="btn btn-ghost" href="#program">Programı Gör ↓</a>
+        </div>
+      </div>
+      <div class="scroll-hint">Kaydır</div>
     </div>
   </section>
 
-  <!-- FELSEFİ AÇILIŞ -->
-  <section class="quote-morph">
-    <p class="kicker" data-reveal>Açılış</p>
-    <blockquote data-reveal>"Merak, bilgeliğin başlangıcıdır."</blockquote>
-    <p class="attribution" data-reveal>Sokrates</p>
-    <div class="prompt-field" data-reveal>
-      <span class="p-mark">&gt;</span>
-      <span>hyperrealistic, 9:16 aspect ratio, cinematic quality, golden hour…</span><span class="cursor"></span>
+  <!-- ═══ SAHNE: AGORA — MERAK ═══ -->
+  <section class="scene" data-mood="gold">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-agora.jpg" alt="Agorada hologramlarla konuşan filozoflar" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>Α</span></div>
+      <div class="layer content">
+        <p class="kicker" data-fade>Açılış · Merak</p>
+        <h2 data-fade>"Merak, bilgeliğin başlangıcıdır."</h2>
+        <p class="lead" data-fade>Sokrates agorada sorardı; sen prompt satırında soracaksın. Merakla başlayan her soru, doğru araçla bir esere dönüşür. Bugün merakını senaryoya, senaryonu görsele, görselini sese ve filme dönüştürüyorsun — adım adım, birlikte.</p>
+        <div class="prompt-field" data-fade>
+          <span class="p-mark">&gt;</span>
+          <span>hyperrealistic, 9:16, cinematic quality, golden hour…</span><span class="cursor"></span>
+        </div>
+      </div>
     </div>
-    <p class="lead" style="margin: 46px auto 0; text-align:center;" data-reveal>
-      Merakla başlayan her soru, doğru araçla bir esere dönüşür. Bugün merakını senaryoya, senaryonu görsele, görselini sese ve filme dönüştürüyorsun — adım adım, birlikte.
-    </p>
   </section>
 
-  <!-- PROGRAM: 5 MERMER TABLET -->
-  <section id="program">
+  <!-- ─── PROGRAM: 5 MERMER TABLET ─── -->
+  <section id="program" class="interlude">
     <p class="kicker" data-reveal>Program · 5 Saat</p>
-    <h2 data-reveal>Beş tablet.<br>Beş dönüşüm.</h2>
+    <h2 data-reveal>Beş tablet.<br><span class="hl">Beş dönüşüm.</span></h2>
     <div class="program">
       <details class="tablet" data-reveal open>
         <summary><span class="t-num">01</span><h3>Giriş ve Araçlar</h3><span class="t-chip">60 dk</span></summary>
@@ -69,7 +82,7 @@
       </details>
       <details class="tablet" data-reveal>
         <summary><span class="t-num">03</span><h3>Görsel Üretimi</h3><span class="t-chip">60 dk</span></summary>
-        <div class="t-body">9:16 hiperrealistik görseller, karakter tutarlılığı, sinema kamera teknikleri (close-up, golden hour, shallow DOF…). Senaryonun her sahnesi bu saatte görsele dönüşüyor.</div>
+        <div class="t-body">9:16 hiperrealistik görseller, karakter tutarlılığı, sinema kamera teknikleri (close-up, golden hour, shallow DOF…). Bu sayfadaki İlk Çağ sahneleri de aynı yöntemle üretildi — senaryonun her sahnesi bu saatte görsele dönüşüyor.</div>
       </details>
       <details class="tablet" data-reveal>
         <summary><span class="t-num">04</span><h3>Ses Üretimi</h3><span class="t-chip">60 dk</span></summary>
@@ -82,39 +95,49 @@
     </div>
   </section>
 
-  <!-- ÇIKTI: TELEFON -->
-  <section>
+  <!-- ═══ SAHNE: AMFİTİYATRO — SES ═══ -->
+  <section class="scene" data-mood="dark">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-amfi.jpg" alt="Amfitiyatroda ışıktan mikrofon ve ses halkaları" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>Φ</span></div>
+      <div class="layer content">
+        <p class="kicker pink" data-fade>Sahne · Ses</p>
+        <h2 data-fade>Amfitiyatro senindi.<br><span class="hl">Artık sahne dijital.</span></h2>
+        <p class="lead" data-fade>İlk Çağ'da sesini duyurmak için taş basamaklar yetiyordu. Bugün sesini klonluyor, çok dilli konuşturuyor, filminin anlatıcısı yapıyorsun. Mikrofon yok — sadece sen ve yapay zekâ.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ÇIKTI: TELEFON ─── -->
+  <section class="interlude">
     <div class="phone-stage">
       <div class="phone" data-reveal>
         <div class="screen">
+          <img src="assets/scene-tapinak.jpg" alt="">
           <div class="play"></div>
           <div class="p-caption">senin videon · 1:30</div>
         </div>
       </div>
       <div style="flex:1; min-width:300px;">
         <p class="kicker" data-reveal>Günün Çıktısı</p>
-        <h2 data-reveal>Eğitimden bu videoyla çıkıyorsun.</h2>
-        <p class="lead" data-reveal>Sunum dosyası değil, "not aldım" değil — kendi senin yazdığın, seslendirdiğin ve kurguladığın 1.5 dakikalık profesyonel dikey video. Reels'e, tanıtıma, portfolyona hazır.</p>
+        <h2 data-reveal>Eğitimden <span class="hl">bu videoyla</span> çıkıyorsun.</h2>
+        <p class="lead" data-reveal>Sunum dosyası değil, "not aldım" değil — senin yazdığın, seslendirdiğin ve kurguladığın 1.5 dakikalık profesyonel dikey video. Reels'e, tanıtıma, portfolyona hazır.</p>
+        <div class="tools-strip">
+          <span class="tool-chip" data-reveal>ChatGPT</span>
+          <span class="tool-chip" data-reveal>Claude</span>
+          <span class="tool-chip" data-reveal>ElevenLabs</span>
+          <span class="tool-chip" data-reveal>Higgsfield</span>
+          <span class="tool-chip" data-reveal>Kling AI</span>
+          <span class="tool-chip" data-reveal>Hedra AI</span>
+          <span class="tool-chip" data-reveal>CapCut</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ARAÇLAR -->
-  <section>
-    <p class="kicker" data-reveal>Bu 5 Saatte Öğrendiğin Araçlar</p>
-    <div class="tools-strip">
-      <span class="tool-chip" data-reveal>ChatGPT</span>
-      <span class="tool-chip" data-reveal>Claude</span>
-      <span class="tool-chip" data-reveal>ElevenLabs</span>
-      <span class="tool-chip" data-reveal>Higgsfield</span>
-      <span class="tool-chip" data-reveal>Kling AI</span>
-      <span class="tool-chip" data-reveal>Hedra AI</span>
-      <span class="tool-chip" data-reveal>CapCut</span>
-    </div>
-  </section>
-
-  <!-- KÖPRÜ -->
-  <section class="bridge">
+  <!-- ─── KÖPRÜ ─── -->
+  <section class="interlude bridge">
     <p class="kicker" data-reveal>Yolculuk Devam Ediyor</p>
     <p data-reveal><a class="big-link" href="gun2.html">Gün 2: Vibe Coding — Agora'dan Agent'a →</a></p>
     <p class="lead" style="margin: 26px auto 0; text-align:center;" data-reveal>Bugün üretmeyi öğrendin. Yarın, senin için üreten dijital ekibini kuruyorsun.</p>
@@ -124,8 +147,8 @@
 
 <footer>
   <img src="assets/logo-beyaz.png" alt="UP-HB Academy">
-  <p style="font-family:var(--serif); font-style:italic; color:var(--gold);">"Analog Kalp, Dijital Zekâ."</p>
-  <div><span class="made-with">⚡ Bu sayfa vibe coding ile yapıldı</span></div>
+  <p class="sub" style="margin:0 auto 6px;">"Analog Kalp, Dijital Zekâ."</p>
+  <div><span class="made-with">⚡ Bu sayfa vibe coding ile yapıldı — görseller dahil</span></div>
   <p class="fine">© 2026 UP-HB Academy · hb-academy.com.tr</p>
 </footer>
 
