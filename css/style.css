@@ -105,6 +105,28 @@ body {
   line-height: 1; will-change: transform; user-select: none;
 }
 
+/* katman 2.5: süzülen sis — sahne içi derinlik */
+.scene .haze { z-index: 1; opacity: .5; }
+.scene .haze::before, .scene .haze::after {
+  content: ""; position: absolute; inset: -30%;
+  background:
+    radial-gradient(ellipse 44% 30% at 25% 66%, rgba(223,102,191,.13), transparent 65%),
+    radial-gradient(ellipse 40% 28% at 78% 30%, rgba(0,255,244,.11), transparent 65%);
+  animation: hazedrift 24s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+}
+.scene .haze::after {
+  background:
+    radial-gradient(ellipse 36% 26% at 70% 72%, rgba(77,107,255,.12), transparent 65%),
+    radial-gradient(ellipse 42% 30% at 22% 24%, rgba(255,255,255,.05), transparent 60%);
+  animation-duration: 31s; animation-direction: alternate-reverse;
+}
+@keyframes hazedrift {
+  0% { transform: translate(-3%, -2%) scale(1); }
+  100% { transform: translate(3%, 2.5%) scale(1.08); }
+}
+@media (max-width: 860px) { .scene .haze { display: none; } }
+
 /* katman 3.5: dekupe süzülen figürler — gerçek 3D derinlik */
 .fg-el {
   position: absolute; z-index: 1; pointer-events: none;
@@ -377,6 +399,19 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
   box-shadow: 0 30px 80px rgba(0,0,0,0.5);
 }
 .instructor .portrait img { width: 100%; display: block; }
+.instructor .portrait.portrait-cut {
+  width: min(440px, 86vw); border: none; border-radius: 0; overflow: visible;
+  box-shadow: none; position: relative;
+}
+.instructor .portrait.portrait-cut::before {
+  content: ""; position: absolute; inset: 8% -6% -4% -6%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(ellipse 60% 55% at 50% 60%, rgba(223,102,191,.22), rgba(0,255,244,.1) 55%, transparent 75%);
+  filter: blur(12px);
+}
+.instructor .portrait.portrait-cut img {
+  filter: drop-shadow(0 34px 60px rgba(0,0,0,.7)) drop-shadow(0 0 44px rgba(223,102,191,.25));
+  animation: floaty 9s ease-in-out infinite;
+}
 .instructor .bio { flex: 1; min-width: 300px; }
 .instructor .bio .lead { margin: 18px 0 22px; }
 .instructor .creds { display: flex; flex-direction: column; gap: 10px; color: var(--ink-dim); font-size: 15.5px; }
@@ -525,11 +560,39 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
 .r-node:nth-child(4)::before { animation-delay: 1.2s; }
 .r-node:nth-child(5)::before { animation-delay: 1.6s; }
 @keyframes nodepulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.45); } }
+.r-node { display: grid; grid-template-columns: 86px 1fr; gap: 18px; align-items: start; }
+.r-thumb {
+  width: 86px; height: 86px; border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(223,102,191,.45);
+  box-shadow: 0 0 20px rgba(223,102,191,.25), 0 10px 26px rgba(0,0,0,.5);
+  transition: transform .35s, box-shadow .35s;
+}
+.roadmap.r-g2 .r-thumb { border-color: rgba(0,255,244,.45); box-shadow: 0 0 20px rgba(0,255,244,.22), 0 10px 26px rgba(0,0,0,.5); }
+.r-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.r-node:hover .r-thumb { transform: translateY(-4px) scale(1.04); box-shadow: 0 0 34px rgba(223,102,191,.45), 0 16px 34px rgba(0,0,0,.55); }
+.roadmap.r-g2 .r-node:hover .r-thumb { box-shadow: 0 0 34px rgba(0,255,244,.4), 0 16px 34px rgba(0,0,0,.55); }
+.r-node:hover .r-thumb img { transform: scale(1.12); }
+@media (max-width: 560px) { .r-node { grid-template-columns: 64px 1fr; gap: 14px; } .r-thumb { width: 64px; height: 64px; } }
+
 .r-node .r-era {
   font-size: 11.5px; letter-spacing: .26em; text-transform: uppercase; font-weight: 700;
   color: var(--pink); margin-bottom: 4px;
 }
-.roadmap.r-g2 .r-node .r-era { color: var(--turq); }
+.roadmap.r-g2 .r-node { display: grid; grid-template-columns: 86px 1fr; gap: 18px; align-items: start; }
+.r-thumb {
+  width: 86px; height: 86px; border-radius: 16px; overflow: hidden;
+  border: 1px solid rgba(223,102,191,.45);
+  box-shadow: 0 0 20px rgba(223,102,191,.25), 0 10px 26px rgba(0,0,0,.5);
+  transition: transform .35s, box-shadow .35s;
+}
+.roadmap.r-g2 .r-thumb { border-color: rgba(0,255,244,.45); box-shadow: 0 0 20px rgba(0,255,244,.22), 0 10px 26px rgba(0,0,0,.5); }
+.r-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.r-node:hover .r-thumb { transform: translateY(-4px) scale(1.04); box-shadow: 0 0 34px rgba(223,102,191,.45), 0 16px 34px rgba(0,0,0,.55); }
+.roadmap.r-g2 .r-node:hover .r-thumb { box-shadow: 0 0 34px rgba(0,255,244,.4), 0 16px 34px rgba(0,0,0,.55); }
+.r-node:hover .r-thumb img { transform: scale(1.12); }
+@media (max-width: 560px) { .r-node { grid-template-columns: 64px 1fr; gap: 14px; } .r-thumb { width: 64px; height: 64px; } }
+
+.r-node .r-era { color: var(--turq); }
 .r-node h4 { font-family: var(--serif); font-size: clamp(17px, 1.6vw, 21px); color: var(--ink); margin-bottom: 4px; }
 .r-node p { color: var(--ink-dim); font-size: 14px; line-height: 1.55; max-width: 420px; }
 .r-node .r-final {
@@ -538,6 +601,31 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
 }
 .roadmap.r-g2 .r-node .r-final { border-color: rgba(223,102,191,.5); color: var(--pink); }
 @media (max-width: 980px) { .roadmaps { grid-template-columns: 1fr; } }
+
+/* --- Dijital Ekip (8-bit avatarlar, canlı) --- */
+.team-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 20px; margin-top: 54px;
+}
+.team-card {
+  text-align: center; border: 1px solid rgba(0,255,244,0.22); border-radius: 18px;
+  padding: 18px 10px 14px; background: rgba(8,8,14,0.72);
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+  animation: teamfloat 5.4s ease-in-out infinite;
+}
+.team-card:nth-child(3n) { animation-delay: -1.8s; }
+.team-card:nth-child(3n+1) { animation-delay: -3.6s; }
+.team-card:nth-child(2n) { animation-duration: 6.6s; }
+@keyframes teamfloat { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-9px);} }
+.team-card:hover { border-color: var(--pink); box-shadow: 0 14px 40px rgba(223,102,191,.22); }
+.team-card img {
+  width: 76px; height: 76px; border-radius: 14px; image-rendering: pixelated;
+  border: 1px solid rgba(245,241,232,.18);
+}
+.team-card b { display: block; margin-top: 10px; font-size: 14.5px; color: var(--ink); }
+.team-card span { display: block; font-size: 11.5px; letter-spacing: .06em; color: var(--ink-dim); margin-top: 2px; }
+.team-card.lead-card { border-color: rgba(223,102,191,.5); }
+.team-card.lead-card img { border-color: var(--pink); }
 
 /* reveal başlangıcı */
 [data-reveal] { opacity: 0; transform: translateY(46px); }

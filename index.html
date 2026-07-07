@@ -41,6 +41,7 @@
         <img src="assets/scene-agora.jpg" alt="İlk Çağ agorası" class="bg-fallback" fetchpriority="high">
       </div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="fg-el glow-pink" data-depth="1.4" style="right:-1vw; bottom:-9vh; width:min(34vw,520px);"><img src="assets/cut-hypatia.png" alt=""></div>
       <div class="fg-el" data-depth="0.7" style="left:55vw; top:14vh; width:min(11vw,170px); opacity:.9;"><img src="assets/cut-phone.png" alt=""></div>
       <div class="layer content">
@@ -67,6 +68,7 @@
         <img src="assets/scene-el.jpg" alt="Mermer el holograma uzanıyor" class="bg-fallback" loading="lazy">
       </div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="layer act"><span>I</span></div>
       <div class="layer content">
         <p class="kicker" data-fade>Çağ I · İlk Çağ · Soru</p>
@@ -79,8 +81,14 @@
   <!-- ═══ ÇAĞ II · AYDINLANMA ═══ -->
   <section class="scene" data-mood="dark">
     <div class="pin">
-      <div class="layer bg"><img src="assets/scene-aydinlanma.jpg" alt="Aydınlanma — kütüphane, prizma, yıldızlar" loading="lazy"></div>
+      <div class="layer bg">
+        <video autoplay muted loop playsinline poster="assets/scene-aydinlanma.jpg">
+          <source src="assets/video-aydinlanma.mp4" type="video/mp4">
+        </video>
+        <img src="assets/scene-aydinlanma.jpg" alt="Aydınlanma — kütüphane, prizma, yıldızlar" class="bg-fallback" loading="lazy">
+      </div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="layer act"><span>II</span></div>
       <div class="fg-el" data-depth="1.3" style="right:6vw; bottom:-3vh; width:min(24vw,360px);"><img src="assets/cut-bust.png" alt=""></div>
       <div class="layer content">
@@ -94,8 +102,14 @@
   <!-- ═══ ÇAĞ III · SANAYİ ═══ -->
   <section class="scene" data-mood="dark">
     <div class="pin">
-      <div class="layer bg"><img src="assets/scene-sanayi.jpg" alt="Sanayi Devrimi — çarklar, buhar" loading="lazy"></div>
+      <div class="layer bg">
+        <video autoplay muted loop playsinline poster="assets/scene-sanayi.jpg">
+          <source src="assets/video-sanayi.mp4" type="video/mp4">
+        </video>
+        <img src="assets/scene-sanayi.jpg" alt="Sanayi Devrimi — çarklar, buhar" class="bg-fallback" loading="lazy">
+      </div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="layer act"><span>III</span></div>
       <div class="layer content">
         <p class="kicker pink" data-fade>Çağ III · Sanayi · Güç</p>
@@ -110,6 +124,7 @@
     <div class="pin">
       <div class="layer bg"><img src="assets/scene-dijital.jpg" alt="Dijital çağ — antik salon komuta merkezine açılıyor" loading="lazy"></div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="layer act"><span>IV</span></div>
       <div class="layer content">
         <p class="kicker" data-fade>Çağ IV · Dijital · Bilgi</p>
@@ -122,8 +137,14 @@
   <!-- ═══ ÇAĞ V · POSTHUMAN SIÇRAMA ═══ -->
   <section class="scene" data-mood="dark">
     <div class="pin">
-      <div class="layer bg"><img src="assets/scene-posthuman.jpg" alt="Posthuman sıçrama — ışığa dönüşen insan" loading="lazy"></div>
+      <div class="layer bg">
+        <video autoplay muted loop playsinline poster="assets/scene-posthuman.jpg">
+          <source src="assets/video-posthuman.mp4" type="video/mp4">
+        </video>
+        <img src="assets/scene-posthuman.jpg" alt="Posthuman sıçrama — ışığa dönüşen insan" class="bg-fallback" loading="lazy">
+      </div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="layer act"><span>V</span></div>
       <div class="fg-el glow-pink" data-depth="1.5" style="right:8vw; top:12vh; width:min(16vw,240px); transform:rotate(8deg);"><img src="assets/cut-phone.png" alt=""></div>
       <div class="layer content">
@@ -197,7 +218,7 @@
 
   <!-- ─── EĞİTMEN ─── -->
   <section class="interlude instructor">
-    <div class="portrait" data-reveal><img src="assets/hilal-portre.jpg" alt="Hilal Baktaş"></div>
+    <div class="portrait portrait-cut" data-reveal><img src="assets/cut-hilal.png" alt="Hilal Baktaş"></div>
     <div class="bio">
       <p class="kicker" data-reveal>Rehberin</p>
       <h2 data-reveal>Hilal Baktaş</h2>
@@ -210,7 +231,7 @@
         <span data-reveal>Dünya Bankası ödüllü proje: FaceStaj (2010)</span>
         <span data-reveal>İTÜ misafir öğretim üyesi — Blockchain &amp; YZ dersi</span>
         <span data-reveal>İBB dahil kamu kurumlarına YZ eğitimleri</span>
-        <span data-reveal>CryptoFemale kurucu ortağı — kadınları teknolojiyle buluşturuyor</span>
+        <span data-reveal>CryptoFemale kurucu ortağı — <a href="https://www.cryptofemale.org/" target="_blank" rel="noopener">www.cryptofemale.org</a></span>
       </div>
       <div class="socials" data-reveal>
         <a class="social-link" href="https://instagram.com/hilal_baktas" target="_blank" rel="noopener" aria-label="Instagram — hilal_baktas">
@@ -252,30 +273,45 @@
         <p class="r-sub">"Yaratımın Evrimi" · 15 Ağustos</p>
         <div class="r-line">
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-agora.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">İlk Çağ · Söz</div>
             <h4>01 · Giriş ve Araçlar</h4>
             <p>Her şey agorada soruyla başladı. Sen de araçlarla tanışarak başlıyorsun — YZ deneyimi gerekmez.</p>
+            </div>
           </div>
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-kutuphane.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">Parşömen Çağı · Yazı</div>
             <h4>02 · Senaryo &amp; Prompt</h4>
             <p>Söz yazıya döküldü; fikrin senaryoya dökülüyor. Hook + Mesaj + CTA ve prompt sanatı.</p>
+            </div>
           </div>
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-fresk.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">Rönesans · Görüntü</div>
             <h4>03 · Görsel Üretimi</h4>
             <p>Fresklerin çağından hiperrealistik karelere: sinema kamera teknikleriyle sahnelerini üretiyorsun.</p>
+            </div>
           </div>
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-amfi.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">Amfitiyatro · Ses</div>
             <h4>04 · Ses Üretimi</h4>
             <p>Sesini duyurmak taş basamaklardan klonlanmış sese evrildi — anlatıcı sensin, mikrofon yok.</p>
+            </div>
           </div>
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-ekran.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">Dijital Çağ · Film</div>
             <h4>05 · Video &amp; Kurgu</h4>
             <p>Canlandırma, lip-sync, montaj — ve saat bitiminde videon telefonunda.</p>
             <span class="r-final">Çıktı: 1.5 dk profesyonel video</span>
+            </div>
           </div>
         </div>
       </div>
@@ -285,30 +321,45 @@
         <p class="r-sub">"Üretimin Evrimi" · 16 Ağustos</p>
         <div class="r-line">
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-el.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">İlk Çağ · Zanaat</div>
             <h4>01 · Vibe Coding Temelleri</h4>
             <p>El emeğinden niyet emeğine: kod yazmadan yazılım üretme zihniyeti ve AI Agent kavramı.</p>
+            </div>
           </div>
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-aydinlanma.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">Aydınlanma · Yöntem</div>
             <h4>02 · Claude Code ile İlk Prompt</h4>
             <p>Akıl yöntemle buluştu; sen Claude Code ile ilk "işe alımını" yapıyorsun.</p>
+            </div>
           </div>
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-sanayi.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">Sanayi · Makine</div>
             <h4>03 · Kendi AI Agent'ını Kur</h4>
             <p>Güç makineye devredildi; şimdi kendi işine özel dijital çalışanını kuruyorsun.</p>
+            </div>
           </div>
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-dijital.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">Dijital Çağ · Zekâ</div>
             <h4>04 · Canlı Uygulama</h4>
             <p>Agent'ın canlı çalışıyor: üretiyor, raporluyor, öğreniyor. Takıldığında birlikte çözüyoruz.</p>
+            </div>
           </div>
           <div class="r-node">
+            <div class="r-thumb"><img src="assets/thumb-posthuman.jpg" alt="" loading="lazy"></div>
+            <div class="r-body">
             <div class="r-era">Posthuman · Sıçrama</div>
             <h4>05 · Yayınla ve İzle</h4>
             <p>GitHub + canlı dashboard: analog patron karar verir, dijital ekip üretir.</p>
             <span class="r-final">Çıktı: AI Agent + kontrol paneli</span>
+            </div>
           </div>
         </div>
       </div>
@@ -347,7 +398,7 @@
     </form>
     <p class="apply-alt" data-reveal>
       Form çalışmazsa: <a href="mailto:hb@hb-academy.com.tr?subject=Üretken YZ %26 Vibe Coding — Ön Başvuru">hb@hb-academy.com.tr</a>
-      &nbsp;·&nbsp; <a href="https://www.hb-academy.com.tr" target="_blank" rel="noopener">hb-academy.com.tr</a>
+      &nbsp;·&nbsp; <a href="https://hb-academy.com.tr/" target="_blank" rel="noopener">hb-academy.com.tr</a>
       &nbsp;·&nbsp; <a href="https://instagram.com/uphbacademy" target="_blank" rel="noopener">Instagram @uphbacademy</a>
     </p>
   </section>

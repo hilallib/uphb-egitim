@@ -70,17 +70,17 @@
 
       // panorama süpürmesi: yatayda geniş gezinme + zoom nefesi
       gsap.fromTo(media,
-        { scale: isHero ? 1.05 : 1.28, xPercent: idx % 2 ? 7 : -7, yPercent: isHero ? 0 : -6 },
+        { scale: isHero ? 1.06 : 1.34, xPercent: idx % 2 ? 9 : -9, yPercent: isHero ? 0 : -8 },
         {
-          scale: isHero ? 1.16 : 1.02, xPercent: idx % 2 ? -5 : 5, yPercent: isHero ? 4 : 6, ease: "none",
+          scale: isHero ? 1.18 : 1.02, xPercent: idx % 2 ? -7 : 7, yPercent: isHero ? 5 : 8, ease: "none",
           scrollTrigger: { trigger: scene, start: "top top", end: "bottom bottom", scrub: true }
         });
 
       // dekupe figürler: derinliğe göre farklı hızda süzülme
       scene.querySelectorAll(".fg-el").forEach(function (el) {
         var d = parseFloat(el.dataset.depth || 1);
-        gsap.fromTo(el, { yPercent: 26 * d, rotation: -2 * d }, {
-          yPercent: -30 * d, rotation: 2 * d, ease: "none",
+        gsap.fromTo(el, { yPercent: 34 * d, rotation: -3 * d, scale: 0.94 }, {
+          yPercent: -40 * d, rotation: 3 * d, scale: 1.06, ease: "none",
           scrollTrigger: { trigger: scene, start: "top bottom", end: "bottom top", scrub: true }
         });
       });
@@ -132,7 +132,7 @@
         });
         fgs.forEach(function (el) {
           var d = parseFloat(el.dataset.depth || 1);
-          gsap.to(el, { x: mx * 26 * d, duration: 1.4, ease: "power2.out", overwrite: "auto" });
+          gsap.to(el, { x: mx * 34 * d, y: my * 14 * d, duration: 1.4, ease: "power2.out", overwrite: "auto" });
         });
       }, { passive: true });
     }

@@ -36,6 +36,7 @@
     <div class="pin">
       <div class="layer bg"><img src="assets/scene-ekran-patlamasi.jpg" alt="Telefon ekranından taşan film sahnesi" fetchpriority="high"></div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="layer act"><span>1</span></div>
       <div class="layer content">
         <div class="date-badge" data-fade><span class="dot"></span> Gün 1 &nbsp;·&nbsp; 15 Ağustos 2026 &nbsp;·&nbsp; 5 saat</div>
@@ -54,13 +55,19 @@
   <!-- ═══ SAHNE: AGORA — MERAK ═══ -->
   <section class="scene" data-mood="gold">
     <div class="pin">
-      <div class="layer bg"><img src="assets/scene-savas-arabasi.jpg" alt="Neon izler bırakan antik savaş arabası — aksiyon" loading="lazy"></div>
+      <div class="layer bg">
+        <video autoplay muted loop playsinline poster="assets/scene-okyanus.jpg">
+          <source src="assets/video-okyanus.mp4" type="video/mp4">
+        </video>
+        <img src="assets/scene-okyanus.jpg" alt="Fırtınada yelkenli — sinematik aksiyon" class="bg-fallback" loading="lazy">
+      </div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="layer act"><span>Α</span></div>
       <div class="layer content">
         <p class="kicker pink" data-fade>Sahne 01 · Aksiyon</p>
-        <h2 data-fade>Hayal gücün<br><span class="hl">dörtnala.</span></h2>
-        <p class="lead" data-fade>Böyle bir kareyi çekmek için at, araba, set ve milyonluk bütçe gerekirdi. Sen bir cümle yazdın. Bugün merakını senaryoya, senaryonu görsele, görselini sese ve filme dönüştürüyorsun — adım adım, birlikte.</p>
+        <h2 data-fade>Bu fırtınayı çekmek için<br><span class="hl">bir cümle yeterdi.</span></h2>
+        <p class="lead" data-fade>Gemi, okyanus, şimşek, set ve milyonluk bütçe — hepsi tek bir prompt satırında. Bugün merakını senaryoya, senaryonu görsele, görselini sese ve filme dönüştürüyorsun — adım adım, birlikte.</p>
         <div class="prompt-field" data-fade>
           <span class="p-mark">&gt;</span>
           <span>hyperrealistic, 9:16, cinematic quality, golden hour…</span><span class="cursor"></span>
@@ -100,13 +107,14 @@
   <!-- ═══ SAHNE: FİLM SETİ — YÖNETMEN SENSİN ═══ -->
   <section class="scene" data-mood="gold">
     <div class="pin">
-      <div class="layer bg"><img src="assets/scene-film-seti.jpg" alt="Antik dünyada modern film seti" loading="lazy"></div>
+      <div class="layer bg"><img src="assets/scene-scifi.jpg" alt="Neon yağmurlu bilim kurgu şehri" loading="lazy"></div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="layer act"><span>Ρ</span></div>
       <div class="layer content">
         <p class="kicker" data-fade>Sahne 02 · Yönetmen</p>
-        <h2 data-fade>Set kuruldu.<br><span class="hl">Yönetmen koltuğu senin.</span></h2>
-        <p class="lead" data-fade>Kamera, ışık, oyuncu, mekân — hepsi artık prompt satırında. Sinema kamera tekniklerini (close-up, golden hour, push-in…) öğreniyor ve kendi sahnelerini yönetiyorsun.</p>
+        <h2 data-fade>Her tür senin setin:<br><span class="hl">bilim kurgudan belgesele.</span></h2>
+        <p class="lead" data-fade>Neon şehir, çöl macerası, romantik komedi — kamera, ışık, oyuncu ve mekân artık prompt satırında. Sinema kamera tekniklerini (close-up, golden hour, push-in…) öğrenip kendi sahnelerini yönetiyorsun.</p>
       </div>
     </div>
   </section>
@@ -114,13 +122,14 @@
   <!-- ═══ SAHNE: AMFİTİYATRO — SES ═══ -->
   <section class="scene" data-mood="dark">
     <div class="pin">
-      <div class="layer bg"><img src="assets/scene-amfi.jpg" alt="Amfitiyatroda ışıktan mikrofon ve ses halkaları" loading="lazy"></div>
+      <div class="layer bg"><img src="assets/scene-muzik.jpg" alt="Sahnede şarkıcı silüeti ve ışıktan ses dalgaları" loading="lazy"></div>
       <div class="layer wash"></div>
+      <div class="layer haze"></div>
       <div class="layer act"><span>Φ</span></div>
       <div class="layer content">
-        <p class="kicker pink" data-fade>Sahne · Ses</p>
-        <h2 data-fade>Amfitiyatro senindi.<br><span class="hl">Artık sahne dijital.</span></h2>
-        <p class="lead" data-fade>İlk Çağ'da sesini duyurmak için taş basamaklar yetiyordu. Bugün sesini klonluyor, çok dilli konuşturuyor, filminin anlatıcısı yapıyorsun. Mikrofon yok — sadece sen ve yapay zekâ.</p>
+        <p class="kicker pink" data-fade>Sahne 03 · Ses</p>
+        <h2 data-fade>Sahne ışığı sende.<br><span class="hl">Ses de senin.</span></h2>
+        <p class="lead" data-fade>Sesini klonluyor, çok dilli konuşturuyor, filminin anlatıcısı yapıyorsun. İstersen şarkı söyletiyorsun. Mikrofon yok — sadece sen ve yapay zekâ.</p>
       </div>
     </div>
   </section>
@@ -130,7 +139,7 @@
     <div class="phone-stage">
       <div class="phone" data-reveal>
         <div class="screen">
-          <img src="assets/scene-tapinak.jpg" alt="">
+          <img src="assets/scene-okyanus.jpg" alt="">
           <div class="play"></div>
           <div class="p-caption">senin videon · 1:30</div>
         </div>
