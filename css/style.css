@@ -1082,6 +1082,48 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
 }
 @media (min-width: 861px) { .mobile-menu { display: none; } .nav-burger { display: none; } }
 
+/* --- Işıklı çağ geçiş şeridi (evrim sahnesi altı) --- */
+.era-strip {
+  position: absolute; left: 6vw; right: 6vw; bottom: 5.5%; z-index: 2;
+  pointer-events: none;
+}
+.era-line {
+  position: relative; height: 3px; border-radius: 3px; overflow: visible;
+  background: linear-gradient(90deg, #ff9d4d, #e8b45a 18%, #df66bf 42%, #b06cf0 58%, #4d6bff 76%, #00fff4);
+  box-shadow: 0 0 16px rgba(223,102,191,.6), 0 0 34px rgba(0,255,244,.35);
+}
+.era-runner {
+  position: absolute; top: 50%; width: 60px; height: 7px; border-radius: 7px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  filter: blur(1px) drop-shadow(0 0 12px #fff);
+  animation: erarun 5.5s linear infinite;
+}
+@keyframes erarun { from { left: -60px; } to { left: 100%; } }
+.era-points { display: flex; justify-content: space-between; margin-top: 14px; }
+.era-pt {
+  position: relative; font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+  font-weight: 700; color: rgba(245,241,232,.88);
+  text-shadow: 0 1px 8px rgba(0,0,0,.9), 0 0 14px var(--c);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.era-pt i {
+  width: 11px; height: 11px; border-radius: 50%;
+  background: radial-gradient(circle, #fff 25%, var(--c) 65%, transparent 78%);
+  box-shadow: 0 0 12px var(--c), 0 0 26px var(--c);
+  margin-top: -24px;
+  animation: nodepulse 2.6s ease-in-out infinite;
+}
+.era-pt:nth-child(2) i { animation-delay: .35s; }
+.era-pt:nth-child(3) i { animation-delay: .7s; }
+.era-pt:nth-child(4) i { animation-delay: 1.05s; }
+.era-pt:nth-child(5) i { animation-delay: 1.4s; }
+.era-pt:nth-child(6) i { animation-delay: 1.75s; }
+@media (max-width: 860px) {
+  .era-strip { left: 4vw; right: 4vw; bottom: 4%; }
+  .era-pt { font-size: 8.5px; letter-spacing: .08em; }
+}
+
 /* reveal başlangıcı */
 [data-reveal] { opacity: 0; transform: translateY(46px); }
 .no-motion [data-reveal] { opacity: 1; transform: none; }

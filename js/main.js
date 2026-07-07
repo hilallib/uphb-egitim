@@ -88,13 +88,19 @@
       var isVideo = media && media.tagName === "VIDEO";
       if (!isVideo) {
         gsap.fromTo(media,
-          { scale: isHero ? 1.06 : 1.34, xPercent: idx % 2 ? 9 : -9, yPercent: isHero ? 0 : -8 },
+          { scale: isHero ? 1.08 : 1.42, xPercent: idx % 2 ? 10 : -10, yPercent: isHero ? 0 : -9 },
           {
-            scale: isHero ? 1.18 : 1.02, xPercent: idx % 2 ? -7 : 7, yPercent: isHero ? 5 : 8, ease: "none",
+            scale: isHero ? 1.22 : 1.02, xPercent: idx % 2 ? -8 : 8, yPercent: isHero ? 6 : 9, ease: "none",
             scrollTrigger: { trigger: scene, start: "top top", end: "bottom bottom", scrub: true }
           });
       } else {
-        gsap.set(media, { scale: 1.04 });
+        // video: panoramik süzülme + derin zoom (kompozisyon sabit merkezli, kayma yok)
+        gsap.fromTo(media,
+          { scale: isHero ? 1.05 : 1.3, xPercent: idx % 2 ? 8 : -8 },
+          {
+            scale: isHero ? 1.16 : 1.06, xPercent: idx % 2 ? -8 : 8, ease: "none",
+            scrollTrigger: { trigger: scene, start: "top top", end: "bottom bottom", scrub: true }
+          });
       }
 
       // dekupe figürler: derinliğe göre farklı hızda süzülme
