@@ -155,7 +155,7 @@
         phone: form.phone.value.trim(),
         job: form.job.value.trim(),
         message: form.message.value.trim(),
-        _subject: "Üretken YZ & Vibe Coding — Ön Başvuru: " + form.name.value.trim(),
+        _subject: "Üretken YZ & Vibe Coding — Ücretsiz Görüşme Başvurusu: " + form.name.value.trim(),
         _template: "table",
         _captcha: "false"
       };
@@ -177,12 +177,12 @@
         // yedek: e-posta uygulamasıyla gönder
         status.className = "form-status err";
         status.innerHTML = "Form şu an gönderilemedi — e-posta uygulaman açılıyor. Olmazsa: <b>hb@hb-academy.com.tr</b> ya da Instagram <b>@uphbacademy</b>.";
-        btn.disabled = false; btn.textContent = "Ön Başvuruyu Gönder →";
+        btn.disabled = false; btn.textContent = "Ücretsiz Görüşme İçin Başvur →";
         var body = "Ad Soyad: " + data.name + "%0D%0AE-posta: " + data.email +
                    "%0D%0ATelefon: " + data.phone + "%0D%0AMeslek: " + data.job +
                    "%0D%0ABeklenti: " + encodeURIComponent(data.message);
         location.href = "mailto:hb@hb-academy.com.tr?subject=" +
-          encodeURIComponent("Üretken YZ & Vibe Coding — Ön Başvuru: " + data.name) + "&body=" + body;
+          encodeURIComponent("Üretken YZ & Vibe Coding — Ücretsiz Görüşme Başvurusu: " + data.name) + "&body=" + body;
       });
     });
   }

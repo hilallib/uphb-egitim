@@ -56,9 +56,39 @@ body {
   background: linear-gradient(to bottom, rgba(5,5,8,0.8), transparent);
 }
 .topbar img { height: 50px; width: auto; }
-.topbar nav { display: flex; gap: 26px; font-size: 14px; letter-spacing: 0.04em; }
-.topbar nav a { color: var(--ink-dim); text-decoration: none; transition: color .25s; }
-.topbar nav a:hover, .topbar nav a.active { color: var(--turq); }
+.nav-pill {
+  display: flex; align-items: center; gap: 4px;
+  padding: 6px; border-radius: 999px;
+  background: rgba(8,8,14,.55); backdrop-filter: blur(14px);
+  border: 1px solid rgba(245,241,232,.14);
+  box-shadow: 0 8px 30px rgba(0,0,0,.4), inset 0 0 20px rgba(0,255,244,.03);
+}
+.nav-link {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 18px; border-radius: 999px;
+  color: var(--ink-dim); text-decoration: none;
+  font-size: 13.5px; letter-spacing: .03em; font-weight: 600;
+  transition: all .3s; position: relative;
+}
+.nav-link .nl-glyph {
+  font-family: var(--serif); font-size: 13px; opacity: .75;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.nav-link:hover { color: var(--ink); background: rgba(245,241,232,.06); }
+.nav-link.active {
+  color: var(--ink);
+  background: linear-gradient(120deg, rgba(223,102,191,.18), rgba(0,255,244,.12));
+  box-shadow: inset 0 0 0 1px rgba(0,255,244,.35), 0 0 18px rgba(0,255,244,.12);
+  text-shadow: 0 0 14px rgba(0,255,244,.4);
+}
+.nav-link.cta {
+  background: linear-gradient(100deg, var(--pink), var(--blue-bright));
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(223,102,191,.4);
+}
+.nav-link.cta .nl-glyph { color: #fff; -webkit-text-fill-color: #fff; background: none; }
+.nav-link.cta:hover { transform: translateY(-1px); box-shadow: 0 8px 26px rgba(223,102,191,.55); }
+@media (max-width: 860px) { .nav-pill { display: none; } }
 
 /* ============================================================
    SAHNE SİSTEMİ — pinlenen sinematik perdeler
