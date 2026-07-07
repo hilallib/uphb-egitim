@@ -975,6 +975,42 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
   .portal-label { font-size: 12px; padding: 6px 10px; }
 }
 
+/* --- Form başarı kapısı: açılır, ışık süzülür --- */
+.form-door { text-align: center; margin-top: 26px; }
+.fd-arch {
+  position: relative; display: inline-block;
+  width: 130px; height: 172px;
+  border-radius: 130px 130px 18px 18px; overflow: hidden;
+  border: 2px solid rgba(0,255,244,.7);
+  box-shadow: 0 0 30px rgba(0,255,244,.3), 0 18px 44px rgba(0,0,0,.6);
+}
+.fd-light {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 55%, rgba(255,255,255,.95), rgba(0,255,244,.6) 40%, rgba(223,102,191,.4) 70%, transparent 95%);
+  opacity: 0; transition: opacity 1.2s ease .4s;
+}
+.fd-rays {
+  position: absolute; inset: -40%;
+  background: conic-gradient(from 0deg,
+    transparent 0deg, rgba(255,255,255,.35) 8deg, transparent 16deg,
+    transparent 60deg, rgba(0,255,244,.3) 68deg, transparent 76deg,
+    transparent 130deg, rgba(223,102,191,.3) 138deg, transparent 146deg,
+    transparent 200deg, rgba(255,255,255,.3) 208deg, transparent 216deg,
+    transparent 270deg, rgba(0,255,244,.28) 278deg, transparent 286deg, transparent 360deg);
+  opacity: 0; transition: opacity 1.4s ease .5s;
+  animation: ctaspin 9s linear infinite;
+  mix-blend-mode: screen;
+}
+.form-door .p-door { animation: none; transition: transform 1.6s cubic-bezier(.65,0,.15,1) .25s; }
+.form-door.open .p-left { transform: translateX(-101%); }
+.form-door.open .p-right { transform: translateX(101%); }
+.form-door.open .fd-light { opacity: 1; animation: kickerglow 2.6s ease-in-out infinite; }
+.form-door.open .fd-rays { opacity: 1; }
+.form-door.open .fd-arch { box-shadow: 0 0 60px rgba(0,255,244,.65), 0 0 120px rgba(223,102,191,.4), 0 18px 44px rgba(0,0,0,.6); }
+.fd-msg { margin-top: 20px; color: var(--ink-dim); font-size: 15.5px; }
+.fd-msg b { color: var(--ink); display: block; font-size: 17px; margin-bottom: 4px; text-shadow: 0 0 18px rgba(0,255,244,.5); }
+
 /* reveal başlangıcı */
 [data-reveal] { opacity: 0; transform: translateY(46px); }
 .no-motion [data-reveal] { opacity: 1; transform: none; }

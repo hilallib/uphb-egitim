@@ -179,11 +179,21 @@
         body: JSON.stringify(data)
       }).then(function (r) { return r.json(); }).then(function (res) {
         if (res.success === "true" || res.success === true) {
-          status.className = "form-status ok";
-          status.textContent = "✓ Başvurun alındı! En geç 24 saat içinde sana döneceğiz.";
           form.reset();
-          btn.textContent = "Gönderildi ✓";
+          // kapı açılır, ışık süzülür
+          var door = document.getElementById("formDoor");
+          if (door) {
+            form.style.display = "none";
+            door.hidden = false;
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () { door.classList.add("open"); });
+            });
+          } else {
+            status.className = "form-status ok";
+            status.textContent = "✓ Başvurun alındı! En geç 24 saat içinde sana döneceğiz.";
+          }
           magicBurst();
+          setTimeout(magicBurst, 1100);
         } else { throw new Error("formsubmit"); }
       }).catch(function () {
         // yedek: e-posta uygulamasıyla gönder
