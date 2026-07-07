@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v18">
+<link rel="stylesheet" href="css/style.css?v19">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 <body class="page-gun1">
@@ -44,7 +44,7 @@
   <section class="scene" data-mood="gold">
     <div class="pin">
       <div class="layer bg">
-        <video autoplay muted loop playsinline poster="assets/scene-anka.jpg" style="object-position: center 18%;">
+        <video class="lazy-vid" preload="none" muted loop playsinline poster="assets/scene-anka.jpg" style="object-position: center 18%;">
           <source src="assets/video-anka.mp4" type="video/mp4">
         </video>
         <img src="assets/scene-anka.jpg" alt="Ekrandan doğan anka kuşu — yaratımın doğuşu" class="bg-fallback" fetchpriority="high">
@@ -60,14 +60,14 @@
         <div class="cta-row" data-fade>
           <a class="door-btn" href="index.html#basvuru">
             <span class="db-arch">
-              <video autoplay muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
+              <video class="lazy-vid" preload="none" muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
               <span class="p-door p-left"></span><span class="p-door p-right"></span>
             </span>
             <span class="db-label">Ücretsiz Görüşmeye Başvur</span>
           </a>
           <a class="door-btn ghost" href="#program">
             <span class="db-arch">
-              <video autoplay muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
+              <video class="lazy-vid" preload="none" muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
               <span class="p-door p-left"></span><span class="p-door p-right"></span>
             </span>
             <span class="db-label">Programı Gör</span>
@@ -82,7 +82,7 @@
   <section class="scene" data-mood="gold">
     <div class="pin">
       <div class="layer bg">
-        <video autoplay muted loop playsinline poster="assets/scene-okyanus.jpg">
+        <video class="lazy-vid" preload="none" muted loop playsinline poster="assets/scene-okyanus.jpg">
           <source src="assets/video-okyanus.mp4" type="video/mp4">
         </video>
         <img src="assets/scene-okyanus.jpg" alt="Fırtınada yelkenli — sinematik aksiyon" class="bg-fallback" loading="lazy">
@@ -134,7 +134,7 @@
   <section class="scene" data-mood="gold">
     <div class="pin">
       <div class="layer bg">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/scene-araba.jpg">
+        <video class="lazy-vid" muted loop playsinline preload="none" poster="assets/scene-araba.jpg">
           <source src="assets/video-araba.mp4" type="video/mp4">
         </video>
         <img src="assets/scene-araba.jpg" alt="Neon şehirde yağmurda drift — 4K sinematik" class="bg-fallback" loading="lazy">
@@ -154,7 +154,7 @@
   <section class="scene" data-mood="gold">
     <div class="pin">
       <div class="layer bg">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/scene-aslan.jpg">
+        <video class="lazy-vid" muted loop playsinline preload="none" poster="assets/scene-aslan.jpg">
           <source src="assets/video-aslan.mp4" type="video/mp4">
         </video>
         <img src="assets/scene-aslan.jpg" alt="Altın saatte koşan dişi aslan — 4K hiperrealistik" class="bg-fallback" loading="lazy">
@@ -174,7 +174,7 @@
   <section class="scene" data-mood="dark">
     <div class="pin">
       <div class="layer bg">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/scene-muzik.jpg">
+        <video class="lazy-vid" muted loop playsinline preload="none" poster="assets/scene-muzik.jpg">
           <source src="assets/video-muzik.mp4" type="video/mp4">
         </video>
         <img src="assets/scene-muzik.jpg" alt="Sahnede şarkıcı silüeti ve ışıktan ses dalgaları" class="bg-fallback" loading="lazy">
@@ -235,7 +235,7 @@
 
 <a class="cta-portal" href="index.html#basvuru" aria-label="Ön Başvuru">
   <span class="portal-arch">
-    <video autoplay muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
+    <video class="lazy-vid" preload="none" muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
     <span class="arch-uni" aria-hidden="true">
       <img class="u-obj u1" src="assets/thumb-ekran.jpg" alt="">
       <img class="u-obj u2" src="assets/thumb-agent.jpg" alt="">
@@ -256,13 +256,13 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="js/main.js?v18"></script>
+<script src="js/main.js?v19"></script>
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
   "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
 } }
 </script>
-<script type="module" src="js/scene.js?v18"></script>
+<script type="module" src="js/scene.js?v19"></script>
 </body>
 </html>

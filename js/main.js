@@ -22,6 +22,25 @@
     });
   }
 
+  /* lazy videolar: sahneye yaklaşınca yükle+oynat, uzaklaşınca durdur */
+  var lazyVids = document.querySelectorAll("video.lazy-vid");
+  if ("IntersectionObserver" in window && lazyVids.length) {
+    var vio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) {
+          if (v.preload === "none") v.preload = "auto";
+          var p = v.play(); if (p && p.catch) p.catch(function(){});
+        } else {
+          v.pause();
+        }
+      });
+    }, { rootMargin: "600px 0px" });
+    lazyVids.forEach(function (v) { vio.observe(v); });
+  } else {
+    lazyVids.forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function(){}); });
+  }
+
   /* video arka planlar: oynamazsa fallback görsele düş */
   document.querySelectorAll(".scene .bg video").forEach(function (v) {
     v.addEventListener("error", function () { v.classList.add("dead"); }, true);

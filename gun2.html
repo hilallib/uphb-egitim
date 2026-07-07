@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v18">
+<link rel="stylesheet" href="css/style.css?v19">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 <body class="page-gun2">
@@ -44,7 +44,7 @@
   <section class="scene" data-mood="dark">
     <div class="pin">
       <div class="layer bg">
-        <video autoplay muted loop playsinline poster="assets/scene-el.jpg">
+        <video class="lazy-vid" preload="none" muted loop playsinline poster="assets/scene-el.jpg">
           <source src="assets/video-el.mp4" type="video/mp4">
         </video>
         <img src="assets/scene-el.jpg" alt="Mermer el, neon holograma uzanıyor" class="bg-fallback" fetchpriority="high">
@@ -60,14 +60,14 @@
         <div class="cta-row" data-fade>
           <a class="door-btn" href="index.html#basvuru">
             <span class="db-arch">
-              <video autoplay muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
+              <video class="lazy-vid" preload="none" muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
               <span class="p-door p-left"></span><span class="p-door p-right"></span>
             </span>
             <span class="db-label">Ücretsiz Görüşmeye Başvur</span>
           </a>
           <a class="door-btn ghost" href="#program">
             <span class="db-arch">
-              <video autoplay muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
+              <video class="lazy-vid" preload="none" muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
               <span class="p-door p-left"></span><span class="p-door p-right"></span>
             </span>
             <span class="db-label">Programı Gör</span>
@@ -158,7 +158,7 @@
   <section class="scene scene-contain" data-mood="dark">
     <div class="pin">
 <div class="layer bg">
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/scene-evrim.jpg">
+        <video class="lazy-vid" muted loop playsinline preload="none" poster="assets/scene-evrim.jpg">
           <source src="assets/video-evrim.mp4" type="video/mp4">
         </video>
         <img src="assets/scene-evrim.jpg" alt="Evrim yürüyüşü — ateşten posthuman ışığa" class="bg-fallback" loading="lazy">
@@ -253,7 +253,7 @@
 
 <a class="cta-portal" href="index.html#basvuru" aria-label="Ön Başvuru">
   <span class="portal-arch">
-    <video autoplay muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
+    <video class="lazy-vid" preload="none" muted loop playsinline aria-hidden="true"><source src="assets/button-bg.mp4" type="video/mp4"></video>
     <span class="arch-uni" aria-hidden="true">
       <img class="u-obj u1" src="assets/thumb-ekran.jpg" alt="">
       <img class="u-obj u2" src="assets/thumb-agent.jpg" alt="">
@@ -274,13 +274,13 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="js/main.js?v18"></script>
+<script src="js/main.js?v19"></script>
 <script type="importmap">
 { "imports": {
   "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
   "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
 } }
 </script>
-<script type="module" src="js/scene.js?v18"></script>
+<script type="module" src="js/scene.js?v19"></script>
 </body>
 </html>
