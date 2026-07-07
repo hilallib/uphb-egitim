@@ -41,9 +41,12 @@
     lazyVids.forEach(function (v) { var p = v.play(); if (p && p.catch) p.catch(function(){}); });
   }
 
-  /* video arka planlar: oynamazsa fallback görsele düş */
+  /* video arka planlar: oynamazsa fallback görsele düş (lazy olanları yukarıdaki IO yönetir;
+     burada play() çağrılırsa IO'nun ilk pause()'u promise'i AbortError ile düşürüp videoyu
+     yanlışlıkla "dead" işaretliyor) */
   document.querySelectorAll(".scene .bg video").forEach(function (v) {
     v.addEventListener("error", function () { v.classList.add("dead"); }, true);
+    if (v.classList.contains("lazy-vid")) return;
     var p = v.play && v.play();
     if (p && p.catch) p.catch(function () { v.classList.add("dead"); });
   });
