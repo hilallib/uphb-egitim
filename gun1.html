@@ -147,7 +147,12 @@
   <!-- ═══ SAHNE: AMFİTİYATRO — SES ═══ -->
   <section class="scene" data-mood="dark">
     <div class="pin">
-      <div class="layer bg"><img src="assets/scene-muzik.jpg" alt="Sahnede şarkıcı silüeti ve ışıktan ses dalgaları" loading="lazy"></div>
+      <div class="layer bg">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/scene-muzik.jpg">
+          <source src="assets/video-muzik.mp4" type="video/mp4">
+        </video>
+        <img src="assets/scene-muzik.jpg" alt="Sahnede şarkıcı silüeti ve ışıktan ses dalgaları" class="bg-fallback" loading="lazy">
+      </div>
       <div class="layer wash"></div>
       <div class="layer haze"></div>
       <div class="layer act"><span>Φ</span></div>

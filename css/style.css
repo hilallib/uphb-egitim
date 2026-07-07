@@ -523,6 +523,34 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
 .form-status.ok { display: block; border: 1px solid rgba(53,224,124,.5); color: #7bf0ac; background: rgba(53,224,124,.08); }
 .form-status.err { display: block; border: 1px solid rgba(255,120,120,.5); color: #ffb0b0; background: rgba(255,120,120,.08); }
 
+/* --- Katmanlı eser kartları --- */
+.outcomes-rich .outcome { padding: 0 0 30px; overflow: hidden; position: relative; }
+.outcomes-rich .outcome::before {
+  content: ""; position: absolute; inset: 0; border-radius: 22px; padding: 1.5px;
+  background: linear-gradient(140deg, rgba(223,102,191,.6), transparent 35%, transparent 65%, rgba(0,255,244,.6));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
+}
+.outcomes-rich .outcome:nth-child(odd) { animation: teamfloat 7s ease-in-out infinite; }
+.outcomes-rich .outcome:nth-child(even) { animation: teamfloat 8.4s ease-in-out infinite reverse; }
+.o-media {
+  position: relative; aspect-ratio: 16/10; overflow: hidden;
+  border-radius: 22px 22px 0 0; margin-bottom: 22px;
+}
+.o-media img, .o-media video { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.outcomes-rich .outcome:hover .o-media img, .outcomes-rich .outcome:hover .o-media video { transform: scale(1.08); }
+.o-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(8,8,14,.95), transparent 55%);
+}
+.o-media .o-num {
+  position: absolute; bottom: 8px; left: 22px; z-index: 1;
+  font-size: 52px; filter: drop-shadow(0 0 18px rgba(223,102,191,.5));
+}
+.outcomes-rich .outcome h3 { padding: 0 26px; }
+.outcomes-rich .outcome p { padding: 0 26px; }
+
 /* --- Kozmik video zeminli bölüm + canlı ışıklı yazılar --- */
 .outcomes-stage { position: relative; overflow: hidden; border-radius: 32px; max-width: 1500px; padding: 13vh 6vw; }
 .stage-video { position: absolute; inset: 0; z-index: -1; }
@@ -555,7 +583,7 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
 .patron-row { display: flex; justify-content: center; margin: 54px 0 12px; }
 .patron-card {
   text-align: center; border: 2px solid rgba(223,102,191,.6); border-radius: 26px;
-  padding: 28px 44px 24px; background: rgba(8,8,14,0.78);
+  padding: 30px 52px 28px; background: rgba(8,8,14,0.78); min-width: 250px;
   box-shadow: 0 0 50px rgba(223,102,191,.25), 0 20px 60px rgba(0,0,0,.5);
   animation: teamfloat 5s ease-in-out infinite;
 }
@@ -564,13 +592,22 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
   border: 2px solid var(--pink);
   box-shadow: 0 0 30px rgba(223,102,191,.4);
 }
-.patron-card b { display: block; margin-top: 12px; font-family: var(--serif); font-size: 21px; color: var(--ink); }
-.patron-card span { display: block; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--pink); margin-top: 4px; font-weight: 700; }
+.patron-card b { display: block; margin-top: 14px; font-family: var(--serif); font-size: 22px; color: var(--ink); line-height: 1.2; }
+.patron-card span {
+  display: inline-block; margin-top: 8px; font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--pink); font-weight: 700; white-space: nowrap;
+  border: 1px solid rgba(223,102,191,.5); border-radius: 999px; padding: 6px 16px;
+}
 .team-divider {
   text-align: center; margin: 30px 0 6px; font-size: 13px; letter-spacing: .3em;
   text-transform: uppercase; color: var(--turq); font-weight: 700;
   animation: kickerglow 2.8s ease-in-out infinite;
 }
+
+/* Lale — ekip lideri kartı (turkuaz) */
+.patron-card.lead-patron { border-color: rgba(0,255,244,.55); box-shadow: 0 0 44px rgba(0,255,244,.22), 0 20px 60px rgba(0,0,0,.5); padding: 24px 44px 22px; }
+.patron-card.lead-patron img { width: 118px; height: 118px; border-color: var(--turq); box-shadow: 0 0 26px rgba(0,255,244,.35); image-rendering: pixelated; }
+.patron-card.lead-patron span { color: var(--turq); border-color: rgba(0,255,244,.5); }
 
 /* --- Işıklı Yol Haritası (evrim çizgisi) --- */
 .roadmaps { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 64px; }
