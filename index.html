@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Üretken YZ & Vibe Coding — Analog Patron, Dijital Ekip | UP-HB Academy</title>
-<meta name="description" content="2 günlük uygulamalı atölye: Üretken YZ + Vibe Coding. 15-16 Ağustos 2026. Bilgelik İlk Çağ'da soruldu. Üretmek bu çağda senin elinde.">
+<meta name="description" content="Bir çağ atlama hikayesi: İlk Çağ'dan posthumana. 2 günlük uygulamalı atölye, 15-16 Ağustos 2026. Evrimin sıradaki sıçraması senin.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -16,49 +16,120 @@
 <canvas id="scene" data-scene="day"></canvas>
 <div class="grain"></div>
 <div class="vignette"></div>
+<div class="magic-flash" id="magicFlash"></div>
+<div class="magic-beam" id="magicBeam"></div>
 
 <header class="topbar">
   <a href="index.html"><img src="assets/logo-beyaz.png" alt="UP-HB Academy"></a>
   <nav>
-    <a href="index.html" class="active">Eğitim</a>
+    <a href="index.html" class="active">Hikâye</a>
     <a href="gun1.html">Gün 1 — Üretken YZ</a>
     <a href="gun2.html">Gün 2 — Vibe Coding</a>
-    <a href="#kayit">Kayıt</a>
+    <a href="#basvuru">Ön Başvuru</a>
   </nav>
 </header>
 
 <main>
 
-  <!-- ═══ PERDE 0 · HERO: AGORA ═══ -->
+  <!-- ═══ HERO · CANLI AGORA (VİDEO) ═══ -->
   <section class="scene" data-mood="gold">
     <div class="pin">
-      <div class="layer bg"><img src="assets/scene-agora.jpg" alt="İlk Çağ agorası — filozoflar yüzen hologram ekranlarla" fetchpriority="high"></div>
+      <div class="layer bg">
+        <video autoplay muted loop playsinline poster="assets/scene-agora.jpg">
+          <source src="assets/video-agora.mp4" type="video/mp4">
+        </video>
+        <img src="assets/scene-agora.jpg" alt="İlk Çağ agorası" class="bg-fallback" fetchpriority="high">
+      </div>
       <div class="layer wash"></div>
-      <div class="layer act"><span>ΑΩ</span></div>
+      <div class="fg-el glow-pink" data-depth="1.4" style="right:-1vw; bottom:-9vh; width:min(34vw,520px);"><img src="assets/cut-hypatia.png" alt=""></div>
+      <div class="fg-el" data-depth="0.7" style="left:55vw; top:14vh; width:min(11vw,170px); opacity:.9;"><img src="assets/cut-phone.png" alt=""></div>
       <div class="layer content">
         <div class="date-badge" data-fade><span class="dot"></span> 15–16 Ağustos 2026 &nbsp;·&nbsp; 2 gün &nbsp;·&nbsp; 10 saat &nbsp;·&nbsp; Canlı atölye</div>
         <h1 data-fade>Üretken YZ<br><span class="hl">&amp; Vibe Coding</span></h1>
         <p class="sub" data-fade>Analog Patron — Dijital Ekip</p>
-        <p class="lead" data-fade>Bilgelik İlk Çağ'da soruldu.<br>Üretmek bu çağda senin elinde.</p>
+        <p class="lead" data-fade>Bu bir eğitim sayfası değil. <b>Bir çağ atlama hikayesi.</b><br>Ve son sıçrama, senin.</p>
         <div class="cta-row" data-fade>
-          <a class="btn btn-primary" href="#kayit">Kayıt Ol — 10.000 TL</a>
-          <a class="btn btn-ghost" href="#perde1">Hikâyeye Gir ↓</a>
+          <a class="btn btn-primary" href="#basvuru">Ön Başvuru — 10.000 TL</a>
+          <a class="btn btn-ghost" href="#cag1">Zamanda Yolculuğa Çık ↓</a>
         </div>
       </div>
-      <div class="scroll-hint">Kaydır</div>
+      <div class="scroll-hint">Kaydır · Çağları Aş</div>
     </div>
   </section>
 
-  <!-- ═══ PERDE I · SORU: MERMER EL ═══ -->
-  <section class="scene" data-mood="dark" id="perde1">
+  <!-- ═══ ÇAĞ I · İLK ÇAĞ (VİDEO: MERMER EL) ═══ -->
+  <section class="scene" data-mood="dark" id="cag1">
     <div class="pin">
-      <div class="layer bg"><img src="assets/scene-el.jpg" alt="Mermer heykel eli, holografik karta uzanıyor" loading="lazy"></div>
+      <div class="layer bg">
+        <video autoplay muted loop playsinline poster="assets/scene-el.jpg">
+          <source src="assets/video-el.mp4" type="video/mp4">
+        </video>
+        <img src="assets/scene-el.jpg" alt="Mermer el holograma uzanıyor" class="bg-fallback" loading="lazy">
+      </div>
       <div class="layer wash"></div>
       <div class="layer act"><span>I</span></div>
       <div class="layer content">
-        <p class="kicker" data-fade>Perde I · Soru</p>
-        <h2 data-fade>Her şey bir soruyla başladı.<br>İki bin dört yüz yıl önce.</h2>
-        <p class="lead" data-fade>"Sorgulanmamış bir hayat, yaşanmaya değmez." — Sokrates bunu agorada söyledi. Bugün aynı merak, taş ellerden dijital olana uzanıyor. Soru hâlâ senin sorun: <b>Ne üreteceksin?</b></p>
+        <p class="kicker" data-fade>Çağ I · İlk Çağ · Soru</p>
+        <h2 data-fade>Her şey bir soruyla başladı.</h2>
+        <p class="lead" data-fade>"Sorgulanmamış bir hayat, yaşanmaya değmez." Sokrates agorada sordu; insanlık iki bin dört yüz yıldır cevaplıyor. Taş eller hâlâ uzanıyor — artık dijitale.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ÇAĞ II · AYDINLANMA ═══ -->
+  <section class="scene" data-mood="dark">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-aydinlanma.jpg" alt="Aydınlanma — kütüphane, prizma, yıldızlar" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>II</span></div>
+      <div class="fg-el" data-depth="1.3" style="right:6vw; bottom:-3vh; width:min(24vw,360px);"><img src="assets/cut-bust.png" alt=""></div>
+      <div class="layer content">
+        <p class="kicker" data-fade>Çağ II · Aydınlanma · Akıl</p>
+        <h2 data-fade>Akıl, mum ışığında<br><span class="hl">evreni ölçtü.</span></h2>
+        <p class="lead" data-fade>Newton'un elmasından prizmadan geçen ışığa: soru, yöntemle buluştu. Bilgi kitaplara döküldü, insan aklı kendi sınırlarını aşmayı öğrendi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ÇAĞ III · SANAYİ ═══ -->
+  <section class="scene" data-mood="dark">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-sanayi.jpg" alt="Sanayi Devrimi — çarklar, buhar" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>III</span></div>
+      <div class="layer content">
+        <p class="kicker pink" data-fade>Çağ III · Sanayi · Güç</p>
+        <h2 data-fade>İnsan, gücünü<br><span class="hl">makineye devretti.</span></h2>
+        <p class="lead" data-fade>Buhar çarkları döndürdü, üretim insan kasından çıktı. İlk kez bir araç, insandan daha güçlüydü. Ama karar hâlâ insandaydı.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ÇAĞ IV · DİJİTAL ═══ -->
+  <section class="scene" data-mood="dark">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-dijital.jpg" alt="Dijital çağ — antik salon komuta merkezine açılıyor" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>IV</span></div>
+      <div class="layer content">
+        <p class="kicker" data-fade>Çağ IV · Dijital · Bilgi</p>
+        <h2 data-fade>Bilgi ışık hızına ulaştı.<br><span class="hl">Zekâ, üretmeyi öğrendi.</span></h2>
+        <p class="lead" data-fade>Ekranlar dünyayı tek salona sığdırdı. Ve bu çağın sonunda bir şey değişti: makine artık sadece güç değil — <b>zekâ</b> da üretiyor. Yazı yazıyor, film çekiyor, kod döküyor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ÇAĞ V · POSTHUMAN SIÇRAMA ═══ -->
+  <section class="scene" data-mood="dark">
+    <div class="pin">
+      <div class="layer bg"><img src="assets/scene-posthuman.jpg" alt="Posthuman sıçrama — ışığa dönüşen insan" loading="lazy"></div>
+      <div class="layer wash"></div>
+      <div class="layer act"><span>V</span></div>
+      <div class="fg-el glow-pink" data-depth="1.5" style="right:8vw; top:12vh; width:min(16vw,240px); transform:rotate(8deg);"><img src="assets/cut-phone.png" alt=""></div>
+      <div class="layer content">
+        <p class="kicker pink" data-fade>Çağ V · Şimdi · Sıçrama</p>
+        <h2 data-fade>Evrimin sıradaki adımı<br><span class="hl">makine değil: sensin.</span></h2>
+        <p class="lead" data-fade>Posthuman çağda kazanan, en güçlü makineye sahip olan değil — <b>dijital ekibini yönetebilen insan.</b> Analog kalp karar verir, dijital zekâ üretir. Bu iki günlük eğitim, o sıçramanın kendisi.</p>
         <div class="prompt-field" data-fade>
           <span class="p-mark">&gt;</span>
           <span>Sorgulamayı biliyorsun. Şimdi üretmeyi öğren</span><span class="cursor"></span>
@@ -67,24 +138,10 @@
     </div>
   </section>
 
-  <!-- ═══ PERDE II · DÖNÜŞÜM: FRESK ═══ -->
-  <section class="scene" data-mood="dark">
-    <div class="pin">
-      <div class="layer bg"><img src="assets/scene-fresk.jpg" alt="Fresk figürleri dijital ekranlara dönüşüyor" loading="lazy"></div>
-      <div class="layer wash"></div>
-      <div class="layer act"><span>II</span></div>
-      <div class="layer content">
-        <p class="kicker pink" data-fade>Perde II · Dönüşüm</p>
-        <h2 data-fade>Fresk canlanıyor.<br><span class="hl">Bilgelik artık üretiyor.</span></h2>
-        <p class="lead" data-fade>Duvardaki figürler ekranlara, ekranlar eserlere dönüşüyor. Bu eğitimde izleyici değilsin — freskin içine giriyorsun. İki gün, iki dünya: önce üretken yapay zekâ, sonra kod yazmadan yazılım.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ─── İKİ KAPI ─── -->
   <section class="interlude">
-    <p class="kicker" data-reveal>İki Gün · İki Dünya</p>
-    <h2 data-reveal>Yolculuğunu seç,<br><span class="hl">iki kapıdan da geç.</span></h2>
+    <p class="kicker" data-reveal>Sıçramanın İki Adımı</p>
+    <h2 data-reveal>İki gün. İki dünya.<br><span class="hl">Tek dönüşüm.</span></h2>
     <div class="portals">
       <a class="portal p1" href="gun1.html" data-reveal>
         <div class="p-img"><img src="assets/scene-tapinak.jpg" alt="" loading="lazy"></div>
@@ -97,7 +154,7 @@
         </div>
       </a>
       <a class="portal p2" href="gun2.html" data-reveal>
-        <div class="p-img"><img src="assets/scene-el.jpg" alt="" loading="lazy"></div>
+        <div class="p-img"><img src="assets/scene-kutuphane.jpg" alt="" loading="lazy"></div>
         <div class="p-body">
           <div class="p-day">Gün 2 · 16 Ağustos</div>
           <h3>Vibe Coding</h3>
@@ -109,22 +166,10 @@
     </div>
   </section>
 
-  <!-- ═══ PERDE III · ESER: TAPINAK ═══ -->
-  <section class="scene" data-mood="gold">
-    <div class="pin">
-      <div class="layer bg"><img src="assets/scene-tapinak.jpg" alt="Tapınakta yüzen video kareleri" loading="lazy"></div>
-      <div class="layer wash"></div>
-      <div class="layer act"><span>III</span></div>
-      <div class="layer content">
-        <p class="kicker" data-fade>Perde III · Eser</p>
-        <h2 data-fade>Boş teori yok.<br><span class="hl">Tapınaktan eserinle çıkıyorsun.</span></h2>
-        <p class="lead" data-fade>İki günün sonunda elinde üç somut şey var — sunum dosyası değil, "not aldım" değil: yayınlanmaya hazır işler.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ─── 3 ÇIKTI ─── -->
   <section class="interlude">
+    <p class="kicker" data-reveal>Boş Teori Yok</p>
+    <h2 data-reveal>Sıçramadan <span class="hl">3 eserle</span> çıkıyorsun.</h2>
     <div class="outcomes">
       <div class="outcome" data-reveal>
         <div class="o-num">01</div>
@@ -150,11 +195,11 @@
     </div>
   </section>
 
-  <!-- ═══ PERDE IV · SEN: EĞİTMEN + KAYIT ═══ -->
+  <!-- ─── EĞİTMEN ─── -->
   <section class="interlude instructor">
     <div class="portrait" data-reveal><img src="assets/hilal-portre.jpg" alt="Hilal Baktaş"></div>
     <div class="bio">
-      <p class="kicker" data-reveal>Perde IV · Rehberin</p>
+      <p class="kicker" data-reveal>Rehberin</p>
       <h2 data-reveal>Hilal Baktaş</h2>
       <p class="lead" data-reveal>Felsefeci, projeci, eğitmen. Felsefenin sorgulama derinliğini yapay zekânın üretim gücüyle harmanlıyor: Analog kalp, dijital zekâ.</p>
       <div class="creds">
@@ -166,13 +211,14 @@
     </div>
   </section>
 
+  <!-- ─── FİYAT ─── -->
   <section id="kayit" class="interlude pricing">
-    <p class="kicker" data-reveal>Kayıt</p>
+    <p class="kicker" data-reveal>Yatırım</p>
     <h2 data-reveal>Tek fiyat. <span class="hl">Dürüst fiyat.</span></h2>
     <div class="price-card" data-reveal>
       <div class="p-label">2 Günlük Eğitim · 15–16 Ağustos 2026</div>
       <div class="p-amount">10.000 <small>TL</small></div>
-      <p class="p-note">Taksit seçenekleri kayıt sayfasında · Kontenjan sınırlı</p>
+      <p class="p-note">Taksit seçenekleri mevcut · Kontenjan sınırlı</p>
       <ul>
         <li>2 gün × 5 saat canlı uygulamalı atölye</li>
         <li>1 saat birebir ön görüşme (Hilal Baktaş ile)</li>
@@ -180,20 +226,56 @@
         <li>Özel platform erişimi + prompt arşivi</li>
         <li>Katılım belgesi (TR + ENG)</li>
       </ul>
-      <a class="btn btn-primary" href="https://www.hb-academy.com.tr" target="_blank" rel="noopener">Kaydını Tamamla →</a>
+      <a class="btn btn-primary" href="#basvuru">Ön Başvuru Yap →</a>
     </div>
+  </section>
+
+  <!-- ─── ÖN BAŞVURU FORMU ─── -->
+  <section id="basvuru" class="interlude pricing">
+    <p class="kicker" data-reveal>Ön Başvuru</p>
+    <h2 data-reveal>Sıçramaya <span class="hl">adını yaz.</span></h2>
+    <p class="lead" style="margin: 0 auto; text-align:center;" data-reveal>Formu gönder; en geç 24 saat içinde birebir ön görüşme için sana dönüş yapalım.</p>
+    <form class="apply-card" id="applyForm" data-reveal>
+      <div class="form-row">
+        <label for="f-name">Ad Soyad *</label>
+        <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Adın Soyadın">
+      </div>
+      <div class="form-row">
+        <label for="f-email">E-posta *</label>
+        <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="ornek@mail.com">
+      </div>
+      <div class="form-row">
+        <label for="f-phone">Telefon (WhatsApp) *</label>
+        <input type="tel" id="f-phone" name="phone" required autocomplete="tel" placeholder="05__ ___ __ __">
+      </div>
+      <div class="form-row">
+        <label for="f-job">Ne iş yapıyorsun?</label>
+        <input type="text" id="f-job" name="job" placeholder="Girişimci, pazarlamacı, akademisyen, öğretmen…">
+      </div>
+      <div class="form-row">
+        <label for="f-note">Eğitimden beklentin (isteğe bağlı)</label>
+        <textarea id="f-note" name="message" placeholder="Hangi projeyi/işi YZ ile üretmek istiyorsun?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="applyBtn">Ön Başvuruyu Gönder →</button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+    <p class="apply-alt" data-reveal>
+      Form çalışmazsa: <a href="mailto:hb@hb-academy.com.tr?subject=Üretken YZ %26 Vibe Coding — Ön Başvuru">hb@hb-academy.com.tr</a>
+      &nbsp;·&nbsp; <a href="https://www.hb-academy.com.tr" target="_blank" rel="noopener">hb-academy.com.tr</a>
+      &nbsp;·&nbsp; <a href="https://instagram.com/uphbacademy" target="_blank" rel="noopener">Instagram @uphbacademy</a>
+    </p>
   </section>
 
 </main>
 
 <footer>
   <img src="assets/logo-beyaz.png" alt="UP-HB Academy">
-  <p class="sub" style="margin:0 auto 6px; font-family:var(--serif); font-style:italic;">"Analog Kalp, Dijital Zekâ."</p>
-  <div><span class="made-with">⚡ Bu sayfa vibe coding ile yapıldı — görseller dahil</span></div>
-  <p class="fine">© 2026 UP-HB Academy · hb-academy.com.tr</p>
+  <p class="sub" style="margin:0 auto 6px;">"Analog Kalp, Dijital Zekâ."</p>
+  <div><span class="made-with">⚡ Bu sayfa vibe coding ile yapıldı — görselleri ve videoları dahil</span></div>
+  <p class="fine">© 2026 UP-HB Academy · hb-academy.com.tr · <a href="https://instagram.com/uphbacademy" style="color:inherit;">@uphbacademy</a></p>
 </footer>
 
-<a class="sticky-cta" href="#kayit">Kayıt Ol — 10.000 TL <small>· 15–16 Ağustos</small></a>
+<a class="sticky-cta" href="#basvuru">Ön Başvuru <small>· 10.000 TL · 15–16 Ağustos</small></a>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
