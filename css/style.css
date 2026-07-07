@@ -241,14 +241,52 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
   text-decoration: none; transition: transform .25s, box-shadow .25s;
   cursor: pointer; border: none;
 }
+@property --spin { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
 .btn-primary {
-  background: linear-gradient(100deg, var(--pink), #b44be0 60%, var(--blue-bright));
+  position: relative; overflow: hidden;
   color: #fff;
-  box-shadow: 0 8px 34px rgba(223,102,191,0.4);
+  border: 2px solid transparent;
+  background:
+    linear-gradient(120deg, rgba(20,10,26,.92), rgba(8,10,26,.92)) padding-box,
+    conic-gradient(from var(--spin), var(--pink), var(--turq), var(--blue-bright), var(--pink)) border-box;
+  animation: btnspin 3.5s linear infinite, ctapulse 3s ease-in-out infinite;
+  text-shadow: 0 0 14px rgba(0,255,244,.45);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 44px rgba(223,102,191,0.55); }
-.btn-ghost { border: 1px solid rgba(245,241,232,0.35); color: var(--ink); background: rgba(5,5,8,.4); backdrop-filter: blur(6px); }
-.btn-ghost:hover { border-color: var(--turq); color: var(--turq); }
+@keyframes btnspin { to { --spin: 360deg; } }
+.btn-primary::before {
+  content: ""; width: 15px; height: 20px; flex-shrink: 0;
+  border: 1.6px solid rgba(0,255,244,.9);
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(to right, transparent 44%, rgba(223,102,191,.95) 47%, rgba(0,255,244,.95) 53%, transparent 56%);
+  background-size: 100% 100%;
+  box-shadow: 0 0 10px rgba(0,255,244,.4), inset 0 0 6px rgba(223,102,191,.35);
+  transition: background .4s, box-shadow .4s;
+  animation: seampulse 2.4s ease-in-out infinite;
+}
+@keyframes seampulse {
+  0%,100% { filter: brightness(1); } 50% { filter: brightness(1.9); }
+}
+.btn-primary:hover::before {
+  background: linear-gradient(to right, rgba(223,102,191,.6), rgba(255,255,255,.95), rgba(0,255,244,.6));
+  box-shadow: 0 0 18px rgba(0,255,244,.9);
+}
+.btn-primary::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.28), transparent);
+  animation: ctashine 3s ease-in-out infinite;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 44px rgba(223,102,191,0.55), 0 0 60px rgba(0,255,244,.25); }
+.btn-ghost {
+  border: 1px solid rgba(245,241,232,0.35); color: var(--ink);
+  background: rgba(5,5,8,.4); backdrop-filter: blur(6px);
+  position: relative; overflow: hidden;
+}
+.btn-ghost::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(0,255,244,.14), transparent);
+  animation: ctashine 3.6s ease-in-out infinite;
+}
+.btn-ghost:hover { border-color: var(--turq); color: var(--turq); box-shadow: 0 0 26px rgba(0,255,244,.18); }
 .cta-row { display: flex; gap: 18px; margin-top: 36px; flex-wrap: wrap; }
 
 /* --- Sticky CTA --- */

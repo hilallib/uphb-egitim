@@ -68,13 +68,18 @@
         return;
       }
 
-      // panorama süpürmesi: yatayda geniş gezinme + zoom nefesi
-      gsap.fromTo(media,
-        { scale: isHero ? 1.06 : 1.34, xPercent: idx % 2 ? 9 : -9, yPercent: isHero ? 0 : -8 },
-        {
-          scale: isHero ? 1.18 : 1.02, xPercent: idx % 2 ? -7 : 7, yPercent: isHero ? 5 : 8, ease: "none",
-          scrollTrigger: { trigger: scene, start: "top top", end: "bottom bottom", scrub: true }
-        });
+      // panorama süpürmesi: SADECE görsellerde (videoların kendi kamera hareketi var)
+      var isVideo = media && media.tagName === "VIDEO";
+      if (!isVideo) {
+        gsap.fromTo(media,
+          { scale: isHero ? 1.06 : 1.34, xPercent: idx % 2 ? 9 : -9, yPercent: isHero ? 0 : -8 },
+          {
+            scale: isHero ? 1.18 : 1.02, xPercent: idx % 2 ? -7 : 7, yPercent: isHero ? 5 : 8, ease: "none",
+            scrollTrigger: { trigger: scene, start: "top top", end: "bottom bottom", scrub: true }
+          });
+      } else {
+        gsap.set(media, { scale: 1.04 });
+      }
 
       // dekupe figürler: derinliğe göre farklı hızda süzülme
       scene.querySelectorAll(".fg-el").forEach(function (el) {
