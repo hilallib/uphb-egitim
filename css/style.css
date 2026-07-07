@@ -852,8 +852,15 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
   box-shadow: inset 6px 0 14px rgba(223,102,191,.35);
   transform-origin: right center;
   animation: doorteaseR 5.5s ease-in-out infinite; }
-@keyframes doorteaseL { 0%,72%,100% { transform: translateX(0); } 80%,90% { transform: translateX(-26%); } }
-@keyframes doorteaseR { 0%,72%,100% { transform: translateX(0); } 80%,90% { transform: translateX(26%); } }
+@keyframes doorteaseL {
+  0%, 55%, 100% { transform: translateX(0); }
+  65%, 85% { transform: translateX(-101%); }
+}
+@keyframes doorteaseR {
+  0%, 55%, 100% { transform: translateX(0); }
+  65%, 85% { transform: translateX(101%); }
+}
+.p-left, .p-right { animation-duration: 7s; }
 .cta-portal:hover .p-left { transform: translateX(-101%) !important; animation: none; }
 .cta-portal:hover .p-right { transform: translateX(101%) !important; animation: none; }
 .cta-portal:hover .portal-arch { animation: none;
@@ -891,6 +898,7 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
   background: rgba(5,5,8,.72); border: 1px solid rgba(245,241,232,.2);
   border-radius: 12px; padding: 7px 14px; backdrop-filter: blur(6px);
 }
+.portal-label { max-width: 190px; }
 .portal-label small { display: block; font-weight: 400; font-size: 10.5px; color: var(--ink-dim); margin-top: 2px; }
 @media (max-width: 860px) {
   .cta-portal { right: 14px; bottom: 14px; }
