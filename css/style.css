@@ -475,6 +475,57 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
 .form-status.ok { display: block; border: 1px solid rgba(53,224,124,.5); color: #7bf0ac; background: rgba(53,224,124,.08); }
 .form-status.err { display: block; border: 1px solid rgba(255,120,120,.5); color: #ffb0b0; background: rgba(255,120,120,.08); }
 
+/* --- Işıklı Yol Haritası (evrim çizgisi) --- */
+.roadmaps { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 64px; }
+.roadmap {
+  position: relative; border: 1px solid rgba(245,241,232,0.1); border-radius: 26px;
+  padding: 44px 34px 34px; background: rgba(8,8,14,0.6);
+}
+.roadmap .r-title { text-align: center; margin-bottom: 8px; }
+.roadmap .r-sub { text-align: center; font-family: var(--serif); font-style: italic; color: var(--ink-dim); margin-bottom: 40px; font-size: 15.5px; }
+.r-line { position: relative; margin-left: 26px; padding-left: 40px; }
+.r-line::before {
+  content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 3px; border-radius: 3px;
+  background: linear-gradient(180deg, var(--pink), #b06cf0 40%, var(--turq));
+  box-shadow: 0 0 18px rgba(223,102,191,.55), 0 0 34px rgba(0,255,244,.3);
+  animation: lineglow 3.2s ease-in-out infinite;
+}
+.roadmap.r-g2 .r-line::before {
+  background: linear-gradient(180deg, var(--turq), #4d6bff 55%, var(--pink));
+  box-shadow: 0 0 18px rgba(0,255,244,.55), 0 0 34px rgba(223,102,191,.3);
+}
+@keyframes lineglow { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.6); } }
+.r-node { position: relative; padding: 0 0 38px; }
+.r-node:last-child { padding-bottom: 6px; }
+.r-node::before {
+  content: ""; position: absolute; left: -47px; top: 6px; width: 15px; height: 15px; border-radius: 50%;
+  background: radial-gradient(circle, #fff 20%, var(--pink) 60%, transparent 75%);
+  box-shadow: 0 0 14px var(--pink), 0 0 30px rgba(223,102,191,.6);
+  animation: nodepulse 2.6s ease-in-out infinite;
+}
+.roadmap.r-g2 .r-node::before {
+  background: radial-gradient(circle, #fff 20%, var(--turq) 60%, transparent 75%);
+  box-shadow: 0 0 14px var(--turq), 0 0 30px rgba(0,255,244,.6);
+}
+.r-node:nth-child(2)::before { animation-delay: .4s; }
+.r-node:nth-child(3)::before { animation-delay: .8s; }
+.r-node:nth-child(4)::before { animation-delay: 1.2s; }
+.r-node:nth-child(5)::before { animation-delay: 1.6s; }
+@keyframes nodepulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.45); } }
+.r-node .r-era {
+  font-size: 11.5px; letter-spacing: .26em; text-transform: uppercase; font-weight: 700;
+  color: var(--pink); margin-bottom: 4px;
+}
+.roadmap.r-g2 .r-node .r-era { color: var(--turq); }
+.r-node h4 { font-family: var(--serif); font-size: clamp(17px, 1.6vw, 21px); color: var(--ink); margin-bottom: 4px; }
+.r-node p { color: var(--ink-dim); font-size: 14px; line-height: 1.55; max-width: 420px; }
+.r-node .r-final {
+  display: inline-block; margin-top: 6px; font-size: 12px; letter-spacing: .1em;
+  border: 1px solid rgba(0,255,244,.4); color: var(--turq); border-radius: 999px; padding: 5px 14px;
+}
+.roadmap.r-g2 .r-node .r-final { border-color: rgba(223,102,191,.5); color: var(--pink); }
+@media (max-width: 980px) { .roadmaps { grid-template-columns: 1fr; } }
+
 /* reveal başlangıcı */
 [data-reveal] { opacity: 0; transform: translateY(46px); }
 .no-motion [data-reveal] { opacity: 1; transform: none; }
