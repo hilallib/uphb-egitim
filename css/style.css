@@ -111,6 +111,14 @@ body {
 .scene .bg video + .bg-fallback { display: none; }
 .scene .bg video.dead + .bg-fallback { display: block; }
 
+/* tam-kare sahne: panorama asla kırpılmaz (evrim) */
+.scene-contain .bg { inset: 0; display: flex; align-items: center; }
+.scene-contain .bg video, .scene-contain .bg img {
+  object-fit: contain; background: #050508;
+  transform: none !important;
+}
+.scene-contain .wash { background: radial-gradient(ellipse 90% 80% at 50% 50%, transparent 55%, rgba(5,5,8,.55) 100%) !important; }
+
 /* katman 2: renk/atmosfer yıkaması */
 .scene .wash { z-index: 1; }
 .scene[data-mood="gold"] .wash {

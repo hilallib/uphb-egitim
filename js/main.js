@@ -86,7 +86,9 @@
 
       // panorama süpürmesi: SADECE görsellerde (videoların kendi kamera hareketi var)
       var isVideo = media && media.tagName === "VIDEO";
-      if (!isVideo) {
+      if (scene.classList.contains("scene-contain")) {
+        // tam kare panorama: kırpma/zoom yok
+      } else if (!isVideo) {
         gsap.fromTo(media,
           { scale: isHero ? 1.08 : 1.42, xPercent: idx % 2 ? 10 : -10, yPercent: isHero ? 0 : -9 },
           {
