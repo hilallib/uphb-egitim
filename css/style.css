@@ -716,6 +716,44 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
 .team-card.lead-card { border-color: rgba(223,102,191,.5); }
 .team-card.lead-card img { border-color: var(--pink); }
 
+/* --- Dijital sticky buton: video zemin + dönen neon çerçeve --- */
+.sticky-cta.cta-digital {
+  position: fixed; right: 26px; bottom: 26px; z-index: 60;
+  padding: 0; background: none; overflow: hidden; border-radius: 999px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.6), 0 0 30px rgba(223,102,191,.35), 0 0 60px rgba(0,255,244,.18);
+  animation: ctapulse 3s ease-in-out infinite;
+}
+@keyframes ctapulse {
+  0%,100% { box-shadow: 0 10px 40px rgba(0,0,0,.6), 0 0 26px rgba(223,102,191,.35), 0 0 50px rgba(0,255,244,.15); }
+  50% { box-shadow: 0 10px 40px rgba(0,0,0,.6), 0 0 44px rgba(223,102,191,.6), 0 0 90px rgba(0,255,244,.35); }
+}
+.sticky-cta.cta-digital::before {
+  content: ""; position: absolute; inset: -60%; z-index: 0;
+  background: conic-gradient(from 0deg, var(--pink), var(--turq), var(--blue-bright), var(--pink));
+  animation: ctaspin 4s linear infinite;
+}
+@keyframes ctaspin { to { transform: rotate(360deg); } }
+.sticky-cta.cta-digital video {
+  position: absolute; inset: 2px; width: calc(100% - 4px); height: calc(100% - 4px);
+  object-fit: cover; border-radius: 999px; z-index: 1;
+}
+.sticky-cta.cta-digital .cta-inner {
+  position: relative; z-index: 2;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 28px; border-radius: 999px;
+  background: linear-gradient(100deg, rgba(5,5,8,.45), rgba(5,5,8,.2));
+  color: #fff; font-weight: 700; font-size: 15px;
+  text-shadow: 0 1px 10px rgba(0,0,0,.9), 0 0 18px rgba(0,255,244,.5);
+}
+.sticky-cta.cta-digital .cta-inner small { font-weight: 400; opacity: .9; }
+.sticky-cta.cta-digital::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 40%; z-index: 2;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.35), transparent);
+  animation: ctashine 2.6s ease-in-out infinite;
+}
+@keyframes ctashine { 0% { left: -50%; } 60%,100% { left: 120%; } }
+.sticky-cta.cta-digital:hover { transform: translateY(-3px) scale(1.04); }
+
 /* reveal başlangıcı */
 [data-reveal] { opacity: 0; transform: translateY(46px); }
 .no-motion [data-reveal] { opacity: 1; transform: none; }
