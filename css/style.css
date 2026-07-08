@@ -1181,3 +1181,61 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
 .qa .scene .pin { position: relative; height: 880px; }
 .qa .interlude { padding: 90px 7vw; }
 .qa .scroll-hint { display: none; }
+
+/* --- Hologram karesi → ışıklı video açılışı --- */
+body.holo-hover { cursor: pointer; }
+.holo-lb { position: fixed; inset: 0; z-index: 200; display: none; }
+.holo-lb.show { display: block; }
+.hlb-back {
+  position: absolute; inset: 0; background: rgba(4, 6, 14, .74);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  opacity: 0; transition: opacity .45s ease;
+}
+.holo-lb.open .hlb-back { opacity: 1; }
+.hlb-frame {
+  position: absolute; left: 50%; top: 50%; margin: 0;
+  width: min(880px, 86vw);
+  transform: translate(-50%, -50%) scale(.55); opacity: 0;
+  border-radius: 18px; overflow: hidden; background: #05070f;
+  border: 1px solid var(--hl, var(--turq));
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .65), 0 0 110px -20px var(--hl, var(--turq));
+  transition: transform .65s cubic-bezier(.16, 1, .3, 1), opacity .5s ease;
+}
+.holo-lb.open .hlb-frame { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+.hlb-frame::before {
+  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; opacity: 0;
+  background: radial-gradient(circle at 50% 45%, rgba(255,255,255,.95), rgba(255,255,255,0) 62%);
+}
+.holo-lb.open .hlb-frame::before { animation: hlbFlash 1.1s ease-out forwards; }
+@keyframes hlbFlash { 0% { opacity: 1; } 100% { opacity: 0; } }
+.hlb-sweep {
+  position: absolute; top: -20%; bottom: -20%; left: -40%; width: 34%; z-index: 3;
+  pointer-events: none; opacity: 0; mix-blend-mode: screen; filter: blur(18px);
+  background: linear-gradient(100deg, transparent 10%, rgba(255,255,255,.75) 50%, transparent 90%);
+  transform: skewX(-14deg);
+}
+.holo-lb.open .hlb-sweep { animation: hlbSweep 1.25s ease-in-out .15s forwards; }
+@keyframes hlbSweep {
+  0% { opacity: 0; left: -40%; } 25% { opacity: .9; } 100% { opacity: 0; left: 120%; }
+}
+.hlb-frame video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.hlb-frame figcaption {
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding: 18px 24px; border-top: 1px solid rgba(245, 241, 232, .12);
+}
+.hlb-cap b { display: block; font-family: var(--serif); font-size: 20px; letter-spacing: .01em; }
+.hlb-cap i { display: block; font-style: italic; font-size: 13.5px; color: var(--ink-dim); margin-top: 3px; }
+.hlb-go {
+  flex-shrink: 0; font-size: 14px; font-weight: 600; letter-spacing: .04em;
+  text-decoration: none;
+  color: var(--hl, var(--turq)); border: 1px solid var(--hl, var(--turq));
+  border-radius: 999px; padding: 10px 20px; transition: background .25s, color .25s;
+}
+.hlb-go:hover { background: var(--hl, var(--turq)); color: #05070f; }
+.hlb-x {
+  position: absolute; top: 10px; right: 12px; z-index: 4;
+  width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(245,241,232,.3);
+  background: rgba(5, 7, 15, .55); color: var(--ink); font-size: 22px; line-height: 1;
+  cursor: pointer; transition: background .25s, transform .25s;
+}
+.hlb-x:hover { background: rgba(245, 241, 232, .18); transform: rotate(90deg); }

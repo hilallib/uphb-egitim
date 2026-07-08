@@ -88,6 +88,71 @@
     window.dispatchEvent(new CustomEvent("magic-burst"));
   }
 
+  /* ── Hologram karesi → ışıklı açılış + sahne videosu ── */
+  var hlBox = null;
+  function openHoloLb(d) {
+    if (!hlBox) {
+      hlBox = document.createElement("div");
+      hlBox.className = "holo-lb";
+      hlBox.innerHTML =
+        '<div class="hlb-back"></div>' +
+        '<figure class="hlb-frame">' +
+        '  <span class="hlb-sweep"></span>' +
+        '  <video muted loop playsinline preload="auto"></video>' +
+        '  <figcaption><div class="hlb-cap"><b></b><i></i></div><a class="hlb-go"></a></figcaption>' +
+        '  <button class="hlb-x" aria-label="Kapat">×</button>' +
+        '</figure>';
+      document.body.appendChild(hlBox);
+      hlBox.querySelector(".hlb-back").addEventListener("click", closeHoloLb);
+      hlBox.querySelector(".hlb-x").addEventListener("click", closeHoloLb);
+      hlBox.querySelector(".hlb-go").addEventListener("click", function (ev) {
+        var href = this.getAttribute("href");
+        closeHoloLb();
+        if (href && href.charAt(0) === "#" && lenis) {
+          var el = document.querySelector(href);
+          if (el) { ev.preventDefault(); lenis.scrollTo(el, { offset: 0, duration: 1.6 }); }
+        }
+      });
+      addEventListener("keydown", function (ev) { if (ev.key === "Escape") closeHoloLb(); });
+    }
+    var v = hlBox.querySelector("video");
+    v.src = d.video;
+    if (d.poster) v.poster = d.poster;
+    hlBox.querySelector(".hlb-cap b").textContent = d.title;
+    hlBox.querySelector(".hlb-cap i").textContent = d.theme || "";
+    var go = hlBox.querySelector(".hlb-go");
+    go.textContent = d.cta;
+    go.setAttribute("href", d.href);
+    hlBox.style.setProperty("--hl", d.color);
+    hlBox.classList.add("show");
+    void hlBox.offsetWidth; // display:none → block geçişinde transition için reflow şart
+    hlBox.classList.add("open");
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    if (lenis) lenis.stop();
+  }
+  function closeHoloLb() {
+    if (!hlBox || !hlBox.classList.contains("show")) return;
+    var v = hlBox.querySelector("video");
+    v.pause();
+    hlBox.classList.remove("open");
+    setTimeout(function () {
+      hlBox.classList.remove("show");
+      v.removeAttribute("src"); v.load();
+    }, 480);
+    if (lenis) lenis.start();
+  }
+  window.addEventListener("holo-open", function (e) {
+    var d = e.detail;
+    // ışık patlaması tıklanan karenin üzerinden doğar
+    if (flash && window.gsap) {
+      flash.style.setProperty("--fx", d.fx + "%");
+      flash.style.setProperty("--fy", d.fy + "%");
+      gsap.fromTo(flash, { opacity: 0 },
+        { opacity: .95, duration: .18, ease: "power2.out", yoyo: true, repeat: 1, repeatDelay: .1 });
+    }
+    setTimeout(function () { openHoloLb(d); }, 230);
+  });
+
   if (window.gsap && window.ScrollTrigger && !reduced) {
     gsap.registerPlugin(ScrollTrigger);
 

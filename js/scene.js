@@ -15,6 +15,24 @@ if (canvas && !isMobile && !reduced) {
   catch (e) { canvas.style.display = "none"; console.warn("Atmosfer katmanı kapalı:", e && e.message); }
 }
 
+const HOLO_DATA = {
+  pink: {
+    video: "assets/video-anka.mp4", poster: "assets/scene-anka.jpg",
+    title: "Gün 1 · Üretken YZ", theme: "İlk Çağ'dan Üretken Zekâya",
+    href: "gun1.html", cta: "Gün 1'i keşfet →", color: "#df66bf"
+  },
+  turq: {
+    video: "assets/video-el.mp4", poster: "assets/scene-el.jpg",
+    title: "Gün 2 · Vibe Coding", theme: "Agora'dan Agent'a",
+    href: "gun2.html", cta: "Gün 2'yi keşfet →", color: "#00fff4"
+  },
+  blue: {
+    video: "assets/video-kozmik.mp4", poster: "assets/scene-posthuman.jpg",
+    title: "Çağ V · Posthuman Sıçrama", theme: "Analog kalp, dijital zekâ",
+    href: "#basvuru", cta: "Ücretsiz görüşmeye başvur →", color: "#4d6bff"
+  }
+};
+
 function init(mode) {
   const night = mode === "night";
   const PINK = 0xdf66bf, TURQ = 0x00fff4, GOLD = 0xe8b45a, BLUE = 0x4d6bff;
@@ -56,7 +74,7 @@ function init(mode) {
   // ---- katman B: süzülen hologram kartları (hafif, seyrek) ----
   const floaters = new THREE.Group();
   scene.add(floaters);
-  function holo(x, y, z, color, s, rot) {
+  function holo(x, y, z, color, s, rot, key) {
     const g = new THREE.Group();
     const plane = new THREE.Mesh(
       new THREE.PlaneGeometry(1.5 * s, 0.94 * s),
@@ -67,17 +85,52 @@ function init(mode) {
     g.add(plane, edge);
     g.position.set(x, y, z);
     g.rotation.set(rot[0], rot[1], rot[2]);
+    g.userData = { key, plane, edge, hover: 0 };
     floaters.add(g);
   }
   if (night) {
-    holo(-7.5, 2.6, -3, TURQ, 1.1, [-0.1, 0.5, 0.06]);
-    holo(8.0, -2.2, -5, PINK, 1.5, [0.14, -0.4, -0.05]);
-    holo(6.4, 3.4, -2, BLUE, 0.8, [0.05, -0.25, 0.1]);
+    holo(-7.5, 2.6, -3, TURQ, 1.1, [-0.1, 0.5, 0.06], "turq");
+    holo(8.0, -2.2, -5, PINK, 1.5, [0.14, -0.4, -0.05], "pink");
+    holo(6.4, 3.4, -2, BLUE, 0.8, [0.05, -0.25, 0.1], "blue");
   } else {
-    holo(-8.2, 3.0, -4, PINK, 1.3, [-0.12, 0.45, 0.05]);
-    holo(8.6, 2.2, -6, TURQ, 1.6, [0.1, -0.5, -0.04]);
-    holo(-6.8, -3.0, -2, BLUE, 0.9, [0.16, 0.3, 0.08]);
+    holo(-8.2, 3.0, -4, PINK, 1.3, [-0.12, 0.45, 0.05], "pink");
+    holo(8.6, 2.2, -6, TURQ, 1.6, [0.1, -0.5, -0.04], "turq");
+    holo(-6.8, -3.0, -2, BLUE, 0.9, [0.16, 0.3, 0.08], "blue");
   }
+
+  // ---- kareler tıklanabilir: raycast → hover parlaması + ışıklı video ----
+  const ray = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  let hovered = null;
+  function overUI(e) {
+    return e.target && e.target.closest &&
+      e.target.closest("a, button, input, textarea, select, label, form, nav, header, .holo-lb");
+  }
+  function pick(e) {
+    if (overUI(e)) { setHover(null); return; }
+    ndc.x = (e.clientX / innerWidth) * 2 - 1;
+    ndc.y = -(e.clientY / innerHeight) * 2 + 1;
+    ray.setFromCamera(ndc, camera);
+    const hit = ray.intersectObjects(floaters.children, true)[0];
+    setHover(hit ? hit.object.parent : null);
+  }
+  function setHover(g) {
+    if (hovered === g) return;
+    hovered = g;
+    document.body.classList.toggle("holo-hover", !!g);
+  }
+  addEventListener("click", e => {
+    if (overUI(e)) return;
+    pick(e);
+    const d = hovered && HOLO_DATA[hovered.userData.key];
+    if (!d) return;
+    window.dispatchEvent(new CustomEvent("holo-open", {
+      detail: Object.assign({
+        fx: (e.clientX / innerWidth) * 100,
+        fy: (e.clientY / innerHeight) * 100
+      }, d)
+    }));
+  });
 
   // ---- katman C: iki ışık ipliği (nefes alan bezier tüpler) ----
   function thread(a, b, lift, color) {
@@ -97,6 +150,7 @@ function init(mode) {
   addEventListener("pointermove", e => {
     mx = (e.clientX / innerWidth - 0.5) * 2;
     my = (e.clientY / innerHeight - 0.5) * 2;
+    pick(e);
   }, { passive: true });
   addEventListener("scroll", () => { scrollY = window.scrollY; }, { passive: true });
   addEventListener("resize", () => {
@@ -119,10 +173,15 @@ function init(mode) {
     // ateşböcekleri nefes alır
     fireflies.material.size = 0.13 + Math.sin(t * 1.6) * 0.045;
 
-    // hologramlar süzülür
+    // hologramlar süzülür + hover'da parlar
     floaters.children.forEach((g, i) => {
       g.position.y += Math.sin(t * (0.4 + i * 0.13) + i * 2.2) * 0.004;
       g.rotation.y += 0.0007 * (i % 2 ? 1 : -1);
+      const u = g.userData;
+      u.hover += ((g === hovered ? 1 : 0) - u.hover) * 0.12;
+      u.plane.material.opacity = 0.10 + u.hover * 0.22;
+      u.edge.material.opacity = 0.6 + u.hover * 0.4;
+      g.scale.setScalar(1 + u.hover * 0.14);
     });
 
     // iplikler nefes alır
