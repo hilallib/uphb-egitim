@@ -68,7 +68,8 @@ body {
   display: inline-flex; align-items: center; gap: 10px;
   padding: 6px 18px 6px 8px; border-radius: 999px;
   color: var(--ink-dim); text-decoration: none;
-  font-size: 13.5px; letter-spacing: .03em; font-weight: 600;
+  font-size: 11.5px; text-transform: uppercase;
+  letter-spacing: .16em; font-weight: 600;
   transition: all .3s; position: relative;
 }
 .nav-link .nl-orb {
@@ -1265,3 +1266,23 @@ body.holo-hover { cursor: pointer; }
   cursor: pointer; transition: background .25s, transform .25s;
 }
 .hlb-x:hover { background: rgba(245, 241, 232, .18); transform: rotate(90deg); }
+
+/* --- Sistem mimarisi sahnesi (Gün 2): galaksi + neon kareler + blend video --- */
+.mimari-stage {
+  position: relative; max-width: 1060px; margin: 54px auto 0;
+  border-radius: 22px; overflow: hidden;
+  border: 1px solid transparent;
+  background: linear-gradient(#04060d, #04060d) padding-box,
+    linear-gradient(100deg, var(--pink) 0%, #ff8fd8 42%, #5ff3ea 58%, var(--turq) 100%) border-box;
+  box-shadow: -18px 0 60px -18px rgba(223,102,191,.35), 18px 0 60px -18px rgba(0,255,244,.35), 0 26px 70px rgba(0,0,0,.55);
+}
+.ms-galaxy { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .3; }
+.mimari-stage .arch-uni { z-index: 1; }
+.mimari-stage .u-sq.sq-p { width: 44px; height: 27px; left: 7%; top: 14%; }
+.mimari-stage .u-sq.sq-t { width: 56px; height: 34px; right: 5%; top: 58%; }
+.mimari-stage .u-sq.sq-b { width: 30px; height: 19px; left: 16%; bottom: 10%; }
+.ms-video {
+  position: relative; z-index: 2; display: block; width: 100%;
+  aspect-ratio: 16 / 9; mix-blend-mode: screen;
+}
+@media (max-width: 860px) { .mimari-stage { border-radius: 14px; margin-top: 34px; } }
