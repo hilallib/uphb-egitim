@@ -116,8 +116,15 @@
       addEventListener("keydown", function (ev) { if (ev.key === "Escape") closeHoloLb(); });
     }
     var v = hlBox.querySelector("video");
+    // innerHTML ile gelen muted özniteliği bazı tarayıcılarda autoplay'e yetmiyor — özellikleri elle bas
+    v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = true;
     v.src = d.video;
     if (d.poster) v.poster = d.poster;
+    v.addEventListener("canplay", function () {
+      if (hlBox.classList.contains("show") && v.paused) {
+        var p2 = v.play(); if (p2 && p2.catch) p2.catch(function () {});
+      }
+    }, { once: true });
     hlBox.querySelector(".hlb-cap b").textContent = d.title;
     hlBox.querySelector(".hlb-cap i").textContent = d.theme || "";
     var go = hlBox.querySelector(".hlb-go");
