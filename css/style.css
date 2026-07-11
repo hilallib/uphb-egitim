@@ -1331,3 +1331,31 @@ body.holo-hover { cursor: pointer; }
   .muzik-btn{ left:16px; bottom:16px; height:50px; padding:0 16px 0 14px; }
   .muzik-etiket{ font-size:12.5px; }
 }
+
+/* ── Platform sayfası ───────────────────────────── */
+.page-platform main{ min-height:100vh; }
+.platform-hero{
+  max-width:720px; margin:0 auto; padding:130px 24px 80px;
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+}
+.platform-hero h1{ font-size:clamp(42px,7vw,72px); margin:10px 0 14px; }
+.platform-hero .lead{ max-width:560px; }
+.platform-video-card{
+  margin:36px auto 34px; width:min(420px,86vw); border-radius:22px; overflow:hidden;
+  border:1.5px solid rgba(0,255,244,.4);
+  box-shadow:0 24px 70px rgba(0,0,0,.55), 0 0 42px rgba(223,102,191,.22);
+  transform:rotate(-1.2deg);
+}
+.platform-video-card video{ display:block; width:100%; height:auto; }
+.platform-cta{
+  display:inline-flex; align-items:center; gap:12px;
+  padding:18px 38px; border-radius:999px; text-decoration:none;
+  font-weight:700; font-size:17px; letter-spacing:.02em; color:#0A1020;
+  background:linear-gradient(100deg,#00FFF4,#7ce8ff);
+  box-shadow:0 10px 34px rgba(0,255,244,.35);
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.platform-cta:hover{ transform:translateY(-3px); box-shadow:0 16px 44px rgba(0,255,244,.5); }
+.pc-icon{ display:flex; }
+.platform-not{ margin-top:18px; color:rgba(244,239,230,.55); font-size:13.5px; }
+.platform-not a{ color:#00FFF4; }

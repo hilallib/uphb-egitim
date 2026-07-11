@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eğitim Platformu | UP-HB Academy</title>
+<meta name="description" content="UP-HB Academy Eğitim Platformu — katılımcılara özel araç linkleri, prompt şablonları ve rehberli kurulum. Giriş yap, çağ atlamaya devam et.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v25">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+</head>
+<body class="page-gun2 page-platform" data-music="assets/music/arabesque.mp3" data-music-adi="Debussy — Arabesque No.1">
+
+<canvas id="scene" data-scene="night"></canvas>
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<header class="topbar">
+  <a href="index.html"><img src="assets/logo-beyaz.png" alt="UP-HB Academy"></a>
+  <nav class="nav-pill">
+    <a href="index.html" class="nav-link "><span class="nl-orb" style="--orb:#e8b45a"><img src="assets/thumb-agora.jpg" alt=""></span><span>Hikâye</span></a>
+    <a href="gun1.html" class="nav-link "><span class="nl-orb" style="--orb:#df66bf"><img src="assets/thumb-anka.jpg" alt=""></span><span>Gün 1 · Üretken YZ</span></a>
+    <a href="gun2.html" class="nav-link "><span class="nl-orb" style="--orb:#00fff4"><img src="assets/thumb-agent.jpg" alt=""></span><span>Gün 2 · Vibe Coding</span></a>
+    <a href="platform.html" class="nav-link active"><span class="nl-orb" style="--orb:#ff2fa0"><img src="assets/thumb-platform.jpg" alt=""></span><span>Platform</span></a>
+  </nav>
+<button class="nav-burger" id="navBurger" aria-label="Menü"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <nav>
+    <a href="index.html" class="mm-link "><img class="mm-orb" style="--orb:#e8b45a" src="assets/thumb-agora.jpg" alt="">Hikâye</a>
+    <a href="gun1.html" class="mm-link "><img class="mm-orb" style="--orb:#df66bf" src="assets/thumb-anka.jpg" alt="">Gün 1 · Üretken YZ</a>
+    <a href="gun2.html" class="mm-link "><img class="mm-orb" style="--orb:#00fff4" src="assets/thumb-agent.jpg" alt="">Gün 2 · Vibe Coding</a>
+    <a href="platform.html" class="mm-link active"><img class="mm-orb" style="--orb:#ff2fa0" src="assets/thumb-platform.jpg" alt="">Platform</a>
+  </nav>
+</div>
+
+<main>
+  <section class="platform-hero">
+    <p class="kicker" data-fade>Üretken AI Hub · Katılımcılara Özel</p>
+    <h1 data-fade>Eğitim <span class="hl">Platformu</span></h1>
+    <p class="lead" data-fade>Araç linkleri, prompt şablonları ve rehberli kurulum — hepsi tek yerde.<br>Eğitimde aldığın şifreyle giriş yap, kaldığın çağdan devam et.</p>
+
+    <div class="platform-video-card" data-fade>
+      <video autoplay muted loop playsinline poster="assets/scene-platform.jpg">
+        <source src="assets/video-platform.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <a class="platform-cta" href="https://egitim-platformu.replit.app/" target="_blank" rel="noopener" data-fade>
+      <span class="pc-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </span>
+      <span>Platforma Giriş Yap</span>
+    </a>
+    <p class="platform-not" data-fade>Şifren yok mu? Şifreler eğitim öncesi birebir görüşmede paylaşılır — <a href="index.html#basvuru">ön başvuru</a> ile başla.</p>
+  </section>
+</main>
+
+<footer>
+  <div><span class="made-with">⚡ Bu sayfa vibe coding ile yapıldı — görseller dahil</span></div>
+  <p class="fine">© 2026 UP-HB Academy · hb-academy.com.tr</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="js/main.js?v23"></script>
+<script src="js/music.js?v2"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module" src="js/scene.js?v23"></script>
+</body>
+</html>
