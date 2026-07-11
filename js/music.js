@@ -35,7 +35,7 @@
         clearInterval(rampa);
         if (bitince) bitince();
       } else {
-        audio.volume = Math.max(0, Math.min(1, audio.volume + fark * 0.12));
+        audio.volume = Math.max(0, Math.min(1, audio.volume + fark * 0.3));
       }
     }, 40);
   }
