@@ -67,13 +67,20 @@
   try { tercih = localStorage.getItem("muzikAcik") || "0"; } catch (e) {}
   if (tercih === "1") {
     ac();
-    // Otomatik oynatma engellendiyse ilk kullanıcı hareketinde başlat
-    var ilkHareket = function () {
-      if (!calisiyor && tercih === "1") ac();
-      if (calisiyor) {
-        document.removeEventListener("click", ilkHareket);
-        document.removeEventListener("scroll", ilkHareket);
-      }
+    // Otomatik oynatma engellendiyse ilk kullanıcı hareketinde başlat.
+    // ÖNEMLİ: butona yapılan tıklama bu dinleyiciye GİRMEZ — yoksa butonun
+    // kendi aç/kapa mantığıyla çakışıp müziği açar-kapatır (11.07 Handel hatası).
+    var basladi = false;
+    var ilkHareket = function (e) {
+      if (e && e.target && e.target.closest && e.target.closest(".muzik-btn")) return;
+      if (basladi || calisiyor) { temizle(); return; }
+      basladi = true;
+      ac();
+      temizle();
+    };
+    var temizle = function () {
+      document.removeEventListener("click", ilkHareket);
+      document.removeEventListener("scroll", ilkHareket);
     };
     document.addEventListener("click", ilkHareket);
     document.addEventListener("scroll", ilkHareket, { passive: true });
