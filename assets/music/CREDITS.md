@@ -23,5 +23,5 @@ Kredi vermek istemezsen bu parçayı kamu malı bir Sarabande kaydıyla değişt
 
 ## Not — kayıt kalitesi
 - **Chopin (Gün 2):** İlk konan Godowsky/Op.9 No.2 kaydı 1920'lerden tarihiydi ve CIZIRTILIYDI (Hilal 11.07 bildirdi) → temiz CC0 modern parso kaydı Op.55 No.1 ile DEĞİŞTİRİLDİ. Not: tam "Op.9 No.2"nin hem temiz hem telifsiz kaydı bulunamadı; onu birebir isteyen Musopen'den (ücretsiz hesap) indirmeli.
-- **Debussy (index):** Ada Sassoli kaydı da tarihi — cızırtı olursa aynı şekilde temiz CC0 ile değiştirilebilir (Hilal henüz bir sorun bildirmedi).
+- **Debussy (index+platform):** Ada Sassoli kaydı cızırtılıydı (Hilal 11.07 bildirdi) → ffmpeg restorasyonu yapıldı (adeclick+afftdn+bant filtresi) → `arabesque-v2.mp3`. Hâlâ yetersizse: Musopen CC0 versiyonu elle indirilecek ya da parça değişecek.
 - **Handel (Gün 1):** zero-project modern kayıt, ses temiz.
