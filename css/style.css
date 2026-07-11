@@ -1286,3 +1286,48 @@ body.holo-hover { cursor: pointer; }
   aspect-ratio: 16 / 9; mix-blend-mode: screen;
 }
 @media (max-width: 860px) { .mimari-stage { border-radius: 14px; margin-top: 34px; } }
+
+/* ── Arka plan müziği butonu ───────────────────────────── */
+.muzik-btn{
+  position:fixed; left:24px; bottom:24px; z-index:120;
+  display:flex; align-items:center; gap:10px;
+  height:54px; padding:0 20px 0 17px; border:1.5px solid rgba(252,202,3,.7);
+  background:rgba(10,16,32,.85); backdrop-filter:blur(10px);
+  border-radius:999px; cursor:pointer;
+  box-shadow:0 4px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(252,202,3,.5);
+  transition:border-color .25s ease, box-shadow .25s ease, transform .2s ease;
+  font-family:inherit; animation:muzikDikkat 2.8s ease-in-out infinite;
+}
+.muzik-btn:hover{ border-color:rgba(252,202,3,1); transform:translateY(-2px); }
+.muzik-btn.calisiyor{ animation:none; }
+@keyframes muzikDikkat{
+  0%,100%{ box-shadow:0 4px 20px rgba(0,0,0,.4), 0 0 0 0 rgba(252,202,3,.5); }
+  50%{ box-shadow:0 4px 20px rgba(0,0,0,.4), 0 0 0 8px rgba(252,202,3,0); }
+}
+.muzik-ikon{
+  width:18px; height:18px; flex:0 0 auto; position:relative;
+  background:
+    radial-gradient(circle at 5px 14px, #FCCA03 3.2px, transparent 3.4px),
+    radial-gradient(circle at 13px 12px, #FCCA03 3.2px, transparent 3.4px);
+}
+.muzik-ikon::before{ /* nota sapları */
+  content:""; position:absolute; left:7px; top:2px; width:1.5px; height:12px; background:#FCCA03;
+  box-shadow:8px 0 0 #FCCA03; transform:rotate(0deg);
+}
+.muzik-ikon::after{ /* çalarken yanıp sönen halka */
+  content:""; position:absolute; inset:-6px; border-radius:50%;
+  border:1.5px solid rgba(252,202,3,0); transition:border-color .3s;
+}
+.muzik-btn.calisiyor .muzik-ikon::after{
+  border-color:rgba(252,202,3,.5); animation:muzikPulse 1.6s ease-in-out infinite;
+}
+@keyframes muzikPulse{ 0%,100%{transform:scale(1);opacity:.7} 50%{transform:scale(1.15);opacity:.2} }
+.muzik-etiket{
+  white-space:nowrap; color:#F4EFE6; font-size:13.5px; font-weight:600;
+  letter-spacing:.02em;
+}
+.muzik-etiket::before{ content:"🎵 "; }
+@media (max-width:860px){
+  .muzik-btn{ left:16px; bottom:16px; height:50px; padding:0 16px 0 14px; }
+  .muzik-etiket{ font-size:12.5px; }
+}
