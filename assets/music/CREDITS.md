@@ -32,3 +32,7 @@ Kredi vermek istemezsen bu parçayı kamu malı bir Sarabande kaydıyla değişt
 - Ana sayfa + Platform: Arabesque (tarihi kayıt, restore yetmedi) → **Clair de Lune (Goedhart, CC BY 3.0, Wikimedia Commons)**. Kaynak: commons.wikimedia.org 'Clair de lune (Claude Debussy) Suite bergamasque.ogg'
 - CC-BY yükümlülüğü kapatıldı: 4 sayfanın footer'ına müzik kredisi satırı eklendi (Debussy + Handel + Chopin).
 - music.js v4: fade hızlandırıldı (geç başlama şikayeti), baştaki sessizlik mp3'te kırpıldı.
+
+## GÜNCELLEME 2 (11.07 gece)
+- **Platform sayfası (UP-HB Üretken HUB):** Clair de Lune → **Bach — Cello Suite No.1 Prelüd (Kevin MacLeod, incompetech.com, CC BY 3.0)** — Hilal'in isteği. Kaynak: Wikimedia Commons "Cello Suite -1 in G - Prelude (ISRC USUAN1100298).mp3". Atıf footer kredi satırına eklendi (4 sayfa).
+- Ana sayfa Clair de Lune'de kaldı.
