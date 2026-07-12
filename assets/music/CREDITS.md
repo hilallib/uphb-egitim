@@ -36,3 +36,7 @@ Kredi vermek istemezsen bu parçayı kamu malı bir Sarabande kaydıyla değişt
 ## GÜNCELLEME 2 (11.07 gece)
 - **Platform sayfası (UP-HB Üretken HUB):** Clair de Lune → **Bach — Cello Suite No.1 Prelüd (Kevin MacLeod, incompetech.com, CC BY 3.0)** — Hilal'in isteği. Kaynak: Wikimedia Commons "Cello Suite -1 in G - Prelude (ISRC USUAN1100298).mp3". Atıf footer kredi satırına eklendi (4 sayfa).
 - Ana sayfa Clair de Lune'de kaldı.
+
+## GÜNCELLEME 3 (11.07 gece)
+- **Gün 2 (Vibe Coding):** Chopin Nocturne → **Beethoven — Ay Işığı Sonatı 1. bölüm (Adagio sostenuto), Paul Pitman, KAMU MALI (Musopen kaydı)** — Hilal'in isteği. Kaynak: Wikimedia Commons. Atıf gerekmez; footer'da yine de anıldı.
+- Chopin (chopin-nocturne.mp3) repertuvardan çıktı, dosya arşivde duruyor.
