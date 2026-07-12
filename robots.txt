@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hilallib.github.io/uphb-egitim/sitemap.xml
