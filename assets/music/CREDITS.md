@@ -40,3 +40,6 @@ Kredi vermek istemezsen bu parçayı kamu malı bir Sarabande kaydıyla değişt
 ## GÜNCELLEME 3 (11.07 gece)
 - **Gün 2 (Vibe Coding):** Chopin Nocturne → **Beethoven — Ay Işığı Sonatı 1. bölüm (Adagio sostenuto), Paul Pitman, KAMU MALI (Musopen kaydı)** — Hilal'in isteği. Kaynak: Wikimedia Commons. Atıf gerekmez; footer'da yine de anıldı.
 - Chopin (chopin-nocturne.mp3) repertuvardan çıktı, dosya arşivde duruyor.
+
+## GÜNCELLEME 4 (11.07 gece)
+- **Platform (UP-HB Üretken HUB):** Kevin MacLeod versiyonu (örneklenmiş çello, Hilal beğenmedi) → **John Michel — GERÇEK çello kaydı** (Bach Cello Suite No.1 Prelüd, CC BY-SA 3.0, Wikimedia Commons) → bach-cello-v2.mp3. Footer kredisi güncellendi.
