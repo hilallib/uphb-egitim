@@ -22,6 +22,62 @@
     });
   }
 
+  /* ── Video 3D derinlik sahnesi ──
+     Video + fallback aynı stage içinde tutulur. Böylece mevcut lazy-loading,
+     poster ve GSAP panorama hareketi korunurken perspektif ayrı katmanda yaşar. */
+  var depthStages = [];
+  document.querySelectorAll(".scene .bg").forEach(function (bg, index) {
+    var video = bg.querySelector(":scope > video");
+    if (!video) return;
+
+    var stage = document.createElement("div");
+    stage.className = "video-depth-stage";
+    stage.style.setProperty("--depth-direction", index % 2 ? -1 : 1);
+    bg.insertBefore(stage, video);
+    stage.appendChild(video);
+
+    var fallback = bg.querySelector(":scope > .bg-fallback");
+    if (fallback) stage.appendChild(fallback);
+
+    var rim = document.createElement("span");
+    rim.className = "video-depth-rim";
+    rim.setAttribute("aria-hidden", "true");
+    stage.appendChild(rim);
+    bg.classList.add("has-video-depth");
+    depthStages.push(stage);
+  });
+
+  if (depthStages.length && !mobile && !reduced) {
+    var depthFrame = 0;
+    var depthTargetX = 0;
+    var depthTargetY = 0;
+    var depthCurrentX = 0;
+    var depthCurrentY = 0;
+
+    function renderVideoDepth() {
+      depthCurrentX += (depthTargetX - depthCurrentX) * 0.075;
+      depthCurrentY += (depthTargetY - depthCurrentY) * 0.075;
+      document.documentElement.style.setProperty("--video-light-x", (50 + depthCurrentX * 24).toFixed(2) + "%");
+      document.documentElement.style.setProperty("--video-light-y", (48 + depthCurrentY * 20).toFixed(2) + "%");
+      depthStages.forEach(function (stage) {
+        var direction = parseFloat(stage.style.getPropertyValue("--depth-direction")) || 1;
+        var contain = stage.closest(".scene-contain");
+        var pitch = contain ? 1.1 : 1.9;
+        var yaw = contain ? 1.35 : 2.4;
+        stage.style.setProperty("--video-depth-rx", (-depthCurrentY * pitch).toFixed(3) + "deg");
+        stage.style.setProperty("--video-depth-ry", (depthCurrentX * direction * yaw).toFixed(3) + "deg");
+      });
+      depthFrame = requestAnimationFrame(renderVideoDepth);
+    }
+
+    addEventListener("pointermove", function (e) {
+      depthTargetX = (e.clientX / innerWidth - 0.5) * 2;
+      depthTargetY = (e.clientY / innerHeight - 0.5) * 2;
+    }, { passive: true });
+    addEventListener("blur", function () { depthTargetX = 0; depthTargetY = 0; });
+    depthFrame = requestAnimationFrame(renderVideoDepth);
+  }
+
   /* lazy videolar: sahneye yaklaşınca yükle+oynat, uzaklaşınca durdur */
   var lazyVids = document.querySelectorAll("video.lazy-vid");
   if ("IntersectionObserver" in window && lazyVids.length) {
