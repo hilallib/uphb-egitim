@@ -147,31 +147,6 @@ body {
   translate: 0 0 22px;
   backface-visibility: hidden;
 }
-.video-parallax-layer {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  backface-visibility: hidden;
-  will-change: transform;
-}
-.video-parallax-mid {
-  z-index: 2;
-  transform:
-    translate3d(var(--parallax-mid-x, 0), var(--parallax-mid-y, 0), 46px)
-    scale(1.035);
-  filter: saturate(1.08) contrast(1.025);
-  -webkit-mask-image: radial-gradient(ellipse 49% 52% at 50% 51%, #000 46%, rgba(0,0,0,.78) 65%, transparent 100%);
-  mask-image: radial-gradient(ellipse 49% 52% at 50% 51%, #000 46%, rgba(0,0,0,.78) 65%, transparent 100%);
-}
-.video-parallax-near {
-  z-index: 3;
-  transform:
-    translate3d(var(--parallax-near-x, 0), var(--parallax-near-y, 0), 82px)
-    scale(1.065);
-  filter: saturate(1.13) contrast(1.045) brightness(1.035);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 49%, rgba(0,0,0,.12) 58%, rgba(0,0,0,.72) 76%, #000 100%);
-  mask-image: linear-gradient(to bottom, transparent 49%, rgba(0,0,0,.12) 58%, rgba(0,0,0,.72) 76%, #000 100%);
-}
 .video-depth-stage::before,
 .video-depth-stage::after,
 .video-depth-rim {
@@ -284,8 +259,6 @@ body {
   .video-depth-stage { transition: transform .08s linear; }
   .video-depth-stage > video,
   .video-depth-stage > .bg-fallback { translate: 0 0 12px; }
-  .video-parallax-mid { transform: translate3d(var(--parallax-mid-x, 0), var(--parallax-mid-y, 0), 24px) scale(1.025); }
-  .video-parallax-near { transform: translate3d(var(--parallax-near-x, 0), var(--parallax-near-y, 0), 38px) scale(1.04); }
   .video-depth-stage::before { opacity: .42; translate: 0 0 24px; }
   .video-depth-stage::after { translate: 0 0 32px; }
   .video-depth-rim { display: block; opacity: .25; translate: 0 0 38px; }
@@ -301,7 +274,6 @@ body {
   }
   .video-depth-stage > video,
   .video-depth-stage > .bg-fallback { translate: none; }
-  .video-parallax-layer { display: none; }
   .video-depth-stage::before { opacity: .26; translate: none; }
   .video-depth-stage::after { translate: none; }
   .video-depth-rim { display: none; }
