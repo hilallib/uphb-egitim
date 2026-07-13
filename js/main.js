@@ -43,6 +43,17 @@
     rim.className = "video-depth-rim";
     rim.setAttribute("aria-hidden", "true");
     stage.appendChild(rim);
+
+    /* Aynı video karesini iki maskeli canvas katmanına kopyala. Video tek parça
+       eğilmek yerine görüntünün orta ve yakın planı farklı hızlarda kayar. */
+    if (!reduced) {
+      ["mid", "near"].forEach(function (plane) {
+        var canvas = document.createElement("canvas");
+        canvas.className = "video-parallax-layer video-parallax-" + plane;
+        canvas.setAttribute("aria-hidden", "true");
+        stage.appendChild(canvas);
+      });
+    }
     bg.classList.add("has-video-depth");
     depthStages.push(stage);
   });
@@ -53,6 +64,39 @@
     var depthTargetY = 0;
     var depthCurrentX = 0;
     var depthCurrentY = 0;
+
+    function paintParallaxLayers(stage) {
+      var video = stage.querySelector(":scope > video");
+      if (!video || video.readyState < 2 || !video.videoWidth) return;
+      var rect = stage.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > innerHeight || rect.width < 1 || rect.height < 1) return;
+      /* getBoundingClientRect dönüşüm sonrası ölçüyü verir; video/canvas hizası için
+         dönüşüm öncesi layout ölçüsü kullanılmalı. */
+      var stageWidth = stage.offsetWidth;
+      var stageHeight = stage.offsetHeight;
+      var renderScale = Math.min(1, 1100 / Math.max(stageWidth, stageHeight));
+      var width = Math.max(2, Math.round(stageWidth * renderScale));
+      var height = Math.max(2, Math.round(stageHeight * renderScale));
+      var sourceRatio = video.videoWidth / video.videoHeight;
+      var targetRatio = width / height;
+      var sx = 0, sy = 0, sw = video.videoWidth, sh = video.videoHeight;
+      if (sourceRatio > targetRatio) {
+        sw = video.videoHeight * targetRatio;
+        sx = (video.videoWidth - sw) / 2;
+      } else {
+        sh = video.videoWidth / targetRatio;
+        sy = (video.videoHeight - sh) / 2;
+      }
+      stage.querySelectorAll(".video-parallax-layer").forEach(function (canvas) {
+        if (canvas.width !== width || canvas.height !== height) {
+          canvas.width = width;
+          canvas.height = height;
+        }
+        var context = canvas.getContext("2d", { alpha: true });
+        context.clearRect(0, 0, width, height);
+        context.drawImage(video, sx, sy, sw, sh, 0, 0, width, height);
+      });
+    }
 
     function updateDepthScroll() {
       depthStages.forEach(function (stage) {
@@ -93,6 +137,11 @@
         stage.style.setProperty("--video-depth-scale", scale.toFixed(4));
         stage.style.setProperty("--video-depth-tx", (phase * direction * (mobile ? 7 : 20)).toFixed(2) + "px");
         stage.style.setProperty("--video-depth-ty", (phase * (mobile ? -5 : -13)).toFixed(2) + "px");
+        stage.style.setProperty("--parallax-mid-x", ((phase * direction + pointerX * .65) * (mobile ? 10 : 24)).toFixed(2) + "px");
+        stage.style.setProperty("--parallax-mid-y", ((-phase + pointerY * .45) * (mobile ? 7 : 16)).toFixed(2) + "px");
+        stage.style.setProperty("--parallax-near-x", ((phase * direction + pointerX * .8) * (mobile ? 17 : 43)).toFixed(2) + "px");
+        stage.style.setProperty("--parallax-near-y", ((-phase + pointerY * .6) * (mobile ? 12 : 29)).toFixed(2) + "px");
+        paintParallaxLayers(stage);
       });
       depthFrame = requestAnimationFrame(renderVideoDepth);
     }
