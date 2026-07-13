@@ -47,34 +47,66 @@
     depthStages.push(stage);
   });
 
-  if (depthStages.length && !mobile && !reduced) {
+  if (depthStages.length && !reduced) {
     var depthFrame = 0;
     var depthTargetX = 0;
     var depthTargetY = 0;
     var depthCurrentX = 0;
     var depthCurrentY = 0;
 
+    function updateDepthScroll() {
+      depthStages.forEach(function (stage) {
+        var scene = stage.closest(".scene");
+        var rect = scene.getBoundingClientRect();
+        var progress;
+        if (mobile) {
+          progress = (innerHeight - rect.top) / Math.max(1, innerHeight + rect.height);
+        } else {
+          progress = -rect.top / Math.max(1, rect.height - innerHeight);
+        }
+        progress = Math.max(0, Math.min(1, progress));
+        stage._depthPhase = (progress - 0.5) * 2;
+        stage._depthWave = Math.sin(progress * Math.PI);
+      });
+    }
+
     function renderVideoDepth() {
+      var idle = Math.sin(performance.now() / 2200);
       depthCurrentX += (depthTargetX - depthCurrentX) * 0.075;
       depthCurrentY += (depthTargetY - depthCurrentY) * 0.075;
-      document.documentElement.style.setProperty("--video-light-x", (50 + depthCurrentX * 24).toFixed(2) + "%");
-      document.documentElement.style.setProperty("--video-light-y", (48 + depthCurrentY * 20).toFixed(2) + "%");
+      document.documentElement.style.setProperty("--video-light-x", (50 + depthCurrentX * 28 + idle * 3).toFixed(2) + "%");
+      document.documentElement.style.setProperty("--video-light-y", (48 + depthCurrentY * 22 - idle * 2).toFixed(2) + "%");
       depthStages.forEach(function (stage) {
         var direction = parseFloat(stage.style.getPropertyValue("--depth-direction")) || 1;
         var contain = stage.closest(".scene-contain");
-        var pitch = contain ? 1.1 : 1.9;
-        var yaw = contain ? 1.35 : 2.4;
-        stage.style.setProperty("--video-depth-rx", (-depthCurrentY * pitch).toFixed(3) + "deg");
-        stage.style.setProperty("--video-depth-ry", (depthCurrentX * direction * yaw).toFixed(3) + "deg");
+        var phase = stage._depthPhase == null ? -1 : stage._depthPhase;
+        var wave = stage._depthWave || 0;
+        var pitch = contain ? 1.2 : (mobile ? 1.35 : 2.15);
+        var yaw = contain ? 1.8 : (mobile ? 2.5 : 4.6);
+        var pointerX = mobile ? 0 : depthCurrentX;
+        var pointerY = mobile ? 0 : depthCurrentY;
+        var rx = -pointerY * pitch - phase * (contain ? 0.8 : (mobile ? 1.1 : 2.2)) + idle * 0.22;
+        var ry = pointerX * direction * yaw + phase * direction * yaw + idle * direction * 0.3;
+        var scale = (contain ? 1.025 : (mobile ? 1.055 : 1.075)) + wave * (contain ? 0.012 : 0.035);
+        stage.style.setProperty("--video-depth-rx", rx.toFixed(3) + "deg");
+        stage.style.setProperty("--video-depth-ry", ry.toFixed(3) + "deg");
+        stage.style.setProperty("--video-depth-scale", scale.toFixed(4));
+        stage.style.setProperty("--video-depth-tx", (phase * direction * (mobile ? 7 : 20)).toFixed(2) + "px");
+        stage.style.setProperty("--video-depth-ty", (phase * (mobile ? -5 : -13)).toFixed(2) + "px");
       });
       depthFrame = requestAnimationFrame(renderVideoDepth);
     }
 
-    addEventListener("pointermove", function (e) {
-      depthTargetX = (e.clientX / innerWidth - 0.5) * 2;
-      depthTargetY = (e.clientY / innerHeight - 0.5) * 2;
-    }, { passive: true });
+    if (!mobile) {
+      addEventListener("pointermove", function (e) {
+        depthTargetX = (e.clientX / innerWidth - 0.5) * 2;
+        depthTargetY = (e.clientY / innerHeight - 0.5) * 2;
+      }, { passive: true });
+    }
     addEventListener("blur", function () { depthTargetX = 0; depthTargetY = 0; });
+    addEventListener("scroll", updateDepthScroll, { passive: true });
+    addEventListener("resize", updateDepthScroll, { passive: true });
+    updateDepthScroll();
     depthFrame = requestAnimationFrame(renderVideoDepth);
   }
 
