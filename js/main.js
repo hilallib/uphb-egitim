@@ -373,7 +373,7 @@
         phone: form.phone.value.trim(),
         job: form.job.value.trim(),
         message: form.message.value.trim(),
-        _subject: "Üretken YZ & Vibe Coding — Ücretsiz Görüşme Başvurusu: " + form.name.value.trim(),
+        _subject: "Üretken YZ & AI Agents — Ücretsiz Görüşme Başvurusu: " + form.name.value.trim(),
         _template: "table",
         _captcha: "false"
       };
@@ -410,7 +410,7 @@
                    "%0D%0ATelefon: " + data.phone + "%0D%0AMeslek: " + data.job +
                    "%0D%0ABeklenti: " + encodeURIComponent(data.message);
         location.href = "mailto:hb@hb-academy.com.tr?subject=" +
-          encodeURIComponent("Üretken YZ & Vibe Coding — Ücretsiz Görüşme Başvurusu: " + data.name) + "&body=" + body;
+          encodeURIComponent("Üretken YZ & AI Agents — Ücretsiz Görüşme Başvurusu: " + data.name) + "&body=" + body;
       });
     });
   }

@@ -23,7 +23,7 @@ const HOLO_DATA = {
   },
   turq: {
     video: "assets/video-evrim-lb.mp4", poster: "assets/scene-evrim.jpg",
-    title: "Gün 2 · Vibe Coding", theme: "Agora'dan Agent'a",
+    title: "Gün 2 · AI Agents", theme: "Agora'dan Agent'a",
     href: "gun2.html", cta: "Gün 2'yi keşfet →", color: "#00fff4"
   },
   blue: {
