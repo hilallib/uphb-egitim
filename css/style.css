@@ -1468,7 +1468,7 @@ body.holo-hover { cursor: pointer; }
    Sahne arka planına dokunmaz: kendi katmanında süzülür.
    ============================================================ */
 .agent-cloud {
-  position: absolute; z-index: 2;
+  position: absolute; z-index: 3; /* .layer.content'in (z:2) ustunde kalmali, yoksa chip tiklamalarini o katman yutar */
   left: 5vw; right: 4vw; top: 11vh; height: 46vh;
   pointer-events: none;
 }
