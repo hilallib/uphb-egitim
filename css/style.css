@@ -103,9 +103,10 @@ body {
 /* ============================================================
    SAHNE SİSTEMİ — pinlenen sinematik perdeler
    ============================================================ */
-.scene { position: relative; height: 300vh; }
+.scene { position: relative; height: 300vh; height: 300svh; }
 .scene .pin {
-  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  /* svh: mobilde adres cubugu gizlenirken yukseklik degisip sayfayi ziplatmasin */
+  position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden;
   will-change: transform, opacity, border-radius;
 }
 .scene .layer { position: absolute; inset: 0; }
@@ -1608,3 +1609,11 @@ body.holo-hover { cursor: pointer; }
 }
 .no-motion .ac-chip { animation: none; }
 .no-motion .ac-agent { animation: none; opacity: 1; transform: none; }
+
+/* ── Mobil: alt köşe elemanları (müzik / portal / CTA) çakışmasın ── */
+@media (max-width: 640px) {
+  .muzik-btn { left: 12px; bottom: 12px; height: 46px; padding: 0 15px; }
+  .muzik-btn .muzik-etiket { display: none; } /* parça adı dar ekranda CTA'nın üstüne biniyordu */
+  .sticky-cta, .sticky-cta.cta-digital { right: 12px; bottom: 12px; }
+  .cta-portal { right: 10px; bottom: 10px; transform: scale(.78); transform-origin: bottom right; }
+}

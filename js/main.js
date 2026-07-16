@@ -47,7 +47,7 @@
     depthStages.push(stage);
   });
 
-  if (depthStages.length && !reduced) {
+  if (depthStages.length && !reduced && !mobile) { /* mobilde surekli rAF dongusu kaydirmayi tikiyordu */
     var depthFrame = 0;
     var depthTargetX = 0;
     var depthTargetY = 0;
@@ -117,6 +117,7 @@
       entries.forEach(function (en) {
         var v = en.target;
         if (en.isIntersecting) {
+          if (mobile && v.poster) return; // mobilde buyuk sahne videolari yerine poster: 4K video decode kaydirmayi kilitliyor
           if (v.preload === "none") v.preload = "auto";
           var p = v.play(); if (p && p.catch) p.catch(function(){});
         } else {
@@ -250,6 +251,8 @@
 
   if (window.gsap && window.ScrollTrigger && !reduced) {
     gsap.registerPlugin(ScrollTrigger);
+    // mobilde adres cubugu gizlenince tetiklenen resize, refresh + sicramaya yol aciyordu
+    ScrollTrigger.config({ ignoreMobileResize: true });
 
     /* ── ÇAĞ SAHNELERİ: pin + panorama + katman derinliği ── */
     document.querySelectorAll(".scene").forEach(function (scene, idx) {
