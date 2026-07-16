@@ -1066,7 +1066,7 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
   white-space: nowrap;
 }
 .p-left::after { content: "ÜRETKEN YZ"; color: rgba(255,210,240,.9); text-shadow: 0 0 10px rgba(223,102,191,.7); }
-.p-right::after { content: "VİBE CODING"; color: rgba(200,255,252,.9); }
+.p-right::after { content: "AI AGENTS"; color: rgba(200,255,252,.9); }
 .db-arch .p-door::after { content: none; }
 .p-left { left: 0; border-right: 1px solid rgba(0,255,244,.9);
   box-shadow: inset -6px 0 14px rgba(0,255,244,.35);
