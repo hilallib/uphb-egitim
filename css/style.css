@@ -1462,3 +1462,149 @@ body.holo-hover { cursor: pointer; }
 .pc-icon{ display:flex; }
 .platform-not{ margin-top:18px; color:rgba(244,239,230,.55); font-size:13.5px; }
 .platform-not a{ color:#00FFF4; }
+
+/* ============================================================
+   MESLEK BULUTU — futuristik HUD: meslek → AI Agent ekibi (gun2)
+   Sahne arka planına dokunmaz: kendi katmanında süzülür.
+   ============================================================ */
+.agent-cloud {
+  position: absolute; z-index: 2;
+  left: 5vw; right: 4vw; top: 11vh; height: 46vh;
+  pointer-events: none;
+}
+.ac-sm-title { font-size: clamp(20px, 2.3vw, 31px) !important; margin-bottom: 8px; }
+.ac-hint {
+  position: absolute; top: -5vh; left: 6%;
+  display: flex; align-items: center; gap: 10px;
+  font-family: "SF Mono", "Menlo", monospace;
+  font-size: 11.5px; letter-spacing: .3em; text-transform: uppercase;
+  color: rgba(0,255,244,.75); text-shadow: 0 0 14px rgba(0,255,244,.5);
+}
+.ac-hint::before { content: "[ "; color: rgba(245,241,232,.4); }
+.ac-hint::after { content: " ]"; color: rgba(245,241,232,.4); }
+.ac-hint-dot {
+  width: 7px; height: 7px; background: var(--turq);
+  box-shadow: 0 0 14px var(--turq); animation: acPulse 1.8s ease-in-out infinite;
+}
+@keyframes acPulse { 50% { opacity: .2; transform: scale(.6) rotate(45deg); } }
+
+.ac-chip {
+  --c: var(--turq);
+  position: absolute; left: var(--x); top: var(--y);
+  translate: -50% -50%;
+  pointer-events: auto; cursor: pointer;
+  font-family: "SF Mono", "Menlo", monospace;
+  font-size: 14.5px; font-weight: 700;
+  letter-spacing: .13em; text-transform: uppercase; white-space: nowrap;
+  color: var(--c);
+  padding: 12px 22px;
+  border: 1px solid color-mix(in srgb, var(--c) 60%, transparent);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--c) 9%, transparent), transparent 45%),
+    rgba(7,9,16,.72);
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  box-shadow:
+    0 0 28px color-mix(in srgb, var(--c) 22%, transparent),
+    inset 0 0 18px color-mix(in srgb, var(--c) 10%, transparent);
+  text-shadow: 0 0 14px color-mix(in srgb, var(--c) 70%, transparent);
+  animation: acDrift var(--dur, 9s) var(--dl, 0s) ease-in-out infinite alternate;
+  transition: scale .25s ease, color .25s ease, background-color .25s ease,
+              opacity .35s ease, filter .35s ease, box-shadow .25s ease;
+}
+@keyframes acDrift {
+  0%   { transform: translate(0, 0); }
+  50%  { transform: translate(8px, -12px); }
+  100% { transform: translate(-7px, 9px); }
+}
+.ac-chip:hover, .ac-chip:focus-visible {
+  scale: 1.1; outline: none; color: #fff;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--c) 30%, transparent), color-mix(in srgb, var(--c) 8%, transparent)),
+    rgba(7,9,16,.8);
+  box-shadow:
+    0 0 44px color-mix(in srgb, var(--c) 55%, transparent),
+    inset 0 0 24px color-mix(in srgb, var(--c) 22%, transparent);
+}
+.ac-chip.on {
+  scale: 1.08; color: #fff;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--c) 38%, transparent), color-mix(in srgb, var(--c) 10%, transparent)),
+    rgba(7,9,16,.86);
+  box-shadow:
+    0 0 50px color-mix(in srgb, var(--c) 65%, transparent),
+    inset 0 0 26px color-mix(in srgb, var(--c) 26%, transparent);
+  animation-play-state: paused;
+}
+.agent-cloud.open .ac-chip:not(.on) { opacity: .2; filter: blur(1.5px); }
+
+/* açılan ekip paneli — HUD kart */
+.ac-panel {
+  --c: var(--pink);
+  position: absolute; left: 50%; top: 55%; translate: -50% -50%;
+  width: min(440px, 92%);
+  pointer-events: none; opacity: 0; visibility: hidden;
+  transform: translateY(16px) scale(.96);
+  transition: opacity .3s ease, transform .3s cubic-bezier(.2,.8,.3,1), visibility .3s;
+  padding: 24px 28px 26px;
+  border: 1px solid color-mix(in srgb, var(--c) 65%, transparent);
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--c) 10%, transparent), transparent 55%),
+    rgba(6,7,13,.92);
+  clip-path: polygon(22px 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%, 0 22px);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow:
+    0 26px 80px rgba(0,0,0,.65),
+    0 0 60px color-mix(in srgb, var(--c) 22%, transparent),
+    inset 0 0 30px color-mix(in srgb, var(--c) 8%, transparent);
+}
+.agent-cloud.open .ac-panel {
+  opacity: 1; visibility: visible; pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+.ac-x {
+  position: absolute; top: 10px; right: 16px;
+  background: none; border: 0; cursor: pointer;
+  font-family: "SF Mono", "Menlo", monospace;
+  color: rgba(245,241,232,.5); font-size: 14px; line-height: 1;
+  padding: 8px; transition: color .2s ease, text-shadow .2s ease;
+}
+.ac-x:hover { color: #fff; text-shadow: 0 0 12px var(--c); }
+.ac-p-kick {
+  font-family: "SF Mono", "Menlo", monospace;
+  font-size: 10.5px; letter-spacing: .34em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--c) 85%, #fff); font-weight: 600; margin-bottom: 7px;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--c) 60%, transparent);
+}
+.ac-p-kick::before { content: "// "; opacity: .6; }
+.ac-p-title {
+  font-family: var(--sans); font-size: 24px; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase;
+  color: #fff; margin-bottom: 18px; line-height: 1.15;
+  text-shadow: 0 0 22px color-mix(in srgb, var(--c) 45%, transparent);
+}
+.ac-p-list { display: flex; flex-wrap: wrap; gap: 9px; }
+.ac-agent {
+  font-family: "SF Mono", "Menlo", monospace; font-size: 12.5px;
+  letter-spacing: .05em;
+  color: rgba(245,241,232,.95);
+  padding: 8px 15px;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  background: color-mix(in srgb, var(--c) 8%, transparent);
+  clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--c) 14%, transparent);
+  opacity: 0; transform: translateY(9px);
+  animation: acPop .4s cubic-bezier(.2,.8,.3,1) forwards;
+  animation-delay: var(--i);
+}
+.ac-agent::before { content: "› "; color: var(--c); }
+@keyframes acPop { to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 860px) {
+  .agent-cloud { left: 5vw; right: 5vw; top: 10svh; height: 38svh; }
+  .ac-hint { top: -4svh; font-size: 9.5px; letter-spacing: .2em; }
+  .ac-chip { font-size: 11.5px; padding: 9px 15px; letter-spacing: .08em; }
+  .ac-panel { position: fixed; left: 50%; top: 50%; translate: -50% -50%; width: min(350px, 88vw); }
+}
+.no-motion .ac-chip { animation: none; }
+.no-motion .ac-agent { animation: none; opacity: 1; transform: none; }

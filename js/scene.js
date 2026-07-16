@@ -29,7 +29,7 @@ const HOLO_DATA = {
   blue: {
     video: "assets/video-kozmik-lb.mp4", poster: "assets/scene-posthuman.jpg",
     title: "Çağ V · Posthuman Sıçrama", theme: "Analog kalp, dijital zekâ",
-    href: "#basvuru", cta: "Ücretsiz görüşmeye başvur →", color: "#4d6bff"
+    href: "#basvuru", cta: "Ön Başvuru Yap →", color: "#4d6bff"
   }
 };
 

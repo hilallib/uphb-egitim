@@ -373,7 +373,7 @@
         phone: form.phone.value.trim(),
         job: form.job.value.trim(),
         message: form.message.value.trim(),
-        _subject: "Üretken YZ & AI Agents — Ücretsiz Görüşme Başvurusu: " + form.name.value.trim(),
+        _subject: "Üretken YZ & AI Agents — Ön Başvuru: " + form.name.value.trim(),
         _template: "table",
         _captcha: "false"
       };
@@ -405,13 +405,58 @@
         // yedek: e-posta uygulamasıyla gönder
         status.className = "form-status err";
         status.innerHTML = "Form şu an gönderilemedi — e-posta uygulaman açılıyor. Olmazsa: <b>hb@hb-academy.com.tr</b> ya da Instagram <b>@uphbacademy</b>.";
-        btn.disabled = false; btn.textContent = "Ücretsiz Görüşme İçin Başvur →";
+        btn.disabled = false; btn.textContent = "Ön Başvuru Yap →";
         var body = "Ad Soyad: " + data.name + "%0D%0AE-posta: " + data.email +
                    "%0D%0ATelefon: " + data.phone + "%0D%0AMeslek: " + data.job +
                    "%0D%0ABeklenti: " + encodeURIComponent(data.message);
         location.href = "mailto:hb@hb-academy.com.tr?subject=" +
-          encodeURIComponent("Üretken YZ & AI Agents — Ücretsiz Görüşme Başvurusu: " + data.name) + "&body=" + body;
+          encodeURIComponent("Üretken YZ & AI Agents — Ön Başvuru: " + data.name) + "&body=" + body;
       });
+    });
+  }
+
+  /* ── meslek bulutu: meslek chip'ine tıkla → agent ekibi görünsün ── */
+  var cloud = document.getElementById("agentCloud");
+  if (cloud) {
+    var panel = document.getElementById("acPanel");
+    var pTitle = panel.querySelector(".ac-p-title");
+    var pList = panel.querySelector(".ac-p-list");
+    var current = null;
+
+    function closeCloud() {
+      cloud.classList.remove("open");
+      panel.setAttribute("aria-hidden", "true");
+      if (current) current.classList.remove("on");
+      current = null;
+    }
+
+    function openCloud(chip) {
+      if (current === chip) { closeCloud(); return; }
+      if (current) current.classList.remove("on");
+      chip.classList.add("on");
+      current = chip;
+      var chipColor = chip.style.getPropertyValue("--c");
+      if (chipColor) panel.style.setProperty("--c", chipColor);
+      pTitle.textContent = chip.dataset.meslek;
+      pList.innerHTML = "";
+      chip.dataset.agents.split("|").forEach(function (name, i) {
+        var tag = document.createElement("span");
+        tag.className = "ac-agent";
+        tag.style.setProperty("--i", (i * 0.07) + "s");
+        tag.textContent = name.trim();
+        pList.appendChild(tag);
+      });
+      cloud.classList.add("open");
+      panel.setAttribute("aria-hidden", "false");
+      magicBurst();
+    }
+
+    cloud.querySelectorAll(".ac-chip").forEach(function (chip) {
+      chip.addEventListener("click", function () { openCloud(chip); });
+    });
+    document.getElementById("acClose").addEventListener("click", closeCloud);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeCloud();
     });
   }
 
