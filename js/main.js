@@ -111,13 +111,27 @@
   }
 
   /* lazy videolar: sahneye yaklaşınca yükle+oynat, uzaklaşınca durdur */
+  /* mobilde ayni videolarin 720p hafif surumleri oynar (assets/video-X-mobil.mp4);
+     4K kaynaklar telefonda decode'u kilitleyip kaydirmayi taklatiyordu */
+  if (mobile) {
+    document.querySelectorAll("video").forEach(function (v) {
+      var kaynakEl = v.querySelector("source");
+      var hedef = kaynakEl || v;
+      var url = hedef.getAttribute("src");
+      if (!url || url.indexOf("-mobil.") !== -1 || !/assets\/video-[^\/]+\.mp4$/.test(url)) return;
+      hedef.setAttribute("src", url.replace(/\.mp4$/, "-mobil.mp4"));
+      (kaynakEl || v).addEventListener("error", function () {
+        hedef.setAttribute("src", url); v.load();
+      }, { once: true });
+    });
+  }
+
   var lazyVids = document.querySelectorAll("video.lazy-vid");
   if ("IntersectionObserver" in window && lazyVids.length) {
     var vio = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         var v = en.target;
         if (en.isIntersecting) {
-          if (mobile && v.poster) return; // mobilde buyuk sahne videolari yerine poster: 4K video decode kaydirmayi kilitliyor
           if (v.preload === "none") v.preload = "auto";
           var p = v.play(); if (p && p.catch) p.catch(function(){});
         } else {
