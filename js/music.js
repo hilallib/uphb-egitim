@@ -24,7 +24,7 @@
   var HEX = "polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)";
   var css = document.createElement("style");
   css.textContent =
-    "#uphb-music{position:fixed;right:20px;bottom:20px;z-index:99999;display:flex;" +
+    "#uphb-music{position:fixed;left:20px;bottom:20px;z-index:99999;display:flex;" +
     "align-items:center;gap:10px;font-family:inherit;}" +
     "#uphb-music .u-lbl{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;" +
     "transition:max-width .5s ease,opacity .5s ease;font-size:12.5px;color:#f3e9d6;" +
@@ -44,12 +44,12 @@
     "background:conic-gradient(from 140deg,#00fff4,#df66bf,#ff2fa0,#e8b45a,#00fff4);}" +
     "#uphb-music .hexf{position:absolute;inset:2px;z-index:1;clip-path:" + HEX + ";" +
     "background:radial-gradient(circle at 50% 32%,#251528,#0b0710);}" +
-    "#uphb-music .note{position:relative;z-index:2;width:23px;height:23px;color:#e8b45a;" +
-    "filter:drop-shadow(0 0 3px rgba(232,180,90,.55));" +
+    "#uphb-music .note{position:relative;z-index:2;width:23px;height:23px;color:#ff2fa0;" +
+    "filter:drop-shadow(0 0 3px rgba(255,47,160,.6));" +
     "transition:color .3s,filter .3s,opacity .3s;}" +
-    "#uphb-music.playing .note{color:#ffd47a;" +
-    "filter:drop-shadow(0 0 9px rgba(255,190,100,.95));animation:uphbPulse 1.7s ease-in-out infinite;}" +
-    "#uphb-music.off .note{color:#7a7080;opacity:.7;filter:none;}" +
+    "#uphb-music.playing .note{color:#ff6ec7;" +
+    "filter:drop-shadow(0 0 9px rgba(255,47,160,.95));animation:uphbPulse 1.7s ease-in-out infinite;}" +
+    "#uphb-music.off .note{opacity:.9;filter:drop-shadow(0 0 2px rgba(255,47,160,.4));}" +
     "#uphb-music.off .hexb{background:linear-gradient(135deg,#453a4d,#2a2230);}" +
     "@keyframes uphbSpin{to{transform:rotate(360deg)}}" +
     "@keyframes uphbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}" +
@@ -63,12 +63,12 @@
   wrap.id = "uphb-music";
   wrap.className = "off";
   wrap.innerHTML =
-    '<span class="u-lbl"></span>' +
     '<button type="button" aria-label="Klasik müziği aç/kapat" title="Klasik müzik">' +
     '<span class="halo"></span><span class="hexb"></span><span class="hexf"></span>' +
     '<svg class="note" viewBox="0 0 24 24" aria-hidden="true">' +
     '<path fill="currentColor" d="M12 3v10.28A3.5 3.5 0 1 0 13.5 16V7.5H18V3H12z"/></svg>' +
-    '</button>';
+    '</button>' +
+    '<span class="u-lbl"></span>';
   var btn = wrap.querySelector("button");
   var lbl = wrap.querySelector(".u-lbl");
   if (document.body) document.body.appendChild(wrap);
