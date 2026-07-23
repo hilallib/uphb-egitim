@@ -1,88 +1,151 @@
-/* Sayfa arka plan müziği — telifsiz klasik.
-   Kullanım: <body data-music="assets/music/arabesque.mp3" data-music-adi="Debussy — Arabesque No.1">
-   Varsayılan KAPALI; ziyaretçi köşedeki butonla açar. Tercih localStorage'da saklanır,
-   sayfalar arası korunur. Ses yumuşak fade ile girer/çıkar, düşük seviyede döngüde çalar. */
+/* UP-HB Academy — sayfa arka plan müziği (klasik, telifsiz)
+   Her sayfanın kendi 10 parçalık listesi var; her 40 sn'de sıradaki parçaya
+   yumuşak geçişle döner. Köşede tek altın notalı altıgen buton ile aç/kapat.
+   Ses ~%20, tercih (aç/kapa) sayfalar arası hatırlanır. Üreten: Fable (24.07.2026)
+   Not: eski tek-parça (data-music) sistemi bu dosyayla değiştirildi. */
 (function () {
-  var kaynak = document.body.getAttribute("data-music");
-  if (!kaynak) return;
-  var parcaAdi = document.body.getAttribute("data-music-adi") || "Müzik";
-  var HEDEF_SES = 0.32;
+  var PLAYLISTS = {"index":[{"file":"audio/index/01.mp3","label":"Çaykovski – Çiçek Valsi"},{"file":"audio/index/02.mp3","label":"Çaykovski – Kuğu Gölü"},{"file":"audio/index/03.mp3","label":"Satie – Gymnopédie No.1"},{"file":"audio/index/04.mp3","label":"Vivaldi – Dört Mevsim: Kış"},{"file":"audio/index/05.mp3","label":"Beethoven – Ay Işığı Sonatı"},{"file":"audio/index/06.mp3","label":"Grieg – Dağ Kralının Salonunda"},{"file":"audio/index/07.mp3","label":"Pachelbel – Kanon (Re Majör)"},{"file":"audio/index/08.mp3","label":"Bach – Orkestra Süiti No.2: Badinerie"},{"file":"audio/index/09.mp3","label":"Bach – Orkestra Süiti No.2"},{"file":"audio/index/10.mp3","label":"Beethoven – Für Elise"}],"platform":[{"file":"audio/platform/01.mp3","label":"Debussy – Ay Işığı (Clair de Lune)"},{"file":"audio/platform/02.mp3","label":"Brahms – Macar Dansı No.5"},{"file":"audio/platform/03.mp3","label":"Offenbach – Can-Can"},{"file":"audio/platform/04.mp3","label":"Rossini – William Tell: Final"},{"file":"audio/platform/05.mp3","label":"Mozart – Requiem: Lacrimosa"},{"file":"audio/platform/06.mp3","label":"Çaykovski – Kuğu Gölü"},{"file":"audio/platform/07.mp3","label":"Saint-Saëns – Danse Macabre"},{"file":"audio/platform/08.mp3","label":"Çaykovski – Kuğu Gölü"},{"file":"audio/platform/09.mp3","label":"Chopin – Nocturne Op.9 No.2"},{"file":"audio/platform/10.mp3","label":"Mahler – 5. Senfoni: Adagietto"}],"gun1":[{"file":"audio/gun1/01.mp3","label":"J. Strauss – Mavi Tuna"},{"file":"audio/gun1/02.mp3","label":"Beethoven – 5. Senfoni"},{"file":"audio/gun1/03.mp3","label":"Çaykovski – Fındıkkıran: Trepak"},{"file":"audio/gun1/04.mp3","label":"Debussy – Clair de Lune"},{"file":"audio/gun1/05.mp3","label":"Debussy – Arabesque No.1"},{"file":"audio/gun1/06.mp3","label":"Çaykovski – Şeker Perisi Dansı"},{"file":"audio/gun1/07.mp3","label":"Saint-Saëns – Danse Macabre"},{"file":"audio/gun1/08.mp3","label":"Satie – Gymnopédie No.1"},{"file":"audio/gun1/09.mp3","label":"Rossini – William Tell: Uvertür"},{"file":"audio/gun1/10.mp3","label":"Handel – Mesih: Hallelujah"}],"gun2":[{"file":"audio/gun2/01.mp3","label":"Saint-Saëns – Kuğu (Le Cygne)"},{"file":"audio/gun2/02.mp3","label":"Satie – Gymnopédie No.1"},{"file":"audio/gun2/03.mp3","label":"Beethoven – Ay Işığı Sonatı"},{"file":"audio/gun2/04.mp3","label":"Grieg – Dağ Kralının Salonunda"},{"file":"audio/gun2/05.mp3","label":"Mozart – Ave Verum Corpus"},{"file":"audio/gun2/06.mp3","label":"Handel/Halvorsen – Passacaglia"},{"file":"audio/gun2/07.mp3","label":"Verdi – Il Trovatore: Örs Korosu"},{"file":"audio/gun2/08.mp3","label":"Mozart – 25. Senfoni (Sol minör)"},{"file":"audio/gun2/09.mp3","label":"Chopin – Nocturne Op.9 No.2"},{"file":"audio/gun2/10.mp3","label":"J. Strauss – Mavi Tuna"}]};
 
-  var audio = new Audio(kaynak);
-  audio.loop = true;
-  audio.volume = 0;
-  audio.preload = "auto";
+  // sayfa tespiti (platform gövdesi 'page-gun2' de taşıdığı için önce ona bak)
+  var cl = document.body.className || "";
+  var page = /page-platform/.test(cl) ? "platform"
+           : /page-index/.test(cl) ? "index"
+           : /page-gun1/.test(cl) ? "gun1"
+           : /page-gun2/.test(cl) ? "gun2" : "index";
+  var PL = PLAYLISTS[page] || [];
+  if (!PL.length) return;
 
-  // Buton
-  var btn = document.createElement("button");
-  btn.type = "button";
-  btn.className = "muzik-btn";
-  btn.setAttribute("aria-label", parcaAdi + " — müziği aç/kapat");
-  btn.innerHTML =
-    '<span class="muzik-ikon" aria-hidden="true"></span>' +
-    '<span class="muzik-etiket">' + parcaAdi + "</span>";
-  document.body.appendChild(btn);
+  var TARGET = 0.20;      // arka plan ses seviyesi
+  var SWITCH_MS = 40000;  // 40 sn'de bir parça değişir
+  var FADE = 0.8;         // saniye — geçiş yumuşatma
+  var KEY = "uphbMusic";  // aç/kapa tercihi (sayfalar arası)
 
-  var calisiyor = false;
-  var rampa = null;
+  // ---- stil ----
+  var HEX = "polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)";
+  var css = document.createElement("style");
+  css.textContent =
+    "#uphb-music{position:fixed;right:20px;bottom:20px;z-index:99999;display:flex;" +
+    "align-items:center;gap:10px;font-family:inherit;}" +
+    "#uphb-music .u-lbl{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;" +
+    "transition:max-width .5s ease,opacity .5s ease;font-size:12.5px;color:#f3e9d6;" +
+    "background:rgba(18,12,24,.82);border:1px solid rgba(232,180,90,.35);" +
+    "border-radius:20px;padding:0;line-height:34px;height:34px;backdrop-filter:blur(6px);}" +
+    "#uphb-music.show-lbl .u-lbl{max-width:230px;opacity:1;padding:0 14px;}" +
+    "#uphb-music button{all:unset;cursor:pointer;position:relative;width:58px;height:58px;" +
+    "display:flex;align-items:center;justify-content:center;" +
+    "filter:drop-shadow(0 5px 16px rgba(0,0,0,.5));transition:transform .2s ease;}" +
+    "#uphb-music button:hover{transform:translateY(-2px) scale(1.06);}" +
+    "#uphb-music button:focus-visible{outline:2px solid #00fff4;outline-offset:4px;border-radius:8px;}" +
+    "#uphb-music .halo{position:absolute;inset:-6px;border-radius:50%;z-index:0;opacity:0;" +
+    "background:conic-gradient(from 0deg,#00fff4,#df66bf,#ff2fa0,#e8b45a,#00fff4);" +
+    "filter:blur(9px);transition:opacity .4s ease;}" +
+    "#uphb-music.playing .halo{opacity:.85;animation:uphbSpin 5s linear infinite;}" +
+    "#uphb-music .hexb{position:absolute;inset:0;z-index:1;clip-path:" + HEX + ";" +
+    "background:conic-gradient(from 140deg,#00fff4,#df66bf,#ff2fa0,#e8b45a,#00fff4);}" +
+    "#uphb-music .hexf{position:absolute;inset:2px;z-index:1;clip-path:" + HEX + ";" +
+    "background:radial-gradient(circle at 50% 32%,#251528,#0b0710);}" +
+    "#uphb-music .note{position:relative;z-index:2;width:23px;height:23px;color:#e8b45a;" +
+    "filter:drop-shadow(0 0 3px rgba(232,180,90,.55));" +
+    "transition:color .3s,filter .3s,opacity .3s;}" +
+    "#uphb-music.playing .note{color:#ffd47a;" +
+    "filter:drop-shadow(0 0 9px rgba(255,190,100,.95));animation:uphbPulse 1.7s ease-in-out infinite;}" +
+    "#uphb-music.off .note{color:#7a7080;opacity:.7;filter:none;}" +
+    "#uphb-music.off .hexb{background:linear-gradient(135deg,#453a4d,#2a2230);}" +
+    "@keyframes uphbSpin{to{transform:rotate(360deg)}}" +
+    "@keyframes uphbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}" +
+    "@media(max-width:600px){#uphb-music button{width:50px;height:50px}" +
+    "#uphb-music .note{width:20px;height:20px}" +
+    "#uphb-music.show-lbl .u-lbl{max-width:150px}}";
+  document.head.appendChild(css);
 
-  function sesRampa(hedef, bitince) {
-    clearInterval(rampa);
-    rampa = setInterval(function () {
-      var fark = hedef - audio.volume;
-      if (Math.abs(fark) < 0.02) {
-        audio.volume = hedef;
-        clearInterval(rampa);
-        if (bitince) bitince();
-      } else {
-        audio.volume = Math.max(0, Math.min(1, audio.volume + fark * 0.3));
-      }
-    }, 40);
+  // ---- DOM ----
+  var wrap = document.createElement("div");
+  wrap.id = "uphb-music";
+  wrap.className = "off";
+  wrap.innerHTML =
+    '<span class="u-lbl"></span>' +
+    '<button type="button" aria-label="Klasik müziği aç/kapat" title="Klasik müzik">' +
+    '<span class="halo"></span><span class="hexb"></span><span class="hexf"></span>' +
+    '<svg class="note" viewBox="0 0 24 24" aria-hidden="true">' +
+    '<path fill="currentColor" d="M12 3v10.28A3.5 3.5 0 1 0 13.5 16V7.5H18V3H12z"/></svg>' +
+    '</button>';
+  var btn = wrap.querySelector("button");
+  var lbl = wrap.querySelector(".u-lbl");
+  if (document.body) document.body.appendChild(wrap);
+  else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(wrap); });
+
+  // ---- ses motoru (iki eleman ile çapraz geçiş) ----
+  var el = [new Audio(), new Audio()];
+  el.forEach(function (a) { a.preload = "auto"; a.volume = 0; });
+  var cur = 0, idx = 0, playing = false, timer = null, lblTimer = null;
+
+  function ramp(a, to, dur, done) {
+    var from = a.volume, t0 = performance.now();
+    (function step(t) {
+      var k = Math.min(1, (t - t0) / (dur * 1000));
+      a.volume = Math.max(0, Math.min(1, from + (to - from) * k));
+      if (k < 1) requestAnimationFrame(step); else if (done) done();
+    })(t0);
   }
 
-  function ac() {
-    audio.play().then(function () {
-      calisiyor = true;
-      btn.classList.add("calisiyor");
-      sesRampa(HEDEF_SES);
-      try { localStorage.setItem("muzikAcik", "1"); } catch (e) {}
-    }).catch(function () {
-      // Tarayıcı otomatik oynatmayı engelledi — ilk tıklamayı bekle
-    });
+  function showLabel(text) {
+    lbl.textContent = "♪ " + text;
+    wrap.classList.add("show-lbl");
+    clearTimeout(lblTimer);
+    lblTimer = setTimeout(function () { wrap.classList.remove("show-lbl"); }, 4500);
   }
 
-  function kapat() {
-    sesRampa(0, function () { audio.pause(); });
-    calisiyor = false;
-    btn.classList.remove("calisiyor");
-    try { localStorage.setItem("muzikAcik", "0"); } catch (e) {}
+  function playIndex(i) {
+    var nx = el[1 - cur], old = el[cur];
+    nx.src = PL[i].file; nx.currentTime = 0; nx.volume = 0;
+    var p = nx.play();
+    if (p && p.catch) p.catch(function () { waitGesture(); });
+    ramp(nx, TARGET, FADE);
+    ramp(old, 0, FADE, function () { try { old.pause(); } catch (e) {} });
+    cur = 1 - cur; idx = i;
+    showLabel(PL[i].label);
   }
 
-  btn.addEventListener("click", function () {
-    if (calisiyor) kapat(); else ac();
-  });
+  function nextTrack() { playIndex((idx + 1) % PL.length); }
+  function schedule() { clearInterval(timer); timer = setInterval(nextTrack, SWITCH_MS); }
 
-  // Önceki sayfada açıksa, burada da sürdürmeyi dene (gesture gerekebilir)
-  var tercih = "0";
-  try { tercih = localStorage.getItem("muzikAcik") || "0"; } catch (e) {}
-  if (tercih === "1") {
-    ac();
-    // Otomatik oynatma engellendiyse ilk kullanıcı hareketinde başlat.
-    // ÖNEMLİ: butona yapılan tıklama bu dinleyiciye GİRMEZ — yoksa butonun
-    // kendi aç/kapa mantığıyla çakışıp müziği açar-kapatır (11.07 Handel hatası).
-    var basladi = false;
-    var ilkHareket = function (e) {
-      if (e && e.target && e.target.closest && e.target.closest(".muzik-btn")) return;
-      if (basladi || calisiyor) { temizle(); return; }
-      basladi = true;
-      ac();
-      temizle();
+  function start() {
+    playing = true;
+    try { localStorage.setItem(KEY, "on"); } catch (e) {}
+    wrap.classList.remove("off"); wrap.classList.add("playing");
+    playIndex(idx); schedule();
+  }
+
+  function stop() {
+    playing = false;
+    try { localStorage.setItem(KEY, "off"); } catch (e) {}
+    wrap.classList.remove("playing"); wrap.classList.add("off");
+    clearInterval(timer);
+    el.forEach(function (a) { ramp(a, 0, FADE, function () { try { a.pause(); } catch (e) {} }); });
+  }
+
+  var gestureBound = false;
+  function waitGesture() {
+    if (gestureBound) return; gestureBound = true;
+    var go = function () {
+      gestureBound = false;
+      try { if (localStorage.getItem(KEY) === "on") start(); } catch (e) { start(); }
     };
-    var temizle = function () {
-      document.removeEventListener("click", ilkHareket);
-      document.removeEventListener("scroll", ilkHareket);
-    };
-    document.addEventListener("click", ilkHareket);
-    document.addEventListener("scroll", ilkHareket, { passive: true });
+    document.addEventListener("click", go, { once: true });
+    document.addEventListener("keydown", go, { once: true });
+    document.addEventListener("touchstart", go, { once: true });
+  }
+
+  btn.addEventListener("click", function () { playing ? stop() : start(); });
+
+  // açılışta: tercih 'on' ise otomatik başlat (engellenirse ilk harekette başlar)
+  var pref = "off";
+  try { pref = localStorage.getItem(KEY) || "off"; } catch (e) {}
+  if (pref === "on") {
+    wrap.classList.remove("off");
+    var pr = el[cur]; pr.src = PL[0].file;
+    var pp = pr.play();
+    if (pp && pp.then) pp.then(function () { pr.pause(); start(); }).catch(function () { waitGesture(); });
+    else waitGesture();
   }
 })();
