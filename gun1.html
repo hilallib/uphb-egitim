@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v33">
+<link rel="stylesheet" href="css/style.css?v34">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 <body class="page-gun1" data-music="assets/music/sarabande.mp3" data-music-adi="Handel — Sarabande">
@@ -197,32 +197,51 @@
     </div>
   </section>
 
-  <!-- ─── ÇIKTI: TELEFON ─── -->
+  <!-- ─── ÇIKTI: STORYBOARD → TELEFON ─── -->
   <section class="interlude">
-    <div class="phone-stage">
-      <div class="phone" data-reveal>
+    <div class="story-head">
+      <p class="kicker" data-reveal>Günün Çıktısı</p>
+      <h2 data-reveal><span class="hl">Storyboard Hazırla</span> — sonra o storyboard'u videoya çevir.</h2>
+      <p class="lead" data-reveal>Önce hikâyeni, karakterlerini ve her sahneyi tek bir storyboard sayfasında planlıyorsun. Sonra o plan, senin seslendirdiğin ve kurguladığın 1.5 dakikalık profesyonel dikey videoya dönüşüyor. Solda plan, sağda telefonda çıkan sonuç.</p>
+    </div>
+    <div class="phone-stage story-stage">
+      <figure class="storyboard-fig" data-reveal>
+        <img src="assets/storyboard-1bolum.jpg" alt="Bir Ev, İki Arkadaş — 1. bölüm storyboard sayfası" loading="lazy">
+        <figcaption>Bir Ev, İki Arkadaş · 1. Bölüm — storyboard</figcaption>
+      </figure>
+      <div class="phone story-phone" data-reveal>
         <div class="screen">
-          <img src="assets/scene-okyanus.jpg" alt="">
-          <div class="play"></div>
-          <div class="p-caption">senin videon · 1:30</div>
-        </div>
-      </div>
-      <div style="flex:1; min-width:300px;">
-        <p class="kicker" data-reveal>Günün Çıktısı</p>
-        <h2 data-reveal>Eğitimden <span class="hl">bu videoyla</span> çıkıyorsun.</h2>
-        <p class="lead" data-reveal>Sunum dosyası değil, "not aldım" değil — senin yazdığın, seslendirdiğin ve kurguladığın 1.5 dakikalık profesyonel dikey video. Reels'e, tanıtıma, portfolyona hazır.</p>
-        <div class="tools-strip">
-          <span class="tool-chip" data-reveal>ChatGPT</span>
-          <span class="tool-chip" data-reveal>Claude</span>
-          <span class="tool-chip" data-reveal>ElevenLabs</span>
-          <span class="tool-chip" data-reveal>Higgsfield</span>
-          <span class="tool-chip" data-reveal>Kling AI</span>
-          <span class="tool-chip" data-reveal>Hedra AI</span>
-          <span class="tool-chip" data-reveal>CapCut</span>
+          <video class="story-vid" src="assets/storyboard-demo.mp4" poster="assets/storyboard-1bolum.jpg"
+                 autoplay muted loop playsinline preload="metadata"></video>
+          <button class="play" type="button" aria-label="Sesi aç / kapat"></button>
+          <div class="p-caption">senin videon · Ghibli tarzı</div>
         </div>
       </div>
     </div>
+    <div class="tools-strip" style="justify-content:center;margin-top:34px;">
+      <span class="tool-chip" data-reveal>ChatGPT</span>
+      <span class="tool-chip" data-reveal>Claude</span>
+      <span class="tool-chip" data-reveal>ElevenLabs</span>
+      <span class="tool-chip" data-reveal>Higgsfield</span>
+      <span class="tool-chip" data-reveal>Kling AI</span>
+      <span class="tool-chip" data-reveal>Hedra AI</span>
+      <span class="tool-chip" data-reveal>CapCut</span>
+    </div>
   </section>
+
+  <script>
+  (function () {
+    var v = document.querySelector('.story-vid');
+    if (!v) return;
+    var b = document.querySelector('.story-phone .play');
+    var tryPlay = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+    tryPlay();
+    if (b) b.addEventListener('click', function () {
+      if (v.muted) { v.muted = false; b.classList.add('is-on'); tryPlay(); }
+      else { v.muted = true; b.classList.remove('is-on'); }
+    });
+  })();
+  </script>
 
   <!-- ─── KÖPRÜ ─── -->
   <section class="interlude bridge">
