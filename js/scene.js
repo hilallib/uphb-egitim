@@ -18,13 +18,13 @@ if (canvas && !isMobile && !reduced) {
 const HOLO_DATA = {
   pink: {
     video: "assets/video-anka-lb.mp4", poster: "assets/scene-anka.jpg",
-    title: "Gün 1 · Üretken YZ", theme: "İlk Çağ'dan Üretken Zekâya",
-    href: "gun1.html", cta: "Gün 1'i keşfet →", color: "#df66bf"
+    title: "Üretken YZ", theme: "İlk Çağ'dan Üretken Zekâya",
+    href: "gun1.html", cta: "Üretken YZ’yi keşfet →", color: "#df66bf"
   },
   turq: {
     video: "assets/video-evrim-lb.mp4", poster: "assets/scene-evrim.jpg",
-    title: "Gün 2 · AI Agents", theme: "Agora'dan Agent'a",
-    href: "gun2.html", cta: "Gün 2'yi keşfet →", color: "#00fff4"
+    title: "AI Agents", theme: "Agora'dan Agent'a",
+    href: "gun2.html", cta: "AI Agents’ı keşfet →", color: "#00fff4"
   },
   blue: {
     video: "assets/video-kozmik-lb.mp4", poster: "assets/scene-posthuman.jpg",
