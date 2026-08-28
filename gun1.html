@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v38">
+<link rel="stylesheet" href="css/style.css?v39">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 <body class="page-gun1" data-music="assets/music/sarabande.mp3" data-music-adi="Handel — Sarabande">
@@ -79,7 +79,10 @@
           </a>
         </div>
       </div>
-      <div class="hero-profil hero-profil-sanat" data-fade><img src="assets/cut-hilal-sanat.png" alt="Hilal Baktaş — atölyede, sanat kitapları ve büst eşliğinde" fetchpriority="high"></div>
+      <div class="hero-atolye" data-fade>
+        <img class="ha-obj" src="assets/atolye-katman.png" alt="Atölye — büst, fırçalar, sanat kitapları, Yıldızlı Gece" fetchpriority="high">
+        <img class="ha-kisi" src="assets/cut-hilal-atolye.png" alt="Hilal Baktaş" fetchpriority="high">
+      </div>
       <div class="scroll-hint">Kaydır</div>
     </div>
   </section>
@@ -286,6 +289,18 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="js/main.js?v30"></script>
+<script>
+/* atölye katmanları: kaydırırken sanat nesneleri hemen bitmesin, yavaşça süzülsün */
+(function () {
+  var kat = document.querySelector('.hero-atolye');
+  if (!kat || !window.gsap || !window.ScrollTrigger) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sahne = kat.closest('.scene');
+  var st = { trigger: sahne, start: 'top top', end: 'bottom top', scrub: 0.6 };
+  gsap.to(kat.querySelector('.ha-obj'), { yPercent: -13, scale: 1.07, ease: 'none', scrollTrigger: st });
+  gsap.to(kat.querySelector('.ha-kisi'), { yPercent: 9, scale: 0.97, ease: 'none', scrollTrigger: st });
+})();
+</script>
 <script src="js/music.js?v6"></script>
 <script type="importmap">
 { "imports": {
