@@ -658,6 +658,18 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
 /* eğitmen portresi — tek başına (yazısız) yerleşim: gun1 / gun2 */
 .instructor.portrait-solo { justify-content: center; padding-top: 10px; padding-bottom: 10px; }
 .instructor.portrait-solo .portrait { margin: 0 auto; }
+/* AI Agents hero'sunda karşılama profili */
+.hero-profil {
+  position: absolute; z-index: 3; right: 6vw; top: 50%; transform: translateY(-50%);
+  width: min(270px, 24vw); border-radius: 165px 165px 20px 20px; overflow: hidden;
+  border: 1px solid rgba(0,255,244,0.45); pointer-events: none;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(0,255,244,0.15);
+}
+.hero-profil img { width: 100%; display: block; }
+@media (max-width: 900px) {
+  .hero-profil { right: 5vw; top: 13svh; transform: none; width: min(150px, 34vw); border-radius: 90px 90px 14px 14px; }
+}
+
 .instructor.portrait-solo .portrait.portrait-profil {
   width: min(300px, 72vw); border-radius: 180px 180px 22px 22px;
   border-color: rgba(0,255,244,0.4);
