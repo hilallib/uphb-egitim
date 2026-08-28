@@ -686,7 +686,8 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
 .hero-agent img { width: 100%; display: block; }
 .hero-agent .ag-eko {
   position: absolute; left: 0; top: 0;
-  filter: blur(16px) saturate(1.5); opacity: .5; transform: scale(1.12);
+  filter: blur(22px) saturate(1.8) brightness(1.25); opacity: .42;
+  mix-blend-mode: screen; transform: scale(1.14);
   transform-origin: 50% 55%;
 }
 .hero-agent .ag-on {
