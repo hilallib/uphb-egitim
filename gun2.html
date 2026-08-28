@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v40">
+<link rel="stylesheet" href="css/style.css?v41">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
 <body class="page-gun2" data-music="assets/music/moonlight-sonata.mp3" data-music-adi="Beethoven — Ay Işığı Sonatı">
@@ -79,7 +79,10 @@
           </a>
         </div>
       </div>
-      <div class="hero-profil" data-fade><img src="assets/cut-agent-profil.png" alt="Hilal Baktaş — analog kalp, dijital zekâ" fetchpriority="high"></div>
+      <div class="hero-agent">
+        <img class="ag-eko" src="assets/cut-agent-profil.png" alt="" aria-hidden="true">
+        <img class="ag-on" src="assets/cut-agent-profil.png" alt="Hilal Baktaş — analog kalp, dijital zekâ" fetchpriority="high">
+      </div>
       <div class="scroll-hint">Kaydır</div>
     </div>
   </section>
@@ -295,6 +298,22 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="js/main.js?v30"></script>
+<script>
+/* AI Agents hero'su: profil katmanları — kaydırdıkça derinleşsin, hero boyunca kalsın */
+(function () {
+  var kat = document.querySelector('.hero-agent');
+  if (!kat || !window.gsap || !window.ScrollTrigger) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sahne = kat.closest('.scene');
+  gsap.from(kat, { opacity: 0, y: 46, duration: 1.4, ease: 'power3.out', delay: 0.3 });
+  var tl = gsap.timeline({
+    scrollTrigger: { trigger: sahne, start: 'top top', end: 'bottom top', scrub: 0.6 }
+  });
+  tl.to(kat.querySelector('.ag-eko'), { yPercent: -20, scale: 1.28, opacity: 0.28, ease: 'none' }, 0)
+    .to(kat.querySelector('.ag-on'),  { yPercent: 9, scale: 0.96, ease: 'none' }, 0)
+    .to(kat, { opacity: 0, ease: 'power1.in', duration: 0.12 }, 0.88);
+})();
+</script>
 <script src="js/music.js?v6"></script>
 <script type="importmap">
 { "imports": {
