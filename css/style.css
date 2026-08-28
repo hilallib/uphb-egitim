@@ -676,7 +676,7 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
 /* AI Agents hero'su: profil + derinlik ekosu (çerçevesiz, katmanlı) */
 .hero-agent {
   position: absolute; z-index: 3; right: 4.5vw; top: 50%; transform: translateY(-50%);
-  width: min(330px, 28vw); pointer-events: none;
+  width: min(400px, 33vw); pointer-events: none;
 }
 .hero-agent::before {
   content: ""; position: absolute; inset: 2% -22% -10% -22%; z-index: -1; border-radius: 50%;
@@ -696,7 +696,7 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
   transform-origin: 50% 60%;
 }
 @media (max-width: 900px) {
-  .hero-agent { right: 3vw; top: 13svh; transform: none; width: min(160px, 36vw); }
+  .hero-agent { right: 3vw; top: 13svh; transform: none; width: min(190px, 42vw); }
   .hero-agent .ag-eko { display: none; }
 }
 
