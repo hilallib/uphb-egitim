@@ -673,8 +673,16 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
   filter: drop-shadow(0 34px 60px rgba(0,0,0,.72)) drop-shadow(0 0 46px rgba(0,255,244,.26));
   animation: floaty 9s ease-in-out infinite;
 }
+.hero-profil-sanat { width: min(430px, 36vw); right: 2.5vw; }
+.hero-profil-sanat::before {
+  background: radial-gradient(ellipse 62% 56% at 50% 50%, rgba(223,102,191,.22), rgba(232,180,90,.14) 55%, transparent 76%);
+}
+.hero-profil-sanat img {
+  filter: drop-shadow(0 34px 60px rgba(0,0,0,.72)) drop-shadow(0 0 46px rgba(223,102,191,.24));
+}
 @media (max-width: 900px) {
   .hero-profil { right: 3vw; top: 12svh; transform: none; width: min(168px, 38vw); }
+  .hero-profil-sanat { width: min(215px, 46vw); right: 1.5vw; }
   .hero-profil img { animation: none; }
 }
 
