@@ -390,6 +390,7 @@
         phone: form.phone.value.trim(),
         job: form.job.value.trim(),
         message: form.message.value.trim(),
+        kvkk_onayi: document.getElementById("f-kvkk") && document.getElementById("f-kvkk").checked ? "Onaylandı" : "—",
         _subject: "Üretken YZ & AI Agents — Ön Başvuru: " + form.name.value.trim(),
         _template: "table",
         _captcha: "false"
