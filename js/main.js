@@ -377,7 +377,7 @@
     });
   }
 
-  /* ── ÖN BAŞVURU FORMU: FormSubmit → hb@hb-academy.com.tr, olmazsa mailto ── */
+  /* ── ÖN BAŞVURU FORMU: FormSubmit → hilalbaktas11@gmail.com (cc hb@hb-academy.com.tr), olmazsa mailto ── */
   var form = document.getElementById("applyForm");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -393,11 +393,12 @@
         kvkk_onayi: document.getElementById("f-kvkk") && document.getElementById("f-kvkk").checked ? "Onaylandı" : "—",
         _subject: "Üretken YZ & AI Agents — Ön Başvuru: " + form.name.value.trim(),
         _template: "table",
+        _cc: "hb@hb-academy.com.tr",
         _captcha: "false"
       };
       btn.disabled = true; btn.textContent = "Gönderiliyor…";
       status.className = "form-status";
-      fetch("https://formsubmit.co/ajax/hb@hb-academy.com.tr", {
+      fetch("https://formsubmit.co/ajax/98b368cb09fe312e947122767eaca892", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(data)
