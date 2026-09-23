@@ -583,6 +583,157 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
   .platform-youtube-link span { display: none; }
 }
 
+/* Üretken YZ — 4 derslik AI Film Yapım Atölyesi */
+.film-workshop {
+  max-width: 1260px;
+  padding-top: 10vh;
+  padding-bottom: 12vh;
+}
+.film-workshop-head {
+  max-width: 900px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.film-workshop-head .lead { margin: 24px auto 0; }
+.film-workshop-head .lead strong { color: var(--ink); }
+.film-workshop-stage {
+  display: grid;
+  grid-template-columns: minmax(260px, .78fr) minmax(420px, 1.22fr);
+  gap: clamp(28px, 5vw, 74px);
+  align-items: center;
+  padding: clamp(22px, 4vw, 52px);
+  border: 1px solid rgba(223,102,191,.32);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(223,102,191,.16), transparent 33%),
+    radial-gradient(circle at 88% 84%, rgba(0,255,244,.09), transparent 34%),
+    rgba(8,8,14,.86);
+  box-shadow: 0 34px 100px rgba(0,0,0,.55), 0 0 54px rgba(223,102,191,.08);
+}
+.film-workshop-visual { margin: 0; position: relative; }
+.film-workshop-visual::before {
+  content: "";
+  position: absolute;
+  inset: 7% -8% -5%;
+  z-index: -1;
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(223,102,191,.24), rgba(0,255,244,.1));
+  filter: blur(20px);
+}
+.film-workshop-visual img,
+.film-workshop-visual video {
+  display: block;
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid rgba(245,241,232,.2);
+  border-radius: 22px;
+  box-shadow: 0 28px 70px rgba(0,0,0,.58);
+}
+.film-workshop-visual figcaption {
+  margin-top: 14px;
+  color: var(--ink-dim);
+  font-size: 12px;
+  line-height: 1.6;
+  text-align: center;
+  letter-spacing: .05em;
+}
+.film-workshop-storyboard { margin-top: 18px; }
+.film-workshop-storyboard summary {
+  color: var(--turq);
+  cursor: pointer;
+  font-size: 13px;
+  text-align: center;
+}
+.film-workshop-storyboard img { margin-top: 14px; }
+.film-workshop-promise {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 28px;
+  padding: 20px 22px;
+  border-left: 3px solid var(--turq);
+  border-radius: 0 16px 16px 0;
+  background: rgba(0,255,244,.055);
+}
+.film-workshop-promise .fwp-label {
+  margin-bottom: 4px;
+  color: var(--turq);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.film-workshop-promise strong {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(18px, 2vw, 24px);
+  font-weight: 500;
+}
+.film-workshop-lessons {
+  display: grid;
+  gap: 11px;
+  margin: 0 0 30px;
+  padding: 0;
+  list-style: none;
+}
+.film-workshop-lessons li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 15px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid rgba(245,241,232,.12);
+  border-radius: 14px;
+  background: rgba(245,241,232,.025);
+}
+.film-workshop-lessons li > span {
+  color: var(--pink);
+  font-family: var(--serif);
+  font-size: 26px;
+}
+.film-workshop-lessons b,
+.film-workshop-lessons small { display: block; }
+.film-workshop-lessons b { color: var(--ink); font-size: 15px; }
+.film-workshop-lessons small { margin-top: 4px; color: var(--ink-dim); font-size: 12.5px; line-height: 1.45; }
+.film-workshop-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 20px;
+  border: 1px solid rgba(223,102,191,.64);
+  border-radius: 14px;
+  color: var(--ink);
+  background: linear-gradient(100deg, rgba(223,102,191,.16), rgba(0,255,244,.06));
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+.film-workshop-cta span:last-child { color: var(--turq); font-size: 22px; }
+.film-workshop-cta:hover,
+.film-workshop-cta:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--turq);
+  box-shadow: 0 16px 38px rgba(0,0,0,.4), 0 0 28px rgba(0,255,244,.1);
+}
+@media (max-width: 820px) {
+  .film-workshop { padding-left: 5vw; padding-right: 5vw; }
+  .film-workshop-stage { grid-template-columns: 1fr; padding: 22px; border-radius: 22px; }
+  .film-workshop-visual { width: min(330px, 82vw); margin: 0 auto; }
+  .film-workshop-visual img,
+  .film-workshop-visual video { max-height: 470px; }
+}
+@media (max-width: 480px) {
+  .film-workshop-head { margin-bottom: 30px; }
+  .film-workshop-stage { padding: 18px 14px; }
+  .film-workshop-promise { padding: 17px 16px; }
+  .film-workshop-lessons li { grid-template-columns: 40px 1fr; padding: 12px; gap: 10px; }
+  .film-workshop-lessons li > span { font-size: 22px; }
+  .film-workshop-cta { padding: 15px 16px; font-size: 13px; }
+}
+
 /* telefon mockup */
 .phone-stage { display: flex; align-items: center; gap: 7vw; flex-wrap: wrap; }
 .phone {
