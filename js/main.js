@@ -377,7 +377,8 @@
     });
   }
 
-  /* ── ÖN BAŞVURU FORMU: FormSubmit → hilalbaktas11@gmail.com (cc hb@hb-academy.com.tr), olmazsa mailto ── */
+  /* ── ÖN BAŞVURU FORMU: FormSubmit → hilalbaktas11@gmail.com (cc hb@hb-academy.com.tr) + WhatsApp (Hilal) ── */
+  var WA_NO = "905324363068";
   var form = document.getElementById("applyForm");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -396,6 +397,11 @@
         _cc: "hb@hb-academy.com.tr",
         _captcha: "false"
       };
+      // WhatsApp'ı tıklama anında aç (sonradan açılırsa tarayıcı açılır pencereyi engeller)
+      var waMsg = "Merhaba, uphbacademy.com.tr'den ön başvuru bırakıyorum.\n" +
+        "Ad Soyad: " + data.name + "\nE-posta: " + data.email + "\nTelefon: " + data.phone +
+        (data.job ? "\nMeslek: " + data.job : "") + (data.message ? "\nBeklenti: " + data.message : "");
+      window.open("https://wa.me/" + WA_NO + "?text=" + encodeURIComponent(waMsg), "_blank", "noopener");
       btn.disabled = true; btn.textContent = "Gönderiliyor…";
       status.className = "form-status";
       fetch("https://formsubmit.co/ajax/98b368cb09fe312e947122767eaca892", {
@@ -421,15 +427,10 @@
           setTimeout(magicBurst, 1100);
         } else { throw new Error("formsubmit"); }
       }).catch(function () {
-        // yedek: e-posta uygulamasıyla gönder
+        // mail gitmediyse yedek WhatsApp: açılan penceredeki mesajın gönderilmesi yeterli
         status.className = "form-status err";
-        status.innerHTML = "Form şu an gönderilemedi — e-posta uygulaman açılıyor. Olmazsa: <b>hb@hb-academy.com.tr</b> ya da Instagram <b>@uphbacademy</b>.";
+        status.innerHTML = "Form e-postayla iletilemedi. Açılan WhatsApp penceresindeki mesajı gönderirsen başvurun bize ulaşır. Olmazsa: <b>hb@hb-academy.com.tr</b> ya da Instagram <b>@uphbacademy</b>.";
         btn.disabled = false; btn.textContent = "Ön Başvuru Yap →";
-        var body = "Ad Soyad: " + data.name + "%0D%0AE-posta: " + data.email +
-                   "%0D%0ATelefon: " + data.phone + "%0D%0AMeslek: " + data.job +
-                   "%0D%0ABeklenti: " + encodeURIComponent(data.message);
-        location.href = "mailto:hb@hb-academy.com.tr?subject=" +
-          encodeURIComponent("Üretken YZ & AI Agents — Ön Başvuru: " + data.name) + "&body=" + body;
       });
     });
   }

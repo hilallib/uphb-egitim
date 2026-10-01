@@ -1023,6 +1023,18 @@ footer .fine { color: var(--ink-dim); font-size: 13.5px; margin-top: 18px; }
 }
 .apply-card textarea { min-height: 96px; resize: vertical; }
 .apply-card .btn { width: 100%; justify-content: center; margin-top: 8px; }
+.wa-quick {
+  display: flex; align-items: center; gap: 14px;
+  max-width: 620px; margin: 34px auto 0; padding: 18px 24px;
+  border: 1px solid rgba(37,211,102,.35); border-radius: 18px;
+  background: rgba(37,211,102,.06); color: var(--ink-dim);
+  font-size: 15px; line-height: 1.5; text-align: left; text-decoration: none;
+  transition: border-color .25s, background .25s;
+}
+.wa-quick b { color: #6ee7a0; font-weight: 600; }
+.wa-quick:hover { border-color: rgba(37,211,102,.7); background: rgba(37,211,102,.12); }
+.wa-quick .wa-ico { font-size: 22px; flex: none; }
+.apply-card .form-note { margin: 14px 0 0; font-size: 13px; line-height: 1.6; color: var(--ink-dim); text-align: center; }
 .apply-alt { margin-top: 26px; text-align: center; color: var(--ink-dim); font-size: 14px; }
 .apply-alt a { color: var(--turq); text-decoration: none; }
 .apply-alt a:hover { text-decoration: underline; }
