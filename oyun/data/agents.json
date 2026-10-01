@@ -1,0 +1,16 @@
+[
+ {"id":"lale","name":"Lale","room":"merkez","role":"Yönlendirme, özet","hair":"#743e51","shirt":"#e4b65e","skin":"#efbe9e","style":"bun","ikon":"🧭","rol":"Yönlendirme"},
+ {"id":"kerem","name":"Kerem","room":"merkez","role":"Strateji","hair":"#322c39","shirt":"#647f9b","skin":"#dba782","style":"part","ikon":"📊","rol":"Strateji"},
+ {"id":"serkan","name":"Serkan","room":"merkez","role":"Satış","hair":"#855039","shirt":"#76b8a6","skin":"#e9bc91","style":"beard","ikon":"🤝","rol":"Satış"},
+ {"id":"hilal","name":"Hilal","room":"merkez","role":"Onay · oyuncu masası","hair":"#f08bb9","shirt":"#e35e9b","skin":"#f4c6ae","style":"long","ikon":"✅","rol":"Onay · sen"},
+ {"id":"selin","name":"Selin","room":"pazarlama","role":"Kampanya ve içerik takvimi","hair":"#c29351","shirt":"#d28eaa","skin":"#f1c4a0","style":"bob","ikon":"🗓️","rol":"Kampanya"},
+ {"id":"zeynep","name":"Zeynep","room":"pazarlama","role":"Instagram","hair":"#573c32","shirt":"#a38cce","skin":"#dfad8d","style":"pony","ikon":"📸","rol":"Instagram"},
+ {"id":"baran","name":"Baran","room":"pazarlama","role":"LinkedIn","hair":"#342e34","shirt":"#e1af62","skin":"#c88d70","style":"glasses","ikon":"💼","rol":"LinkedIn"},
+ {"id":"can","name":"Can","room":"pazarlama","role":"YouTube","hair":"#a56239","shirt":"#86b8c3","skin":"#f1be94","style":"headphones","ikon":"▶️","rol":"YouTube"},
+ {"id":"mert","name":"Mert","room":"pazarlama","role":"Google","hair":"#544f58","shirt":"#9cb47c","skin":"#e3af86","style":"quiff","ikon":"🔎","rol":"Google"},
+ {"id":"arya","name":"Arya","room":"pazarlama","role":"Görsel ve video","hair":"#cf754f","shirt":"#e1946d","skin":"#efc4a4","style":"curly","ikon":"🎨","rol":"Görsel"},
+ {"id":"tayfun","name":"Tayfun","room":"meta","role":"Meta hesaplarının koordinasyonu","hair":"#b1a4a5","shirt":"#949cd1","skin":"#ce977d","style":"part","ikon":"💰","rol":"Meta bütçe"},
+ {"id":"dilan","name":"Dilan","room":"meta","role":"AB Etkinlik reklamı","hair":"#49323e","shirt":"#b1a3d7","skin":"#dfaf8c","style":"bob","ikon":"🎪","rol":"AB Etkinlik"},
+ {"id":"nisan","name":"Nisan","room":"meta","role":"UP-HB Academy reklamı","hair":"#976443","shirt":"#899acd","skin":"#f0c1a3","style":"bun","ikon":"🎓","rol":"UP-HB"},
+ {"id":"irem","name":"İrem","room":"meta","role":"Hilal’in kişisel reklamı","hair":"#303846","shirt":"#a28dc4","skin":"#e8b897","style":"pony","ikon":"👤","rol":"Kişisel hesap"}
+]

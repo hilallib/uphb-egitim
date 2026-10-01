@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151824">
+  <title>Agent Ofisi · Hilal'in ekibi</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="brand"><span class="brand-icon" aria-hidden="true"></span><span>HİLAL'İN DİJİTAL EKİBİ</span></div>
+      <div class="title-row"><h1>AGENT <span>OFİSİ</span><span class="cursor" aria-hidden="true">_</span></h1><div class="office-status"><i></i> EKİP HAZIR</div></div>
+      <p class="subtitle">Görevi doğru agent'a ver.</p>
+      <div class="font-proof" aria-label="Piksel font kontrolü">
+        <span>çğıİöşü ÇĞÖŞÜ · g j p q y</span>
+        <span>agent'a · Zeynep · doğru</span>
+      </div>
+    </header>
+    <section class="office-frame" aria-label="Üç odalı piksel ofis">
+      <div class="frame-top"><span><i></i> <span class="oyun-adi">AGENT OFİSİ <b>·</b> <span id="gun-adi"></span></span><span class="canli">OFİSTEN CANLI</span></span><span class="sag"><span id="saat-durum">09:00 <b>·</b> MESAİ ÖNCESİ</span><button type="button" id="sessiz" aria-label="Sesi kapat">🔊</button></span></div>
+      <div id="hud" hidden>
+        <div id="kuyruk" aria-label="Görev kuyruğu" aria-live="polite"></div>
+        <div class="durum-satiri"><span id="hedef"><span class="yazi">HEDEF 0/0</span><span class="cubuk"><span class="dolu"></span></span></span><span id="puan">PUAN 0</span><span id="kombo" hidden>KOMBO ×2</span><span id="piller" aria-label="3 pil"></span></div>
+        <p id="ipucu" aria-live="polite"></p>
+      </div>
+      <div id="scene"><canvas id="office" aria-label="Merkez ve Satış, Pazarlama ve Meta Ads odaları. 13 agent ve Hilal masalarında." role="img"></canvas><div id="desk-hits"></div><div id="desk-labels"></div>
+        <div id="konusmalar" aria-live="polite"></div><div id="uyari" hidden></div>
+        <div class="panel" id="acilis"><div class="panel-kutu"><p class="panel-ust">09:00 · OFİS AÇILIYOR</p><button type="button" id="basla" class="buyuk-dugme">HAFTAYA BAŞLA</button><p>Karta dokun, sonra o işi yapan agent'ın masasına dokun.</p><p>🎯 Her günün hedefini tuttur · 3 yanlışta gün biter.</p><p>5 günlük bir hafta · her gün yeni bir oda açılır.</p></div></div>
+        <div class="panel" id="panel" hidden><div class="panel-kutu"><p class="panel-ust" id="panel-ust"></p><h2 id="panel-baslik"></h2><div id="panel-govde"></div><button type="button" id="panel-dugme" class="buyuk-dugme"></button></div></div>
+      </div>
+      <div class="frame-bottom"><span><i></i> 13 AGENT <b>+</b> SEN</span><span class="bottom-note">Küçük bir ofis. Büyük fikirler.</span></div>
+    </section>
+    <footer><span class="preview-tag">OFİS ÖNİZLEMESİ</span><span>Herkes yerinde, mesaiyi bekliyor.</span></footer>
+    <p id="error" role="alert" hidden>Ofis yüklenemedi. Lütfen sayfayı yenile.</p>
+  </main>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

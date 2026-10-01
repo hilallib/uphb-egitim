@@ -1,0 +1,11 @@
+{
+ "_not":"Genel kurallar. Günlere özel projeler, süre ve olaylar hafta.json'da; projelerin adımları projeler.json'da.",
+ "saat":{"baslangic":9,"bitis":19},
+ "pil":3,
+ "calismaSn":3,
+ "laleYuruyusSn":2,
+ "puan":{"adim":10,"hiz":5,"hizSn":2,"lale":5,"onay":5,"komboEsik":5,"komboCarpan":2,"acilCarpan":2,"proje":30,"yildiz":10},
+ "onayCeza":1,
+ "kahveSn":5,
+ "kahveHiz":2
+}

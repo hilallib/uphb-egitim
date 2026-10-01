@@ -1,0 +1,31 @@
+{
+ "_not":"Haftanın projeleri: Hilal'in gerçek iş akışları. adimlar sırayla yürür; bir adımdaki kartlar (köşeli parantez içindekiler) AYNI ANDA açılır, hepsi bitince sonraki adıma geçilir. onay:true = önce Hilal'in masası. Öğrenci sürümünde bu dosya öğrencinin kendi iş akışlarıyla yeniden yazılır.",
+ "projeler":[
+  {"id":"lead","ad":"Yeni lead geldi","kisa":"Lead","ikon":"📥","renk":"#7fc8a9",
+   "adimlar":[[{"agent":"kerem","icon":"📥","text":"Mailleri ayıkla"}],[{"agent":"serkan","icon":"📞","text":"Görüşme senaryosu"}],[{"agent":"serkan","icon":"✉️","text":"Teklif maili"}]]},
+  {"id":"plan","ad":"Haftanın planı","kisa":"Plan","ikon":"🧭","renk":"#e9c27d",
+   "adimlar":[[{"agent":"lale","icon":"📋","text":"Ekibin gün özeti"}],[{"agent":"kerem","icon":"🔍","text":"Rakip analizi"}],[{"agent":"lale","icon":"🧭","text":"Öncelikleri belirle"}]]},
+  {"id":"kurumsal","ad":"Belediyeye kurumsal teklif","kisa":"Kurumsal","ikon":"🏛️","renk":"#b2cde7",
+   "adimlar":[[{"agent":"kerem","icon":"🏷️","text":"Fiyat belirle"}],[{"agent":"serkan","icon":"✉️","text":"Teklif dosyası"}],[{"agent":"arya","icon":"🖼️","text":"Sunum görseli"}],[{"agent":"serkan","icon":"📞","text":"Görüşmeyi kapat"}]]},
+  {"id":"reels","ad":"Reels serisi","kisa":"Reels","ikon":"🎬","renk":"#ff9dc8",
+   "adimlar":[[{"agent":"selin","icon":"🗓️","text":"İçerik takvimi"}],[{"agent":"zeynep","icon":"🎬","text":"Reels fikri"}],[{"agent":"arya","icon":"✂️","text":"Video kurgusu"}],[{"agent":"arya","icon":"🖼️","text":"Kapak görseli"},{"agent":"zeynep","icon":"📝","text":"Caption yaz"}]]},
+  {"id":"youtube","ad":"YouTube videosu","kisa":"YouTube","ikon":"▶️","renk":"#f28b82",
+   "adimlar":[[{"agent":"can","icon":"🎥","text":"Video senaryosu"}],[{"agent":"arya","icon":"✂️","text":"Video kurgusu"}],[{"agent":"can","icon":"▶️","text":"Thumbnail fikri"},{"agent":"mert","icon":"🔎","text":"SEO başlığı"}]]},
+  {"id":"linkedin","ad":"LinkedIn otoritesi","kisa":"LinkedIn","ikon":"💼","renk":"#8fb8e8",
+   "adimlar":[[{"agent":"kerem","icon":"🔍","text":"Sektör analizi"}],[{"agent":"baran","icon":"📰","text":"B2B makale"}],[{"agent":"baran","icon":"💼","text":"LinkedIn postu"},{"agent":"arya","icon":"🎨","text":"Carousel tasarımı"}]]},
+  {"id":"meta","ad":"Haftalık Meta turu","kisa":"Meta","ikon":"📊","renk":"#cdb3ed",
+   "adimlar":[[{"agent":"tayfun","icon":"📊","text":"Bütçe dağılımı"}],[{"agent":"dilan","icon":"🎪","text":"AB Etkinlik reklamı"},{"agent":"nisan","icon":"🎓","text":"UP-HB reklamı"},{"agent":"irem","icon":"👤","text":"Kişisel reklam"}],[{"agent":"tayfun","icon":"🗂️","text":"Haftalık Meta özeti"}]]},
+  {"id":"uphb","ad":"UP-HB kayıt kampanyası","kisa":"UP-HB","ikon":"🎓","renk":"#9de4df",
+   "adimlar":[[{"agent":"selin","icon":"📣","text":"Kampanya planı"}],[{"agent":"arya","icon":"🖼️","text":"Kampanya görseli"},{"agent":"mert","icon":"🔎","text":"Google reklamı"}],[{"agent":"nisan","icon":"💸","text":"UP-HB reklamını yayına al","onay":true}],[{"agent":"serkan","icon":"💬","text":"Başvurulara dön"}]]},
+  {"id":"kisisel","ad":"Kişisel marka haftası","kisa":"Kişisel","ikon":"👤","renk":"#ffb38a",
+   "adimlar":[[{"agent":"zeynep","icon":"🎬","text":"Reels fikri"}],[{"agent":"irem","icon":"✍️","text":"Metni Hilal gibi yaz"}],[{"agent":"irem","icon":"💸","text":"Profil boost bütçesi","onay":true}],[{"agent":"tayfun","icon":"📊","text":"Sonucu ölç"}]]},
+  {"id":"lansman","ad":"AB eğitimi lansmanı","kisa":"Lansman","ikon":"🚀","renk":"#ffd76a","buyuk":true,
+   "adimlar":[[{"agent":"kerem","icon":"🏷️","text":"Fiyat ve strateji"}],[{"agent":"selin","icon":"📣","text":"Kampanya planı"}],[{"agent":"arya","icon":"🎨","text":"Lansman afişi"}],[{"agent":"zeynep","icon":"🎬","text":"Lansman reelsi"},{"agent":"baran","icon":"💼","text":"LinkedIn duyurusu"}],[{"agent":"dilan","icon":"💸","text":"AB reklamını yayına al","onay":true}],[{"agent":"serkan","icon":"✉️","text":"Başvurulara teklif"}]]},
+  {"id":"musteri-teklif","ad":"📞 Müşteri teklif istedi","kisa":"Acil","ikon":"📞","renk":"#ff6b7f","acil":true,
+   "adimlar":[[{"agent":"serkan","icon":"✉️","text":"Hemen teklif at"}]]},
+  {"id":"musteri-reels","ad":"📞 Müşteri reels istedi","kisa":"Acil","ikon":"📞","renk":"#ff6b7f","acil":true,
+   "adimlar":[[{"agent":"zeynep","icon":"🎬","text":"Acil reels"}],[{"agent":"arya","icon":"✂️","text":"Hızlı kurgu"}]]},
+  {"id":"musteri-kurulum","ad":"📞 Kurulum danışmanlığı sorusu","kisa":"Acil","ikon":"📞","renk":"#ff6b7f","acil":true,
+   "adimlar":[[{"agent":"lale","icon":"🧭","text":"Kime gidecek?"}],[{"agent":"serkan","icon":"📞","text":"Keşif görüşmesi"}]]}
+ ]
+}

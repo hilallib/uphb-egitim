@@ -1,0 +1,24 @@
+{
+ "_not":"5 günlük hafta. Her gün 09:00-19:00, sureSn saniyede biter (60 sn = her 6 sn bir saat). projeler: sn = panoya düştüğü an, teslimSn = teslim anı (saat olarak gösterilir). hedef = o gün bitirilmesi gereken proje sayısı; tutmazsa gün tekrar oynanır. acik = o gün masası açık odalar. olaylar: kahve = ekip kısa süre 2 kat hızlı; musteri = acil küçük proje.",
+ "gunler":[
+  {"id":"pazartesi","ad":"PAZARTESİ","sureSn":60,"hedef":2,"acik":["merkez"],"ogretici":true,
+   "yeni":"Haftanın ilk işleri geldi. Her proje adım adım ilerler: bir adım bitince sıradaki açılır.",
+   "projeler":[{"id":"lead","sn":0,"teslimSn":32},{"id":"plan","sn":16,"teslimSn":52}],"olaylar":[]},
+  {"id":"sali","ad":"SALI","sureSn":60,"hedef":2,"acik":["merkez","pazarlama"],
+   "yeni":"Pazarlama odası açıldı! Artık aynı anda birden fazla proje yürüyor: kimseyi boşta bırakma.",
+   "projeler":[{"id":"reels","sn":0,"teslimSn":40},{"id":"kurumsal","sn":6,"teslimSn":48},{"id":"youtube","sn":22,"teslimSn":58}],
+   "olaylar":[{"tur":"musteri","sn":30,"proje":"musteri-teklif","sureSn":10}]},
+  {"id":"carsamba","ad":"ÇARŞAMBA","sureSn":60,"hedef":2,"acik":["merkez","pazarlama","meta"],
+   "yeni":"Meta Ads odası açıldı! Haftalık Meta turunda üç reklamcı aynı anda çalışır.",
+   "projeler":[{"id":"meta","sn":0,"teslimSn":30},{"id":"linkedin","sn":8,"teslimSn":46},{"id":"lead","sn":24,"teslimSn":57}],
+   "olaylar":[{"tur":"kahve","sn":26},{"tur":"musteri","sn":36,"proje":"musteri-reels","sureSn":14}]},
+  {"id":"persembe","ad":"PERŞEMBE","sureSn":60,"hedef":2,"acik":["merkez","pazarlama","meta"],
+   "yeni":"💸 Para harcayan adımlar geldi: önce SENİN masana (onay), sonra reklamcıya.",
+   "projeler":[{"id":"uphb","sn":0,"teslimSn":40},{"id":"kisisel","sn":10,"teslimSn":50},{"id":"youtube","sn":26,"teslimSn":58}],
+   "olaylar":[{"tur":"kahve","sn":20},{"tur":"musteri","sn":34,"proje":"musteri-kurulum","sureSn":12}]},
+  {"id":"cuma","ad":"CUMA","sureSn":60,"hedef":2,"acik":["merkez","pazarlama","meta"],
+   "yeni":"Büyük gün: AB eğitimi lansmanı! 6 adım, 7 agent. Yanında başka işler de var.",
+   "projeler":[{"id":"lansman","sn":0,"teslimSn":46},{"id":"reels","sn":14,"teslimSn":56},{"id":"plan","sn":30,"teslimSn":59}],
+   "olaylar":[{"tur":"musteri","sn":20,"proje":"musteri-teklif","sureSn":10},{"tur":"kahve","sn":32},{"tur":"musteri","sn":42,"proje":"musteri-reels","sureSn":14}]}
+ ]
+}

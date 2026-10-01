@@ -435,6 +435,32 @@
     });
   }
 
+  /* ── Agent Ofisi oyunu (gun2): bilgisayarda çerçevenin içinde açılır, telefonda tam ekran sayfa ── */
+  var oyunBtn = document.getElementById("oyunOyna");
+  if (oyunBtn) {
+    oyunBtn.addEventListener("click", function (e) {
+      if (!window.matchMedia("(min-width: 900px) and (pointer: fine)").matches) return; // telefon/tablet: yeni sekme
+      e.preventDefault();
+      var stage = oyunBtn.parentElement;
+      var vid = stage.querySelector("video"); if (vid) vid.pause();
+      var fr = document.createElement("iframe");
+      fr.src = "oyun/index.html"; fr.title = "Agent Ofisi oyunu"; fr.setAttribute("allow", "autoplay");
+      fr.style.height = Math.round(stage.clientWidth * 0.72) + "px";
+      fr.addEventListener("load", function () {
+        try { // aynı köken: oyunun gerçek yüksekliğine göre çerçeveyi ayarla
+          var d = fr.contentDocument;
+          var boy = function () { fr.style.height = d.documentElement.scrollHeight + "px"; };
+          boy();
+          if (window.ResizeObserver) new ResizeObserver(boy).observe(d.body);
+        } catch (err) {}
+        fr.focus();
+      });
+      stage.classList.add("oynaniyor");
+      var bolum = stage.closest("section"); if (bolum) bolum.classList.add("oyun-acik"); // yıldız/gren katmanlarının üstüne çık
+      stage.appendChild(fr);
+    });
+  }
+
   /* ── meslek bulutu: meslek chip'ine tıkla → agent ekibi görünsün ── */
   var cloud = document.getElementById("agentCloud");
   if (cloud) {

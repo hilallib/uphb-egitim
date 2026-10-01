@@ -1,0 +1,17 @@
+{
+ "_not":"Agent'ların oyundaki sözleri. Kişilikler files/AGENTLAR/agents/*/AGENT.md'den. dogru = doğru iş gelince, yanlis = yanlış iş gelince (itiraz eden, dokunulan agent'tır), mesgul = meşgulken.",
+ "lale":{"dogru":["Anladım. Devam.","Ekip, odaklanın.","Not aldım."],"yanlis":["Bu benim değil ama yönlendiririm."],"mesgul":["Bir saniye, yoldayım."],"yonlendir":["Ben götürürüm.","Doğru kişiye gidiyor.","Hallederim."],"onay":["Önce Hilal onaylasın."]},
+ "kerem":{"dogru":["Veriye bakalım.","Ben zaten söylemiştim.","Strateji şart."],"yanlis":["Bunu destekleyen veri var mı?","Strateji bu değil.","Benim işim değil, net."],"mesgul":["Analizdeyim, bölme."]},
+ "serkan":{"dogru":["Bu lead kapanır!","Hemen arıyorum!","Pipeline hareketlendi!"],"yanlis":["Lead nerede bunda?!","Ben satışçıyım!","Bunu kapatamam."],"mesgul":["Telefondayım!"]},
+ "selin":{"dogru":["Harika! Kampanya yapalım!","Tam istediğimiz an!","Takvime ekledim!"],"yanlis":["Harika fikir ama benim değil!","Bunu ekibe paslayalım!"],"mesgul":["Bekle, şu fikri de—"]},
+ "zeynep":{"dogru":["Bu kesin viral olur!","Hook'u buldum!","Reels mi? Bayılırım!"],"yanlis":["Bu reels olmaz ki!","Algoritma bunu sevmez!","Bu benim işim değil!"],"mesgul":["Çekimdeyim!"]},
+ "baran":{"dogru":["Otorite kurar.","Networking zamanı.","Profesyonel sunalım."],"yanlis":["Ben LinkedIn'ciyim.","Bu B2B değil.","Değer önerisi yok."],"mesgul":["Toplantıdayım."]},
+ "can":{"dogru":["Her videonun bir yolculuğu var.","İlk 15 saniye her şey.","Hikâyesi hazır."],"yanlis":["Bu bir hikâye değil.","Bu YouTube'luk değil."],"mesgul":["Kurgudayım."]},
+ "mert":{"dogru":["Kaç hacimde aranıyor?","Optimize ediyorum.","Anahtar kelime tamam."],"yanlis":["Bu SEO değil!","Keyword yok ki!","Yanlış kanal."],"mesgul":["Veri çekiyorum."]},
+ "arya":{"dogru":["Renk paleti hazır.","Beyaz alan bırakıyorum.","Bu çok estetik."],"yanlis":["Bu tasarım değil!","Hayır, bu yanlış.","Bu font güven vermez."],"mesgul":["Çiziyorum, bekle."]},
+ "tayfun":{"dogru":["ROAS kaç?","Veri konuşsun.","Bütçeyi dağıtıyorum."],"yanlis":["Veri yok, karar yok.","Bu bütçe işi değil."],"mesgul":["Hesaptayım."],"onaysiz":["Onay yok, harcama yok!"]},
+ "dilan":{"dogru":["Etkinlik öncesi açalım!","Enerji zirvede!","Hızlanıyoruz!"],"yanlis":["Bu AB Etkinlik'in değil!","Etkinlikle ilgisi yok!"],"mesgul":["Deadline var!"],"onaysiz":["Hilal onaylamadan olmaz!"]},
+ "nisan":{"dogru":["Adım adım gidelim.","Funnel hazır.","Öğrenciler görecek."],"yanlis":["Bu UP-HB'nin değil.","Acele etmeyelim, yanlış."],"mesgul":["Anlatıyorum, bekle."],"onaysiz":["Önce onay, sonra bütçe."]},
+ "irem":{"dogru":["Bu Hilal gibi duyuluyor.","Otantik olmalı.","Kendi görüntüsü şart."],"yanlis":["Bu Hilal gibi duyulmuyor!","Benim hesabım değil."],"mesgul":["Yeniden yazıyorum."],"onaysiz":["Hilal'e sormadan olmaz!"]},
+ "hilal":{"onay":["Onaylandı!","Tamam, yayına!","Bütçe onaylı."],"kendi":["İşi ekibe ver!"],"kacti":["Eyvah, kaçtı!"]}
+}

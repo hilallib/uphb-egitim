@@ -1,0 +1,11 @@
+{
+ "source":"../referans/ofis-plani.json",
+ "referenceGrid":{"cols":42,"rows":19},
+ "rooms":[
+  {"id":"merkez","title":"MERKEZ & SATIŞ","subtitle":"YÖNLENDİR · PLANLA · BÜYÜT","color":"#e9c27d","floor":"#765039","wall":"#3a3540","columns":2,"agents":["lale","kerem","serkan","hilal"]},
+  {"id":"pazarlama","title":"PAZARLAMA","subtitle":"FİKİRLER BURADA HAYAT BULUR","color":"#b2cde7","floor":"#3c607b","wall":"#293c51","columns":3,"agents":["selin","zeynep","baran","can","mert","arya"]},
+  {"id":"meta","title":"META ADS","subtitle":"DOĞRU KİTLE · DOĞRU MESAJ","color":"#cdb3ed","floor":"#625079","wall":"#373149","columns":2,"agents":["tayfun","dilan","nisan","irem"]}
+ ],
+ "referenceDesks":{"lale":[2,3],"kerem":[7,3],"serkan":[2,8],"hilal":[7,8],"selin":[14,3],"zeynep":[19,3],"baran":[24,3],"can":[14,8],"mert":[19,8],"arya":[24,8],"tayfun":[31,3],"dilan":[36,3],"nisan":[31,8],"irem":[36,8]},
+ "referenceAlias":{"Fable":"hilal"}
+}
