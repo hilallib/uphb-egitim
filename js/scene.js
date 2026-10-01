@@ -10,7 +10,8 @@ const isMobile = window.matchMedia("(max-width: 860px)").matches;
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
                 /noanim/.test(location.search);
 
-if (canvas && !isMobile && !reduced) {
+// Mobilde de açık (02.10.2026, Hilal): daha az zerre, 30 fps, düşük çözünürlük — pil ve ısı için hafif sürüm
+if (canvas && !reduced) {
   try { init(canvas.dataset.scene || "day"); }
   catch (e) { canvas.style.display = "none"; console.warn("Atmosfer katmanı kapalı:", e && e.message); }
 }
@@ -37,9 +38,11 @@ function init(mode) {
   const night = mode === "night";
   const PINK = 0xdf66bf, TURQ = 0x00fff4, GOLD = 0xe8b45a, BLUE = 0x4d6bff;
 
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: !isMobile, alpha: true, powerPreference: "low-power" });
   renderer.setClearColor(0x000000, 0);
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+  renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.25 : 1.75));
+  const M = isMobile ? 0.55 : 1;          // mobilde zerre sayısı çarpanı
+  const X = isMobile ? 0.34 : 1;         // dikey ekranda kareler/iplikler görünür alana çekilir
   renderer.setSize(innerWidth, innerHeight);
 
   const scene = new THREE.Scene();
@@ -59,7 +62,7 @@ function init(mode) {
     }
     geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
     const mat = new THREE.PointsMaterial({
-      color, size, transparent: true, opacity,
+      color, size: size * (isMobile ? 1.5 : 1), transparent: true, opacity,
       depthWrite: false, blending: THREE.AdditiveBlending
     });
     const pts = new THREE.Points(geo, mat);
@@ -67,14 +70,15 @@ function init(mode) {
     scene.add(pts);
     return pts;
   }
-  const dustFar  = dust(700, 0.035, 14, night ? 0x8899ff : GOLD, night ? 0.35 : 0.4);
-  const dustNear = dust(160, 0.10, 6, night ? TURQ : 0xfff2cc, night ? 0.5 : 0.45);
-  const fireflies = dust(70, 0.16, 8, night ? TURQ : PINK, 0.85);
+  const dustFar  = dust(Math.round(700 * M), 0.035, 14, night ? 0x8899ff : GOLD, night ? 0.35 : 0.4);
+  const dustNear = dust(Math.round(160 * M), 0.10, 6, night ? TURQ : 0xfff2cc, night ? 0.5 : 0.45);
+  const fireflies = dust(Math.round(70 * (isMobile ? 0.6 : 1)), 0.16, 8, night ? TURQ : PINK, 0.85);
 
   // ---- katman B: süzülen hologram kartları (hafif, seyrek) ----
   const floaters = new THREE.Group();
   scene.add(floaters);
   function holo(x, y, z, color, s, rot, key) {
+    if (isMobile) s *= 0.8;
     const g = new THREE.Group();
     const plane = new THREE.Mesh(
       new THREE.PlaneGeometry(1.5 * s, 0.94 * s),
@@ -83,7 +87,7 @@ function init(mode) {
       new THREE.EdgesGeometry(plane.geometry),
       new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.6 }));
     g.add(plane, edge);
-    g.position.set(x, y, z);
+    g.position.set(x * X, y * (isMobile ? 1.35 : 1), z);
     g.rotation.set(rot[0], rot[1], rot[2]);
     g.userData = { key, plane, edge, hover: 0 };
     floaters.add(g);
@@ -142,8 +146,8 @@ function init(mode) {
     scene.add(mesh);
     return mesh;
   }
-  const t1 = thread(new THREE.Vector3(-9, -3.5, -4), new THREE.Vector3(9, 2.5, -6), 3.2, night ? TURQ : PINK);
-  const t2 = thread(new THREE.Vector3(9, -2.8, -3), new THREE.Vector3(-8, 3.4, -7), -2.6, night ? PINK : TURQ);
+  const t1 = thread(new THREE.Vector3(-9 * X, -3.5 * (isMobile ? 1.6 : 1), -4), new THREE.Vector3(9 * X, 2.5 * (isMobile ? 1.6 : 1), -6), 3.2, night ? TURQ : PINK);
+  const t2 = thread(new THREE.Vector3(9 * X, -2.8 * (isMobile ? 1.6 : 1), -3), new THREE.Vector3(-8 * X, 3.4 * (isMobile ? 1.6 : 1), -7), -2.6, night ? PINK : TURQ);
 
   // ---- hareket ----
   let mx = 0, my = 0, scrollY = 0;
@@ -160,9 +164,12 @@ function init(mode) {
   });
 
   const clock = new THREE.Clock();
-  (function animate() {
+  let son = 0;
+  (function animate(now) {
     requestAnimationFrame(animate);
+    if (isMobile) { if (now - son < 33) return; son = now; } // telefonda ~30 fps yeter
     const t = clock.getElapsedTime();
+    if (isMobile) { mx = Math.sin(t * 0.15) * 0.5; my = Math.cos(t * 0.11) * 0.35; } // dokunmatikte fare yok: kendiliğinden hafif süzülme
 
     // toz: ağır süzülme + scroll ile ters akış (derinlik hissi)
     [dustFar, dustNear, fireflies].forEach((p, li) => {
@@ -171,7 +178,7 @@ function init(mode) {
       p.material.opacity = p.material.opacity; // sabit
     });
     // ateşböcekleri nefes alır
-    fireflies.material.size = 0.13 + Math.sin(t * 1.6) * 0.045;
+    fireflies.material.size = (0.13 + Math.sin(t * 1.6) * 0.045) * (isMobile ? 1.5 : 1);
 
     // hologramlar süzülür + hover'da parlar
     floaters.children.forEach((g, i) => {
