@@ -156,3 +156,10 @@
   .kit-serit img { width: 52px; height: 52px; }
   .kit-serit .btn { grid-column: 1 / -1; justify-content: center; }
 }
+
+/* v4: yatay (16:9) sahne */
+.kit-stage.yatay { aspect-ratio: 16 / 9; width: 100%; }
+.kit-stage.yatay img { animation: kit-yatay 20s ease-in-out infinite; }
+@keyframes kit-yatay { 0%,5% { transform: scale(1); } 45%,55% { transform: scale(1.35) translate(0,-4%); } 100% { transform: scale(1); } }
+@media (min-width: 901px) { .kit-hero:has(.kit-stage.yatay) { grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); } }
+.kit-edu img { object-position: center 20%; }

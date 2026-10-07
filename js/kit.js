@@ -16,7 +16,7 @@
     var acik = acikMi(), var_kit = k.kit === "yayinda";
     var img = '<img src="/kitler/medya/' + no2(k.no) + '-kart.jpg" alt="' + esc(k.ad) + '" loading="lazy" width="540" height="780">';
     var kitBtn = !var_kit ? '<span class="btn btn-ghost kc-btn kc-off" aria-disabled="true">Kit yakında</span>'
-      : acik ? '<a class="btn btn-primary kc-btn" href="' + k.zip + '" download>Kiti indir ↓</a>'
+      : acik ? '<a class="btn btn-primary kc-btn" href="' + k.pdf + '" download>Kiti indir ↓</a>'
       : '<a class="btn btn-primary kc-btn" href="' + k.sayfa + '#kit-al">Kiti al →</a>';
     var yt = k.youtube
       ? '<a class="kc-yt" href="https://www.youtube.com/watch?v=' + k.youtube + '" target="_blank" rel="noopener" aria-label="' + esc(k.ad) + ' filmini YouTube\'da izle">' +
@@ -38,7 +38,7 @@
   function basvuruSeridi(n) {
     var t = SERIT[n % SERIT.length];
     return '<aside class="kit-serit">' +
-      '<img src="/assets/hilal-portre.jpg" alt="Hilal Baktaş" loading="lazy" width="64" height="64">' +
+      '<img src="/kitler/medya/hilal-beyaz.jpg" alt="Hilal Baktaş" loading="lazy" width="64" height="64">' +
       '<div><p class="ks-kick">Hilal Baktaş ile özel ders</p><p class="ks-title">' + t[0] + '</p><p class="ks-sub">' + t[1] + '</p></div>' +
       '<a class="btn btn-primary" href="/#basvuru">Ön başvuru yap →</a></aside>';
   }
@@ -77,8 +77,9 @@
 
   function indirmeyiGoster(slug) {
     var k = kitliler.filter(function (x) { return x.slug === slug; })[0];
-    var btn = document.getElementById("kitIndir");
-    if (k && btn) btn.href = k.zip;
+    var btn = document.getElementById("kitIndir"), kare = document.getElementById("kitKare");
+    if (k && btn) btn.href = k.pdf;
+    if (k && kare) kare.href = k.kare;
     var form = document.getElementById("kitForm");
     var ok = document.getElementById("kitOk");
     if (form) form.hidden = true;
@@ -104,7 +105,6 @@
       var status = document.getElementById("kitStatus");
       var k = liste.filter(function (x) { return x.slug === slug; })[0] || { ad: slug, no: 0 };
       var ileti = document.getElementById("k-ileti").checked;
-      var linkler = kitliler.map(function (x) { return "• " + x.ad + ": " + SITE + x.zip; }).join("\n");
       var data = {
         name: form.name.value.trim() || "—",
         email: form.email.value.trim(),
@@ -114,12 +114,7 @@
         ticari_ileti_onayi: ileti ? "EVET: eğitim ve yeni kit duyurusu alabilir" : "Hayır",
         _subject: "Tablo Kiti · " + k.ad + " · " + form.email.value.trim(),
         _template: "table",
-        _captcha: "false",
-        _autoresponse: "Merhaba,\n\nTablo kitin hazır. İndirme bağlantıları:\n" + linkler +
-          "\n\nKitin içindeki BASLA.html dosyasını aç; adım adım anlatıyor.\n" +
-          "Yeni kitler önce Instagram'da duyuruluyor: https://instagram.com/hilal_baktas\n\n" +
-          "Bu videoları ve kendi yapay zekâ ekibini birlikte üretmek istersen, Hilal Baktaş ile özel ders için ön başvuru: " + SITE + "/#basvuru\n\n" +
-          "Hilal Baktaş · UP-HB Academy\n" + SITE
+        _captcha: "false"
       };
       btn.disabled = true; btn.textContent = "Gönderiliyor…";
       status.className = "form-status";
@@ -133,7 +128,7 @@
       }).catch(function () {
         status.className = "form-status err";
         status.innerHTML = "Şu an gönderilemedi. Birkaç saniye sonra tekrar dener misin? Olmazsa Instagram'dan <b>@hilal_baktas</b>'a yaz, kiti oradan gönderelim.";
-        btn.disabled = false; btn.textContent = "Kiti Gönder →";
+        btn.disabled = false; btn.textContent = "Kiti Aç →";
       });
     });
   }
