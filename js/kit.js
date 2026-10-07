@@ -6,7 +6,7 @@
   var liste = window.KITLER || [];
   var kitliler = liste.filter(function (k) { return k.kit === "yayinda"; });
 
-  function acikMi() { try { return localStorage.getItem(ANAHTAR) === "1"; } catch (e) { return false; } }
+  function acikMi() { return true; } /* 07.10.2026: form kaldırıldı, kitler doğrudan iner (kullanıcı kararı) */
   function ac() { try { localStorage.setItem(ANAHTAR, "1"); } catch (e) {} }
   function no2(n) { return (n < 10 ? "0" : "") + n; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
