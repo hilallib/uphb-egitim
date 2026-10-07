@@ -16,8 +16,7 @@
     var acik = acikMi(), var_kit = k.kit === "yayinda";
     var img = '<img src="/kitler/medya/' + no2(k.no) + '-kart.jpg" alt="' + esc(k.ad) + '" loading="lazy" width="540" height="780">';
     var kitBtn = !var_kit ? '<span class="btn btn-ghost kc-btn kc-off" aria-disabled="true">Kit yakında</span>'
-      : acik ? '<a class="btn btn-primary kc-btn" href="' + k.pdf + '" download>Kiti indir ↓</a>'
-      : '<a class="btn btn-primary kc-btn" href="' + k.sayfa + '#kit-al">Kiti al →</a>';
+      : '<a class="btn btn-primary kc-btn" href="' + k.sayfa + '">Kiti al →</a>';
     var yt = k.youtube
       ? '<a class="kc-yt" href="https://www.youtube.com/watch?v=' + k.youtube + '" target="_blank" rel="noopener" aria-label="' + esc(k.ad) + ' filmini YouTube\'da izle">' +
           '<span class="kc-yt-img"><img src="/kitler/medya/' + no2(k.no) + '-youtube.jpg" alt="" loading="lazy" width="640" height="360"><i class="kc-play" aria-hidden="true"></i></span>' +
