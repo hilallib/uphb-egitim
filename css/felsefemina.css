@@ -158,3 +158,12 @@
 @media (min-width: 901px) { .ff-videos > .ff-video:last-child:nth-child(3n+1) { grid-column: 2; } }
 /* tarayıcı eklentilerinin köşe düğmeleriyle (ör. PDF) çakışmasın: masaüstünde biraz yukarıda */
 @media (min-width: 561px) { .ff-chat { bottom: 92px; right: 26px; } .ffc-panel { height: min(560px, calc(100vh - 240px)); } }
+
+/* tez kartı (Hilal Baktaş kutusu) + kapak künyesi */
+.ff-tez { margin: 16px 0 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(229,183,210,.3); background: rgba(255,79,168,.06); display: flex; flex-direction: column; gap: 4px; }
+.ff-tez small { color: var(--ff-pink); font-size: 12px; letter-spacing: .06em; }
+.ff-tez b { font-family: var(--serif); font-size: 19px; line-height: 1.3; color: var(--ink); }
+.ff-tez span { color: var(--ink-dim); font-size: 13.5px; }
+.ff-tez .ff-tez-btn { align-self: flex-start; margin-top: 8px; padding: 9px 18px; font-size: 14px; }
+.ff-art-fig { margin: 0 0 30px; } .ff-art-fig .ff-art-hero { margin-bottom: 8px; }
+.ff-art-fig figcaption { font-size: 13px; color: var(--ink-dim); text-align: center; }
