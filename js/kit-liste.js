@@ -18,5 +18,7 @@ window.KITLER = [
   { no: 7, slug: "ademin-yaratilisi", ad: "Âdem'in Yaratılışı", ressam: "Michelangelo", yil: "yaklaşık 1508–1512", kit: "yayinda", sayfa: "/kitler/ademin-yaratilisi.html",
     pdf: "/kitler/dosyalar/07-ademin-yaratilisi-kit.pdf", kare: "/kitler/dosyalar/07-ademin-yaratilisi-orijinal-eser.jpg", youtube: null },
   { no: 8, slug: "atina-okulu", ad: "Atina Okulu", ressam: "Raffaello", yil: "1509–1511", kit: "yayinda", sayfa: "/kitler/atina-okulu.html",
-    pdf: "/kitler/dosyalar/08-atina-okulu-kit.pdf", kare: "/kitler/dosyalar/08-atina-okulu-orijinal-eser.jpg", youtube: "AdZEipdZF40" }
+    pdf: "/kitler/dosyalar/08-atina-okulu-kit.pdf", kare: "/kitler/dosyalar/08-atina-okulu-orijinal-eser.jpg", youtube: "AdZEipdZF40" },
+  { no: 15, slug: "sutcu-kiz", ad: "Sütçü Kız", ressam: "Johannes Vermeer", yil: "yaklaşık 1660", kit: "yayinda", sayfa: "/kitler/sutcu-kiz.html",
+    pdf: "/kitler/dosyalar/15-sutcu-kiz-kit.pdf", kare: "/kitler/dosyalar/15-sutcu-kiz-orijinal-eser.jpg", youtube: "GfPowcyR1VA" }
 ];
