@@ -168,3 +168,6 @@
 .ff-art-fig { margin: 0 0 30px; } .ff-art-fig .ff-art-hero { margin-bottom: 8px; }
 .ff-art-fig figcaption { font-size: 13px; color: var(--ink-dim); text-align: center; }
 .ff-hero .ff-hero-alt { margin-top: 18px; }
+.ff-hero .ff-logo { margin-bottom: 0; }
+.ff-filmler-baslik { text-align: center; font-size: clamp(34px, 5vw, 64px); margin: 0 0 6px; }
+.ff-filmler-baslik { margin-bottom: 16px; }
