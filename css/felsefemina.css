@@ -1,0 +1,160 @@
+/* FelseFemina: felsefemina.html + felsefemina/yazilar/*.html (style.css + kit.css üzerine).
+   Arka plan diğer sayfalarla aynı (gece sahnesi); pembe yalnız vurgu rengi. */
+.page-ff { --ff-pink: #e5b7d2; --ff-hot: #ff4fa8; }
+.page-ff .kicker { color: var(--ff-pink); }
+.page-ff .kicker a { color: inherit; text-decoration: none; }
+.page-ff .hl { background: linear-gradient(180deg, #fff 6%, #f6d6e8 50%, var(--ff-hot) 110%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; filter: drop-shadow(0 0 22px rgba(255,79,168,.35)); }
+.page-ff .btn-primary.ff-btn { background: linear-gradient(135deg, #ff4fa8, #c86bd9); border-color: transparent; color: #fff; box-shadow: 0 10px 34px rgba(255,79,168,.32); }
+.page-ff .btn-ghost { border-color: rgba(229,183,210,.45); }
+
+/* giriş */
+.ff-hero { text-align: center; }
+.ff-hero .ff-logo { width: min(320px, 70vw); height: auto; display: block; margin: 0 auto 22px; filter: drop-shadow(0 0 30px rgba(229,183,210,.25)); }
+.ff-hero h1 { font-size: clamp(40px, 6vw, 78px); margin-bottom: 18px; }
+.ff-hero .lead { max-width: none; margin: 0 auto; }
+.ff-hero .kit-cta { justify-content: center; }
+
+/* filmler */
+.ff-videos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 30px; }
+.ff-video { border-radius: 20px; overflow: hidden; border: 1px solid rgba(229,183,210,.22); background: rgba(14,9,16,.82); display: flex; flex-direction: column; }
+.ff-video .fv-img { position: relative; display: block; aspect-ratio: 9 / 16; overflow: hidden; }
+.ff-video .fv-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.ff-video:hover .fv-img img { transform: scale(1.04); }
+.ff-video .kc-play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.ff-video .fv-body { padding: 16px 18px 20px; display: flex; flex-direction: column; flex: 1; }
+.ff-video small { color: var(--ff-pink); font-size: 12.5px; letter-spacing: .08em; }
+.ff-video h3 { font-size: 23px; margin: 4px 0 2px; }
+.ff-video .fv-unvan { color: var(--ink); font-size: 14px; font-weight: 600; margin: 0 0 8px; }
+.ff-video p { color: var(--ink-dim); font-size: 14.5px; line-height: 1.55; margin: 0 0 12px; }
+.ff-video .fv-izle { margin-top: auto; color: var(--ff-hot); font-weight: 700; text-decoration: none; font-size: 14.5px; }
+.ff-insta-band { margin-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding: 20px 24px; border-radius: 18px;
+  border: 1px solid rgba(255,79,168,.35); background: linear-gradient(120deg, rgba(255,79,168,.12), rgba(200,107,217,.08)); }
+.ff-insta-band b { display: block; font-size: 18px; } .ff-insta-band span { color: var(--ink-dim); font-size: 14.5px; }
+
+/* Sophia */
+.ff-sophia { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 36px; align-items: center; padding: 30px; border-radius: 24px;
+  border: 1px solid rgba(229,183,210,.28); background: rgba(14,9,16,.78); }
+.ff-sophia p { color: var(--ink-dim); }
+.ff-sophia .fs-not { font-size: 13px; margin-top: 12px; }
+.fs-cerceve { min-height: 260px; border-radius: 18px; border: 1px dashed rgba(229,183,210,.4); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  background: radial-gradient(circle at 50% 40%, rgba(255,79,168,.14), transparent 70%); }
+.fs-cerceve.acik { border-style: solid; padding: 0; overflow: hidden; min-height: 0; }
+.fs-cerceve iframe { width: 100%; height: 640px; border: 0; display: block; background: #0d0d0d; }
+.fs-yeni { color: var(--ink-dim); font-size: 13.5px; }
+
+/* yazı kartları */
+.ff-posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 30px; }
+.ff-post { display: flex; flex-direction: column; border-radius: 18px; overflow: hidden; border: 1px solid rgba(245,241,232,.13); background: rgba(14,9,16,.82); color: var(--ink); text-decoration: none; transition: border-color .3s, transform .3s; }
+.ff-post:hover { border-color: rgba(229,183,210,.5); transform: translateY(-3px); }
+.ff-post .fp-img { aspect-ratio: 16 / 10; overflow: hidden; display: block; }
+.ff-post .fp-img img { width: 100%; height: 100%; object-fit: cover; }
+.ff-post .fp-body { padding: 16px 18px 20px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.ff-post small { color: var(--ff-pink); font-size: 12.5px; letter-spacing: .06em; }
+.ff-post b { font-family: var(--serif); font-size: 20px; line-height: 1.25; }
+.ff-post .fp-body > span { color: var(--ink-dim); font-size: 14px; line-height: 1.5; }
+.ff-post i { margin-top: auto; padding-top: 6px; font-style: normal; color: var(--ff-hot); font-weight: 700; font-size: 14px; }
+
+/* yazı sayfası */
+.ff-article { max-width: 760px; margin: 0 auto; padding: 130px 22px 30px; }
+.ff-article h1 { font-size: clamp(32px, 4.6vw, 54px); line-height: 1.12; margin: 8px 0 12px; }
+.ff-art-meta { color: var(--ink-dim); font-size: 14.5px; margin-bottom: 26px; }
+.ff-art-hero { width: 100%; height: auto; border-radius: 18px; margin-bottom: 30px; border: 1px solid rgba(229,183,210,.2); }
+.ff-art-body { font-size: 18px; line-height: 1.75; color: rgba(245,241,232,.9); background: rgba(8,6,12,.72); border-radius: 20px; padding: 30px 32px; }
+.ff-art-body p { margin: 0 0 1.1em; }
+.ff-art-body h2, .ff-art-body h3 { font-family: var(--serif); color: var(--ink); line-height: 1.25; margin: 1.6em 0 .6em; }
+.ff-art-body h2 { font-size: 28px; } .ff-art-body h3 { font-size: 22px; }
+.ff-art-body strong { color: var(--ink); }
+.ff-art-body mark { background: none; color: var(--ff-pink); }
+.ff-art-body a { color: var(--ff-hot); }
+.ff-art-body img { max-width: 100%; height: auto; border-radius: 14px; display: block; margin: 1.4em auto; }
+.ff-art-body figure { margin: 0; } .ff-art-body figcaption { text-align: center; font-size: 14px; color: var(--ink-dim); margin-top: -.6em; }
+.ff-art-body hr { border: 0; height: 1px; margin: 2em auto; width: 40%; background: linear-gradient(90deg, transparent, rgba(229,183,210,.55), transparent); }
+.ff-art-body blockquote { margin: 1.4em 0; padding: 4px 0 4px 20px; border-left: 3px solid var(--ff-hot); font-family: var(--serif); font-style: italic; color: var(--ink); }
+.ff-art-body ul, .ff-art-body ol { padding-left: 1.3em; margin: 0 0 1.1em; } .ff-art-body li { margin-bottom: .4em; }
+.ff-yt-link a { display: inline-block; padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(255,79,168,.5); color: var(--ink) !important; text-decoration: none; font-weight: 600; }
+.ff-art-son { text-align: center; margin-top: 34px; color: var(--ink-dim); }
+
+@media (max-width: 900px) {
+  .ff-videos, .ff-posts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ff-sophia { grid-template-columns: 1fr; padding: 22px; }
+}
+@media (max-width: 560px) {
+  .ff-videos, .ff-posts { grid-template-columns: 1fr; }
+  .ff-article { padding: 104px 16px 24px; }
+  .ff-art-body { font-size: 17px; padding: 22px 18px; }
+  .fs-cerceve iframe { height: 560px; }
+}
+
+/* Sophia önizleme "görseli" (tıklayınca sohbet açılır) */
+.fs-cerceve { border: 0; background: none; min-height: 0; padding: 0; }
+.fs-onizleme { all: unset; box-sizing: border-box; cursor: pointer; width: 100%; display: flex; flex-direction: column; gap: 14px; padding: 22px 22px 26px; border-radius: 22px;
+  background: radial-gradient(120% 90% at 85% 0%, rgba(255,79,168,.28), transparent 55%), radial-gradient(90% 80% at 0% 100%, rgba(200,107,217,.22), transparent 60%), #120c14;
+  border: 1px solid rgba(229,183,210,.38); box-shadow: 0 24px 70px rgba(0,0,0,.55), 0 0 60px rgba(255,79,168,.16); transition: transform .35s, box-shadow .35s; font-family: var(--sans); }
+.fs-onizleme:hover, .fs-onizleme:focus-visible { transform: translateY(-4px); box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 80px rgba(255,79,168,.3); }
+.fs-onizleme:focus-visible { outline: 2px solid var(--ff-hot); outline-offset: 4px; }
+.fs-bas { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid rgba(245,241,232,.1); }
+.fs-bas b { display: block; font-family: var(--serif); font-size: 22px; color: #e9a6d6; line-height: 1.1; }
+.fs-bas small { color: var(--ink-dim); font-size: 12.5px; }
+.fs-bas img { margin-left: auto; width: 70px; height: auto; opacity: .9; }
+.fs-yildiz { font-size: 26px; color: var(--ff-hot); text-shadow: 0 0 18px rgba(255,79,168,.7); }
+.fs-balon { max-width: 82%; padding: 11px 15px; border-radius: 16px; font-size: 14.5px; line-height: 1.45; color: var(--ink); }
+.fs-sen { align-self: flex-end; background: linear-gradient(135deg, rgba(255,79,168,.85), rgba(200,107,217,.85)); border-bottom-right-radius: 4px; }
+.fs-o { align-self: flex-start; background: #221a24; border: 1px solid rgba(245,241,232,.1); border-bottom-left-radius: 4px; color: rgba(245,241,232,.82); }
+.fs-soluk { opacity: .35; }
+.fs-nokta { display: inline-flex; gap: 3px; margin-left: 6px; vertical-align: middle; }
+.fs-nokta i { width: 5px; height: 5px; border-radius: 50%; background: var(--ff-pink); animation: fsNokta 1.2s infinite ease-in-out; }
+.fs-nokta i:nth-child(2) { animation-delay: .15s; } .fs-nokta i:nth-child(3) { animation-delay: .3s; }
+@keyframes fsNokta { 0%, 80%, 100% { opacity: .25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
+.fs-cta { align-self: center; margin-top: 6px; padding: 12px 26px; border-radius: 999px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #ff4fa8, #c86bd9); box-shadow: 0 10px 30px rgba(255,79,168,.35); }
+.fs-cerceve .fs-yeni { display: block; text-align: center; margin-top: 12px; }
+.fs-cerceve.acik { border-radius: 18px; border: 1px solid rgba(229,183,210,.4); }
+.no-motion .fs-nokta i { animation: none; opacity: .7; }
+.page-ff .ff-edu { border-color: rgba(229,183,210,.35); box-shadow: 0 0 60px rgba(255,79,168,.1); }
+.page-ff .ff-edu img { border-color: var(--ff-pink); }
+
+/* Sophia: sağ alt köşe sohbet düğmesi + pencere */
+.ff-chat { position: fixed; right: 22px; bottom: 22px; z-index: 60; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; font-family: var(--sans); }
+.ffc-dugme { all: unset; box-sizing: border-box; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px 12px 14px; border-radius: 999px; color: #fff; font-weight: 700; font-size: 15px;
+  background: linear-gradient(135deg, #ff4fa8, #c86bd9); box-shadow: 0 12px 34px rgba(255,79,168,.45), 0 0 0 1px rgba(255,255,255,.18) inset; transition: transform .25s, box-shadow .25s; }
+.ffc-dugme:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(255,79,168,.6), 0 0 0 1px rgba(255,255,255,.25) inset; }
+.ffc-dugme:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+.ffc-ikon { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.18); font-size: 17px; animation: ffcNabiz 2.6s ease-in-out infinite; }
+@keyframes ffcNabiz { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,.35); } 50% { box-shadow: 0 0 0 7px rgba(255,255,255,0); } }
+.ff-chat.acik .ffc-yazi { display: none; } .ff-chat.acik .ffc-dugme { padding: 12px; }
+.ffc-panel { width: min(400px, calc(100vw - 32px)); height: min(640px, calc(100vh - 120px)); display: flex; flex-direction: column; border-radius: 22px; overflow: hidden;
+  background: #120c14; border: 1px solid rgba(229,183,210,.38); box-shadow: 0 30px 80px rgba(0,0,0,.65), 0 0 60px rgba(255,79,168,.18); animation: ffcAc .28s ease-out; }
+.ffc-panel[hidden] { display: none; }
+@keyframes ffcAc { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+.ffc-bas { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid rgba(245,241,232,.1); background: linear-gradient(120deg, rgba(255,79,168,.16), rgba(200,107,217,.08)); }
+.ffc-bas b { display: block; font-family: var(--serif); font-size: 19px; color: #e9a6d6; line-height: 1.1; } .ffc-bas small { color: var(--ink-dim); font-size: 12px; }
+.ffc-yeni, .ffc-kapat { all: unset; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; color: var(--ink); font-size: 15px; background: rgba(245,241,232,.08); }
+.ffc-yeni { margin-left: auto; } .ffc-yeni:hover, .ffc-kapat:hover { background: rgba(245,241,232,.16); }
+.ffc-govde { flex: 1; background: #0d0d0d; } .ffc-govde iframe { width: 100%; height: 100%; border: 0; display: block; }
+.ffc-not { margin: 0; padding: 7px 12px; font-size: 11px; color: var(--ink-dim); text-align: center; border-top: 1px solid rgba(245,241,232,.08); }
+@media (max-width: 560px) {
+  .ff-chat { right: 14px; bottom: 14px; }
+  .ff-chat.acik { inset: 0; right: 0; bottom: 0; gap: 0; }
+  .ff-chat.acik .ffc-panel { width: 100vw; height: 100dvh; border-radius: 0; border: 0; }
+  .ff-chat.acik .ffc-dugme { display: none; }
+}
+.no-motion .ffc-ikon, .no-motion .ffc-panel { animation: none; }
+
+/* Sophia düğmesi v2: kadın portresi (Raffaello, Atina Okulu ayrıntısı) + konuşma balonu */
+.ffc-dugme { padding: 0; gap: 12px; background: none; box-shadow: none; align-items: center; }
+.ffc-dugme:hover { transform: translateY(-2px); box-shadow: none; }
+.ffc-yazi { display: flex; flex-direction: column; align-items: flex-end; padding: 9px 16px; border-radius: 16px 16px 4px 16px; background: rgba(18,12,20,.92);
+  border: 1px solid rgba(229,183,210,.4); box-shadow: 0 10px 30px rgba(0,0,0,.45); backdrop-filter: blur(8px); line-height: 1.2; }
+.ffc-yazi b { font-family: var(--serif); font-size: 17px; color: #f2c6e0; font-weight: 700; }
+.ffc-yazi small { font-size: 11.5px; color: var(--ink-dim); font-weight: 500; margin-top: 2px; }
+.ffc-avatar { width: 62px; height: 62px; border-radius: 50%; object-fit: cover; display: block; border: 2px solid #fff;
+  box-shadow: 0 0 0 3px #ff4fa8, 0 12px 30px rgba(255,79,168,.45); animation: ffcHalka 2.8s ease-in-out infinite; }
+@keyframes ffcHalka { 0%, 100% { box-shadow: 0 0 0 3px #ff4fa8, 0 0 0 3px rgba(255,79,168,.5), 0 12px 30px rgba(255,79,168,.45); }
+  50% { box-shadow: 0 0 0 3px #ff4fa8, 0 0 0 11px rgba(255,79,168,0), 0 12px 30px rgba(255,79,168,.45); } }
+.ff-chat.acik .ffc-dugme { padding: 0; } .ff-chat.acik .ffc-avatar { width: 52px; height: 52px; animation: none; }
+.ffc-avatar-k { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #f2c6e0; flex-shrink: 0; }
+.no-motion .ffc-avatar { animation: none; }
+@media (max-width: 560px) { .ffc-yazi small { display: none; } .ffc-avatar { width: 56px; height: 56px; } }
+@media (min-width: 561px) { .ffc-panel { height: min(600px, calc(100vh - 170px)); } }
+@media (min-width: 901px) { .ff-videos > .ff-video:last-child:nth-child(3n+1) { grid-column: 2; } }
+/* tarayıcı eklentilerinin köşe düğmeleriyle (ör. PDF) çakışmasın: masaüstünde biraz yukarıda */
+@media (min-width: 561px) { .ff-chat { bottom: 92px; right: 26px; } .ffc-panel { height: min(560px, calc(100vh - 240px)); } }

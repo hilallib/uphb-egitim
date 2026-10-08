@@ -1984,3 +1984,14 @@ body.holo-hover { cursor: pointer; }
 .form-consent input[type=checkbox]{flex:0 0 auto;width:18px;height:18px;margin-top:2px;accent-color:#ff2fa0;cursor:pointer;}
 .form-consent label{font-size:.83rem;line-height:1.55;opacity:.78;cursor:pointer;font-weight:400;letter-spacing:0;text-transform:none;text-align:left;margin:0;display:block;}
 .form-consent a{color:#00fff4;text-decoration:underline;text-underline-offset:2px;}
+
+/* 6 başlıklı menü dar masaüstünde sığsın (09.10.2026) */
+@media (min-width: 861px) and (max-width: 1240px) {
+  .topbar img { height: 42px; }
+  .nav-pill { gap: 2px; }
+  .nav-link { white-space: nowrap; letter-spacing: .08em; font-size: 10.5px; gap: 7px; padding: 5px 12px 5px 6px; }
+}
+@media (min-width: 861px) and (max-width: 1020px) {
+  .nav-link:not(.active) > span:last-child { display: none; }
+  .nav-link:not(.active) { padding: 5px; }
+}
