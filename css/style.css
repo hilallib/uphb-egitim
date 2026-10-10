@@ -598,8 +598,8 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
 .film-workshop-head .lead strong { color: var(--ink); }
 .film-workshop-stage {
   display: grid;
-  grid-template-columns: minmax(260px, .78fr) minmax(420px, 1.22fr);
-  gap: clamp(28px, 5vw, 74px);
+  grid-template-columns: minmax(220px, .8fr) minmax(360px, 1.25fr) minmax(220px, .8fr);
+  gap: clamp(22px, 3.4vw, 52px);
   align-items: center;
   padding: clamp(22px, 4vw, 52px);
   border: 1px solid rgba(223,102,191,.32);
@@ -610,7 +610,7 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
     rgba(8,8,14,.86);
   box-shadow: 0 34px 100px rgba(0,0,0,.55), 0 0 54px rgba(223,102,191,.08);
 }
-.film-workshop-visual { margin: 0; position: relative; }
+.film-workshop-visual { margin: 0; position: relative; align-self: start; }
 .film-workshop-visual::before {
   content: "";
   position: absolute;
@@ -717,6 +717,10 @@ h3 { font-size: clamp(19px, 2.1vw, 27px); }
   transform: translateY(-3px);
   border-color: var(--turq);
   box-shadow: 0 16px 38px rgba(0,0,0,.4), 0 0 28px rgba(0,255,244,.1);
+}
+@media (min-width: 821px) and (max-width: 1080px) {
+  .film-workshop-stage { grid-template-columns: 1fr 1fr; }
+  .film-workshop-content { grid-column: 1 / -1; grid-row: 2; }
 }
 @media (max-width: 820px) {
   .film-workshop { padding-left: 5vw; padding-right: 5vw; }
