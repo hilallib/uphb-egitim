@@ -1,6 +1,6 @@
 # UP-HB Academy — Site Müziği Kaynak & Telif Listesi
 
-Tüm parçalar klasik eserlerin **telifsiz (kamu malı / CC0)** ya da **Creative Commons** lisanslı kayıtlarıdır. Her parçadan ~41 sn'lik klip kullanılmıştır. Kaynak: Wikimedia Commons.
+Tüm parçalar klasik eserlerin **telifsiz (kamu malı / CC0)** ya da **Creative Commons** lisanslı kayıtlarıdır. Her parçadan 56–72 sn'lik klip kullanılmıştır (12.10.2026'dan önce ~41 sn idi). Kaynak: Wikimedia Commons.
 
 | Eser | Sanatçı / İcra | Lisans | Kaynak |
 |---|---|---|---|
@@ -44,3 +44,32 @@ Tüm parçalar klasik eserlerin **telifsiz (kamu malı / CC0)** ya da **Creative
 - **Musopen** — Örs Korosu · CC0
 
 Üreten: Fable · 24.07.2026
+
+## FelseFemina sayfası — kadın besteciler (12.10.2026)
+
+| Eser | İcra / Kayıt | Lisans | Kaynak |
+|---|---|---|---|
+| Hildegard von Bingen – O frondens virga | User:Makemi (canlı icra) | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:O_frondens_2.ogg) |
+| Barbara Strozzi – Dialogo in Partenza | Pracchia-78 (sanal enstrüman) | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Barbara_Strozzi_-_Dialogo_in_Partenza.ogg) |
+| Élisabeth Jacquet de La Guerre – Marche du Roi Nérée | Commons | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Elisabeth-Claude_Jacquet_de_la_Guerre_-_Marche_du_Roi_Nereus.ogg) |
+| Cécile Chaminade – Automne, Op.35 No.2 | eldüendesüarez | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Chaminade_-_Automne_(Etude_de_Concert)_Op-35_No-2_(Piano_Performance_by_eld%C3%BCendes%C3%BCarez).wav) |
+| Pauline Viardot – Havanaise | ESMUC | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Viardot_6melodies_Havanaise_Esmuc.flac) |
+| Agathe Backer Grøndahl – Klage | Commons | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Klage-grondahl.ogg) |
+| Teresa Carreño – Gottschalk Valsi | Pracchia-78 (sanal piyano) | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Teresa_Carre%C3%B1o_-_Gottschalk_Waltz.ogg) |
+| Augusta Holmès – Trois anges sont venus ce soir | GP Roberts | CC0 | [Commons](https://commons.wikimedia.org/wiki/File:Trois-anges-sont-venus-ce-soir.ogg) |
+| Cécile Chaminade – Flüt Konçertinosu | United States Marine Band | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Flute_Concertino_in_D_major_-_United_States_Marine_Band.mp3) |
+| Pauline Viardot – Sérénade à Rosine | ESMUC | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Viardot_6melodies_SerenadeARosine_vwv1137_Esmuc.flac) |
+
+## Tablo Kitleri sayfası — Musorgski, Tablolar Sergisi (12.10.2026)
+
+| Bölüm | İcra / Kayıt | Lisans | Kaynak |
+|---|---|---|---|
+| Promenad (allegro giusto) | Musopen | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Modest_Mussorgsky_-_pictures_at_an_exhibition_-_promenade_-_allegro_giusto,_nel_modo_russico_senza_allegrezza,_ma.ogg) |
+| Promenad (moderato comodo) | Musopen | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Modest_Mussorgsky_-_pictures_at_an_exhibition_-_promenade_-_moderato_comodo_e_con_delicatezza.ogg) |
+| Gnom, Eski Şato, Tuileries, Bydło, Civcivlerin Balesi, Samuel Goldenberg ve Schmuÿle, Con mortuis, Kiev'in Büyük Kapısı | Bernd Krueger (piano-midi.de), özgün piyano sürümü | CC BY-SA 2.0 de | [Commons](https://commons.wikimedia.org/wiki/File:Mussorgsky_Pictures_at_an_Exhibition_Part1.ogg) (Part1–Part8) |
+
+Not: Ana sayfa listesindeki 9. parça (eskiden Badinerie'nin ikinci kesiti) Brahms – Macar Dansı No.5 ile değiştirildi. Platform sayfasında 12.10.2026'dan itibaren müzik yok.
+
+## Müzik düğmesi görseli
+
+Franz Seidel – *Clara Schumann am Klavier* (suluboya, 1837) · Public domain · [Commons](https://commons.wikimedia.org/wiki/File:Franz_Seidel_-_Clara_Schumann_am_Klavier_(Aquarell_1837).jpg) — yuvarlak kırpıldı: `assets/muzik/clara-piyano.jpg`

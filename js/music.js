@@ -1,27 +1,36 @@
 /* UP-HB Academy — sayfa arka plan müziği (klasik, telifsiz)
-   Her sayfanın kendi 10 parçalık listesi var; her 40 sn'de sıradaki parçaya
-   yumuşak geçişle döner. Köşede tek altın notalı altıgen buton ile aç/kapat.
-   Ses ~%20, tercih (aç/kapa) sayfalar arası hatırlanır. Üreten: Fable (24.07.2026)
-   Not: eski tek-parça (data-music) sistemi bu dosyayla değiştirildi. */
+   Her sayfanın kendi 10 parçalık listesi var. Her parça ~1 dk (56–72 sn) çalar,
+   bitimine yakın yumuşak geçişle sıradakine döner. Köşede piyano başındaki
+   Clara Schumann (Franz Seidel, 1837, kamu malı) yuvarlak düğmesiyle aç/kapat.
+   Ses ~%20, tercih (aç/kapa) sayfalar arası hatırlanır.
+   Fable (24.07.2026) · 12.10.2026: uzun klipler, FelseFemina + Tablo Kitleri listeleri,
+   platform sayfasından kaldırıldı, nota simgesi yerine Clara Schumann; her açılışta karışık sıra. */
 (function () {
-  var PLAYLISTS = {"index":[{"file":"audio/index/01.mp3","label":"Çaykovski – Çiçek Valsi"},{"file":"audio/index/02.mp3","label":"Çaykovski – Kuğu Gölü"},{"file":"audio/index/03.mp3","label":"Satie – Gymnopédie No.1"},{"file":"audio/index/04.mp3","label":"Vivaldi – Dört Mevsim: Kış"},{"file":"audio/index/05.mp3","label":"Beethoven – Ay Işığı Sonatı"},{"file":"audio/index/06.mp3","label":"Grieg – Dağ Kralının Salonunda"},{"file":"audio/index/07.mp3","label":"Pachelbel – Kanon (Re Majör)"},{"file":"audio/index/08.mp3","label":"Bach – Orkestra Süiti No.2: Badinerie"},{"file":"audio/index/09.mp3","label":"Bach – Orkestra Süiti No.2"},{"file":"audio/index/10.mp3","label":"Beethoven – Für Elise"}],"platform":[{"file":"audio/platform/01.mp3","label":"Debussy – Ay Işığı (Clair de Lune)"},{"file":"audio/platform/02.mp3","label":"Brahms – Macar Dansı No.5"},{"file":"audio/platform/03.mp3","label":"Offenbach – Can-Can"},{"file":"audio/platform/04.mp3","label":"Rossini – William Tell: Final"},{"file":"audio/platform/05.mp3","label":"Mozart – Requiem: Lacrimosa"},{"file":"audio/platform/06.mp3","label":"Çaykovski – Kuğu Gölü"},{"file":"audio/platform/07.mp3","label":"Saint-Saëns – Danse Macabre"},{"file":"audio/platform/08.mp3","label":"Çaykovski – Kuğu Gölü"},{"file":"audio/platform/09.mp3","label":"Chopin – Nocturne Op.9 No.2"},{"file":"audio/platform/10.mp3","label":"Mahler – 5. Senfoni: Adagietto"}],"gun1":[{"file":"audio/gun1/01.mp3","label":"J. Strauss – Mavi Tuna"},{"file":"audio/gun1/02.mp3","label":"Beethoven – 5. Senfoni"},{"file":"audio/gun1/03.mp3","label":"Çaykovski – Fındıkkıran: Trepak"},{"file":"audio/gun1/04.mp3","label":"Debussy – Clair de Lune"},{"file":"audio/gun1/05.mp3","label":"Debussy – Arabesque No.1"},{"file":"audio/gun1/06.mp3","label":"Çaykovski – Şeker Perisi Dansı"},{"file":"audio/gun1/07.mp3","label":"Saint-Saëns – Danse Macabre"},{"file":"audio/gun1/08.mp3","label":"Satie – Gymnopédie No.1"},{"file":"audio/gun1/09.mp3","label":"Rossini – William Tell: Uvertür"},{"file":"audio/gun1/10.mp3","label":"Handel – Mesih: Hallelujah"}],"gun2":[{"file":"audio/gun2/01.mp3","label":"Saint-Saëns – Kuğu (Le Cygne)"},{"file":"audio/gun2/02.mp3","label":"Satie – Gymnopédie No.1"},{"file":"audio/gun2/03.mp3","label":"Beethoven – Ay Işığı Sonatı"},{"file":"audio/gun2/04.mp3","label":"Grieg – Dağ Kralının Salonunda"},{"file":"audio/gun2/05.mp3","label":"Mozart – Ave Verum Corpus"},{"file":"audio/gun2/06.mp3","label":"Handel/Halvorsen – Passacaglia"},{"file":"audio/gun2/07.mp3","label":"Verdi – Il Trovatore: Örs Korosu"},{"file":"audio/gun2/08.mp3","label":"Mozart – 25. Senfoni (Sol minör)"},{"file":"audio/gun2/09.mp3","label":"Chopin – Nocturne Op.9 No.2"},{"file":"audio/gun2/10.mp3","label":"J. Strauss – Mavi Tuna"}]};
+  var PLAYLISTS = {"felsefemina": [{"file": "/audio/felsefemina/01.mp3", "label": "Hildegard von Bingen – O frondens virga"}, {"file": "/audio/felsefemina/02.mp3", "label": "Barbara Strozzi – Dialogo in Partenza"}, {"file": "/audio/felsefemina/03.mp3", "label": "Élisabeth Jacquet de La Guerre – Marche du Roi Nérée"}, {"file": "/audio/felsefemina/04.mp3", "label": "Cécile Chaminade – Automne"}, {"file": "/audio/felsefemina/05.mp3", "label": "Pauline Viardot – Havanaise"}, {"file": "/audio/felsefemina/06.mp3", "label": "Agathe Backer Grøndahl – Klage"}, {"file": "/audio/felsefemina/07.mp3", "label": "Teresa Carreño – Gottschalk Valsi"}, {"file": "/audio/felsefemina/08.mp3", "label": "Augusta Holmès – Trois anges sont venus ce soir"}, {"file": "/audio/felsefemina/09.mp3", "label": "Cécile Chaminade – Flüt Konçertinosu"}, {"file": "/audio/felsefemina/10.mp3", "label": "Pauline Viardot – Sérénade à Rosine"}], "gun1": [{"file": "/audio/gun1/01.mp3", "label": "J. Strauss – Mavi Tuna"}, {"file": "/audio/gun1/02.mp3", "label": "Beethoven – 5. Senfoni"}, {"file": "/audio/gun1/03.mp3", "label": "Çaykovski – Fındıkkıran: Trepak"}, {"file": "/audio/gun1/04.mp3", "label": "Debussy – Clair de Lune"}, {"file": "/audio/gun1/05.mp3", "label": "Debussy – Arabesque No.1"}, {"file": "/audio/gun1/06.mp3", "label": "Çaykovski – Şeker Perisi Dansı"}, {"file": "/audio/gun1/07.mp3", "label": "Saint-Saëns – Danse Macabre"}, {"file": "/audio/gun1/08.mp3", "label": "Satie – Gymnopédie No.1"}, {"file": "/audio/gun1/09.mp3", "label": "Rossini – William Tell: Uvertür"}, {"file": "/audio/gun1/10.mp3", "label": "Handel – Mesih: Hallelujah"}], "gun2": [{"file": "/audio/gun2/01.mp3", "label": "Saint-Saëns – Kuğu (Le Cygne)"}, {"file": "/audio/gun2/02.mp3", "label": "Satie – Gymnopédie No.1"}, {"file": "/audio/gun2/03.mp3", "label": "Beethoven – Ay Işığı Sonatı"}, {"file": "/audio/gun2/04.mp3", "label": "Grieg – Dağ Kralının Salonunda"}, {"file": "/audio/gun2/05.mp3", "label": "Mozart – Ave Verum Corpus"}, {"file": "/audio/gun2/06.mp3", "label": "Handel/Halvorsen – Passacaglia"}, {"file": "/audio/gun2/07.mp3", "label": "Verdi – Il Trovatore: Örs Korosu"}, {"file": "/audio/gun2/08.mp3", "label": "Mozart – 25. Senfoni (Sol minör)"}, {"file": "/audio/gun2/09.mp3", "label": "Chopin – Nocturne Op.9 No.2"}, {"file": "/audio/gun2/10.mp3", "label": "J. Strauss – Mavi Tuna"}], "index": [{"file": "/audio/index/01.mp3", "label": "Çaykovski – Çiçek Valsi"}, {"file": "/audio/index/02.mp3", "label": "Çaykovski – Kuğu Gölü"}, {"file": "/audio/index/03.mp3", "label": "Satie – Gymnopédie No.1"}, {"file": "/audio/index/04.mp3", "label": "Vivaldi – Dört Mevsim: Kış"}, {"file": "/audio/index/05.mp3", "label": "Beethoven – Ay Işığı Sonatı"}, {"file": "/audio/index/06.mp3", "label": "Grieg – Dağ Kralının Salonunda"}, {"file": "/audio/index/07.mp3", "label": "Pachelbel – Kanon (Re Majör)"}, {"file": "/audio/index/08.mp3", "label": "Bach – Orkestra Süiti No.2: Badinerie"}, {"file": "/audio/index/09.mp3", "label": "Brahms – Macar Dansı No.5"}, {"file": "/audio/index/10.mp3", "label": "Beethoven – Für Elise"}], "tablolar": [{"file": "/audio/tablolar/01.mp3", "label": "Musorgski – Tablolar Sergisi: Promenad"}, {"file": "/audio/tablolar/02.mp3", "label": "Musorgski – Tablolar Sergisi: Gnom"}, {"file": "/audio/tablolar/03.mp3", "label": "Musorgski – Tablolar Sergisi: Eski Şato"}, {"file": "/audio/tablolar/04.mp3", "label": "Musorgski – Tablolar Sergisi: Tuileries"}, {"file": "/audio/tablolar/05.mp3", "label": "Musorgski – Tablolar Sergisi: Bydło"}, {"file": "/audio/tablolar/06.mp3", "label": "Musorgski – Tablolar Sergisi: Civcivlerin Balesi"}, {"file": "/audio/tablolar/07.mp3", "label": "Musorgski – Tablolar Sergisi: Samuel Goldenberg ve Schmuÿle"}, {"file": "/audio/tablolar/08.mp3", "label": "Musorgski – Tablolar Sergisi: Promenad (yumuşak)"}, {"file": "/audio/tablolar/09.mp3", "label": "Musorgski – Tablolar Sergisi: Con mortuis"}, {"file": "/audio/tablolar/10.mp3", "label": "Musorgski – Tablolar Sergisi: Kiev'in Büyük Kapısı"}]};
 
-  // sayfa tespiti (platform gövdesi 'page-gun2' de taşıdığı için önce ona bak)
+  // sayfa tespiti: önce yol (FelseFemina, Tablo Kitleri), sonra gövde sınıfı
+  var path = location.pathname || "";
   var cl = document.body.className || "";
-  var page = /page-platform/.test(cl) ? "platform"
+  var page = /\/felsefemina/.test(path) || /page-ff/.test(cl) ? "felsefemina"
+           : /\/kitler/.test(path) ? "tablolar"
+           : /page-platform/.test(cl) ? null
            : /page-index/.test(cl) ? "index"
            : /page-gun1/.test(cl) ? "gun1"
            : /page-gun2/.test(cl) ? "gun2" : "index";
-  var PL = PLAYLISTS[page] || [];
+  var PL = ((page && PLAYLISTS[page]) || []).slice();
   if (!PL.length) return;
+  // her açılışta farklı sıra: liste karıştırılır (Fisher–Yates)
+  for (var s = PL.length - 1; s > 0; s--) {
+    var r = Math.floor(Math.random() * (s + 1)), t = PL[s]; PL[s] = PL[r]; PL[r] = t;
+  }
 
   var TARGET = 0.20;      // arka plan ses seviyesi
-  var SWITCH_MS = 40000;  // 40 sn'de bir parça değişir
-  var FADE = 0.8;         // saniye — geçiş yumuşatma
+  var FADE = 1.6;         // saniye — geçiş yumuşatma
+  var LEAD = 2.0;         // parça bitmeden kaç sn önce sıradakine geçilir
   var KEY = "uphbMusic";  // aç/kapa tercihi (sayfalar arası)
+  var IMG = "/assets/muzik/clara-piyano.jpg";
 
   // ---- stil ----
-  var HEX = "polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)";
   var css = document.createElement("style");
   css.textContent =
     "#uphb-music{position:fixed;left:20px;bottom:20px;z-index:99999;display:flex;" +
@@ -30,32 +39,32 @@
     "transition:max-width .5s ease,opacity .5s ease;font-size:12.5px;color:#f3e9d6;" +
     "background:rgba(18,12,24,.82);border:1px solid rgba(232,180,90,.35);" +
     "border-radius:20px;padding:0;line-height:34px;height:34px;backdrop-filter:blur(6px);}" +
-    "#uphb-music.show-lbl .u-lbl{max-width:230px;opacity:1;padding:0 14px;}" +
-    "#uphb-music button{all:unset;cursor:pointer;position:relative;width:58px;height:58px;" +
-    "display:flex;align-items:center;justify-content:center;" +
-    "filter:drop-shadow(0 5px 16px rgba(0,0,0,.5));transition:transform .2s ease;}" +
+    "#uphb-music.show-lbl .u-lbl,#uphb-music:hover .u-lbl{max-width:300px;opacity:1;padding:0 14px;}" +
+    "#uphb-music button{all:unset;cursor:pointer;position:relative;width:60px;height:60px;" +
+    "border-radius:50%;display:block;filter:drop-shadow(0 5px 16px rgba(0,0,0,.5));" +
+    "transition:transform .2s ease;}" +
     "#uphb-music button:hover{transform:translateY(-2px) scale(1.06);}" +
-    "#uphb-music button:focus-visible{outline:2px solid #00fff4;outline-offset:4px;border-radius:8px;}" +
+    "#uphb-music button:focus-visible{outline:2px solid #00fff4;outline-offset:4px;}" +
     "#uphb-music .halo{position:absolute;inset:-6px;border-radius:50%;z-index:0;opacity:0;" +
     "background:conic-gradient(from 0deg,#00fff4,#df66bf,#ff2fa0,#e8b45a,#00fff4);" +
     "filter:blur(9px);transition:opacity .4s ease;}" +
     "#uphb-music.playing .halo{opacity:.85;animation:uphbSpin 5s linear infinite;}" +
-    "#uphb-music .hexb{position:absolute;inset:0;z-index:1;clip-path:" + HEX + ";" +
+    "#uphb-music .ring{position:absolute;inset:0;border-radius:50%;z-index:1;" +
     "background:conic-gradient(from 140deg,#00fff4,#df66bf,#ff2fa0,#e8b45a,#00fff4);}" +
-    "#uphb-music .hexf{position:absolute;inset:2px;z-index:1;clip-path:" + HEX + ";" +
-    "background:radial-gradient(circle at 50% 32%,#251528,#0b0710);}" +
-    "#uphb-music .note{position:relative;z-index:2;width:23px;height:23px;color:#ff2fa0;" +
-    "filter:drop-shadow(0 0 3px rgba(255,47,160,.6));" +
-    "transition:color .3s,filter .3s,opacity .3s;}" +
-    "#uphb-music.playing .note{color:#ff6ec7;" +
-    "filter:drop-shadow(0 0 9px rgba(255,47,160,.95));animation:uphbPulse 1.7s ease-in-out infinite;}" +
-    "#uphb-music.off .note{opacity:.9;filter:drop-shadow(0 0 2px rgba(255,47,160,.4));}" +
-    "#uphb-music.off .hexb{background:linear-gradient(135deg,#453a4d,#2a2230);}" +
+    "#uphb-music .pic{position:absolute;inset:2.5px;border-radius:50%;z-index:2;" +
+    "background:#0b0710 url(" + IMG + ") center/cover no-repeat;" +
+    "transition:filter .4s ease;}" +
+    "#uphb-music.playing .pic{animation:uphbPulse 2.4s ease-in-out infinite;}" +
+    "#uphb-music.off .ring{background:linear-gradient(135deg,#8a6a86,#3a2f40);}" +
+    "#uphb-music.off .pic{filter:grayscale(.55) brightness(.8);}" +
+    "#uphb-music .mute{position:absolute;right:-2px;bottom:-2px;z-index:3;width:20px;height:20px;" +
+    "border-radius:50%;background:#1a1020;border:1.5px solid #df66bf;color:#ff6ec7;" +
+    "display:flex;align-items:center;justify-content:center;font-size:11px;line-height:1;}" +
+    "#uphb-music.playing .mute{display:none;}" +
     "@keyframes uphbSpin{to{transform:rotate(360deg)}}" +
-    "@keyframes uphbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.13)}}" +
-    "@media(max-width:600px){#uphb-music button{width:50px;height:50px}" +
-    "#uphb-music .note{width:20px;height:20px}" +
-    "#uphb-music.show-lbl .u-lbl{max-width:150px}}";
+    "@keyframes uphbPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}" +
+    "@media(max-width:600px){#uphb-music button{width:52px;height:52px}" +
+    "#uphb-music.show-lbl .u-lbl{max-width:170px}}";
   document.head.appendChild(css);
 
   // ---- DOM ----
@@ -63,10 +72,10 @@
   wrap.id = "uphb-music";
   wrap.className = "off";
   wrap.innerHTML =
-    '<button type="button" aria-label="Klasik müziği aç/kapat" title="Klasik müzik">' +
-    '<span class="halo"></span><span class="hexb"></span><span class="hexf"></span>' +
-    '<svg class="note" viewBox="0 0 24 24" aria-hidden="true">' +
-    '<path fill="currentColor" d="M12 3v10.28A3.5 3.5 0 1 0 13.5 16V7.5H18V3H12z"/></svg>' +
+    '<button type="button" aria-label="Klasik müziği aç/kapat" ' +
+    'title="Klasik müzik — görsel: Clara Schumann piyano başında (Franz Seidel, 1837)">' +
+    '<span class="halo"></span><span class="ring"></span><span class="pic"></span>' +
+    '<span class="mute" aria-hidden="true">♪</span>' +
     '</button>' +
     '<span class="u-lbl"></span>';
   var btn = wrap.querySelector("button");
@@ -74,10 +83,10 @@
   if (document.body) document.body.appendChild(wrap);
   else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(wrap); });
 
-  // ---- ses motoru (iki eleman ile çapraz geçiş) ----
+  // ---- ses motoru (iki eleman ile çapraz geçiş; parça bitince sıradaki) ----
   var el = [new Audio(), new Audio()];
   el.forEach(function (a) { a.preload = "auto"; a.volume = 0; });
-  var cur = 0, idx = 0, playing = false, timer = null, lblTimer = null;
+  var cur = 0, idx = 0, playing = false, lblTimer = null, switching = false;
 
   function ramp(a, to, dur, done) {
     var from = a.volume, t0 = performance.now();
@@ -101,26 +110,36 @@
     var p = nx.play();
     if (p && p.catch) p.catch(function () { waitGesture(); });
     ramp(nx, TARGET, FADE);
-    ramp(old, 0, FADE, function () { try { old.pause(); } catch (e) {} });
+    ramp(old, 0, FADE, function () { try { old.pause(); } catch (e) {} switching = false; });
     cur = 1 - cur; idx = i;
     showLabel(PL[i].label);
   }
 
-  function nextTrack() { playIndex((idx + 1) % PL.length); }
-  function schedule() { clearInterval(timer); timer = setInterval(nextTrack, SWITCH_MS); }
+  function nextTrack() {
+    if (!playing || switching) return;
+    switching = true;
+    playIndex((idx + 1) % PL.length);
+  }
+
+  // çalan parça bitmeye yaklaşınca (ya da biterse) sıradakine geç
+  el.forEach(function (a, n) {
+    a.addEventListener("timeupdate", function () {
+      if (n === cur && a.duration && a.currentTime >= a.duration - LEAD) nextTrack();
+    });
+    a.addEventListener("ended", function () { if (n === cur) nextTrack(); });
+  });
 
   function start() {
-    playing = true;
+    playing = true; switching = false;
     try { localStorage.setItem(KEY, "on"); } catch (e) {}
     wrap.classList.remove("off"); wrap.classList.add("playing");
-    playIndex(idx); schedule();
+    playIndex(idx);
   }
 
   function stop() {
     playing = false;
     try { localStorage.setItem(KEY, "off"); } catch (e) {}
     wrap.classList.remove("playing"); wrap.classList.add("off");
-    clearInterval(timer);
     el.forEach(function (a) { ramp(a, 0, FADE, function () { try { a.pause(); } catch (e) {} }); });
   }
 
@@ -136,7 +155,7 @@
     document.addEventListener("touchstart", go, { once: true });
   }
 
-  btn.addEventListener("click", function () { playing ? stop() : start(); });
+  btn.addEventListener("click", function (e) { e.stopPropagation(); playing ? stop() : start(); });
 
   // açılışta: tercih 'on' ise otomatik başlat (engellenirse ilk harekette başlar)
   var pref = "off";
