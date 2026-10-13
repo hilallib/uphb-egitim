@@ -1,6 +1,6 @@
 # UP-HB Academy — Site Müziği Kaynak & Telif Listesi
 
-Tüm parçalar klasik eserlerin **telifsiz (kamu malı / CC0)** ya da **Creative Commons** lisanslı kayıtlarıdır. Her parçadan 56–72 sn'lik klip kullanılmıştır (12.10.2026'dan önce ~41 sn idi). Kaynak: Wikimedia Commons.
+Tüm parçalar klasik eserlerin **telifsiz (kamu malı / CC0)** ya da **Creative Commons** lisanslı kayıtlarıdır. 13.10.2026'dan beri eserler **tam** çalar (kesit değil; yalnız baştaki/sondaki sessizlik kırpıldı, ses düzeyi eşitlendi). Önceki sürümler: ~41 sn klipler (12.10'a kadar), 56–72 sn klipler (12–13.10). Kaynak: Wikimedia Commons.
 
 | Eser | Sanatçı / İcra | Lisans | Kaynak |
 |---|---|---|---|
@@ -60,13 +60,11 @@ Tüm parçalar klasik eserlerin **telifsiz (kamu malı / CC0)** ya da **Creative
 | Cécile Chaminade – Flüt Konçertinosu | United States Marine Band | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Flute_Concertino_in_D_major_-_United_States_Marine_Band.mp3) |
 | Pauline Viardot – Sérénade à Rosine | ESMUC | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Viardot_6melodies_SerenadeARosine_vwv1137_Esmuc.flac) |
 
-## Tablo Kitleri sayfası — Musorgski, Tablolar Sergisi (12.10.2026)
+## Tablo Kitleri sayfası — Musorgski, Tablolar Sergisi (13.10.2026, 8 bölüm, tam)
 
 | Bölüm | İcra / Kayıt | Lisans | Kaynak |
 |---|---|---|---|
-| Promenad (allegro giusto) | Musopen | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Modest_Mussorgsky_-_pictures_at_an_exhibition_-_promenade_-_allegro_giusto,_nel_modo_russico_senza_allegrezza,_ma.ogg) |
-| Promenad (moderato comodo) | Musopen | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Modest_Mussorgsky_-_pictures_at_an_exhibition_-_promenade_-_moderato_comodo_e_con_delicatezza.ogg) |
-| Gnom, Eski Şato, Tuileries, Bydło, Civcivlerin Balesi, Samuel Goldenberg ve Schmuÿle, Con mortuis, Kiev'in Büyük Kapısı | Bernd Krueger (piano-midi.de), özgün piyano sürümü | CC BY-SA 2.0 de | [Commons](https://commons.wikimedia.org/wiki/File:Mussorgsky_Pictures_at_an_Exhibition_Part1.ogg) (Part1–Part8) |
+| Promenad ve Gnom · Promenad ve Eski Şato · Promenad ve Tuileries · Bydło · Promenad ve Civcivlerin Balesi · Samuel Goldenberg ve Schmuÿle · Promenad, Limoges ve Katakomblar · Baba Yaga ve Kiev'in Büyük Kapısı | Bernd Krueger (piano-midi.de), özgün piyano sürümü | CC BY-SA 2.0 de | [Commons](https://commons.wikimedia.org/wiki/File:Mussorgsky_Pictures_at_an_Exhibition_Part1.ogg) (Part1–Part8) |
 
 Not: Ana sayfa listesindeki 9. parça (eskiden Badinerie'nin ikinci kesiti) Brahms – Macar Dansı No.5 ile değiştirildi. Platform sayfasında 12.10.2026'dan itibaren müzik yok.
 
