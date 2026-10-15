@@ -1,0 +1,47 @@
+/* Müziğin İçine: muzigin-icine.html (style.css + kit.css üzerine). 15.10.2026
+   Renkler serinin başlık kartından: mavi #1F4FE0 + beyaz; gece sahnesi arka plan aynen kalır. */
+.page-mi { --mi-blue: #1F4FE0; --mi-sky: #7d9bff; --mi-line: rgba(125,155,255,.28); }
+.page-mi .kicker { color: var(--mi-sky); }
+.page-mi .hl { background: linear-gradient(180deg, #fff 8%, #c9d6ff 48%, var(--mi-blue) 115%); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; filter: drop-shadow(0 0 22px rgba(31,79,224,.45)); }
+.page-mi .btn-primary.mi-btn { background: linear-gradient(135deg, #2f63ff, #1F4FE0); border-color: transparent; color: #fff; box-shadow: 0 10px 34px rgba(31,79,224,.38); }
+.page-mi .btn-ghost { border-color: var(--mi-line); }
+
+/* giriş */
+.mi-hero { text-align: center; }
+.mi-hero h1 { font-size: clamp(44px, 7vw, 92px); margin-bottom: 6px; }
+.mi-porte { position: relative; width: min(420px, 78vw); height: 34px; margin: 6px auto 22px; }
+.mi-porte i { position: absolute; left: 0; right: 0; height: 2px; background: rgba(255,255,255,.85); border-radius: 2px; }
+.mi-porte i:nth-child(1) { top: 2px; } .mi-porte i:nth-child(2) { top: 9px; } .mi-porte i:nth-child(3) { top: 16px; }
+.mi-porte i:nth-child(4) { top: 23px; } .mi-porte i:nth-child(5) { top: 30px; }
+.mi-porte b { position: absolute; right: -6px; top: 10px; width: 17px; height: 13px; border-radius: 50%; background: var(--mi-blue); border: 2px solid #fff; transform: rotate(-22deg); box-shadow: 0 0 16px rgba(31,79,224,.8); }
+.mi-hero .lead { max-width: 760px; margin: 0 auto; }
+.mi-fikir { margin: 18px auto 0; max-width: 640px; font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 19px; color: var(--ink); opacity: .9; }
+.mi-fikir small { display: block; font-family: Inter, sans-serif; font-style: normal; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--mi-sky); margin-top: 6px; opacity: 1; }
+
+/* bölümler */
+.mi-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 26px; margin-top: 26px; }
+.mi-ep { border-radius: 20px; overflow: hidden; border: 1px solid var(--mi-line); background: rgba(8,10,22,.82); display: flex; flex-direction: column; }
+.mi-ep .mi-img { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; }
+.mi-ep .mi-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.mi-ep:hover .mi-img img { transform: scale(1.04); }
+.mi-ep .kc-play { position: absolute; left: 50%; top: 50%; }
+.mi-ep .mi-body { padding: 18px 20px 22px; display: flex; flex-direction: column; flex: 1; }
+.mi-ep small { color: var(--mi-sky); font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; }
+.mi-ep h3 { font-size: 26px; margin: 6px 0 6px; }
+.mi-ep p { color: var(--ink-dim); margin: 0 0 14px; line-height: 1.6; }
+.mi-ep .mi-izle { margin-top: auto; color: #fff; font-weight: 600; text-decoration: none; }
+.mi-ep .mi-izle:hover { color: var(--mi-sky); }
+/* tek bölüm varken: geniş, yan yana */
+.mi-list.tek { grid-template-columns: 1fr; }
+.mi-list.tek .mi-ep { display: grid; grid-template-columns: 1.45fr 1fr; align-items: stretch; }
+.mi-list.tek .mi-ep .mi-img { aspect-ratio: auto; min-height: 100%; }
+.mi-list.tek .mi-ep .mi-body { justify-content: center; padding: 30px 32px; }
+.mi-list.tek .mi-ep h3 { font-size: clamp(26px, 3vw, 36px); }
+@media (max-width: 860px) {
+  .mi-list.tek .mi-ep { grid-template-columns: 1fr; }
+  .mi-list.tek .mi-ep .mi-img { aspect-ratio: 16 / 9; }
+  .mi-list.tek .mi-ep .mi-body { padding: 18px 20px 22px; }
+}
+.mi-sonraki { text-align: center; margin: 26px 0 0; color: var(--ink-dim); }
+.mi-sonraki b { color: var(--ink); font-weight: 600; }
+.mi-cta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 22px; }

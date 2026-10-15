@@ -14,6 +14,7 @@
   var cl = document.body.className || "";
   var page = /\/felsefemina/.test(path) || /page-ff/.test(cl) ? "felsefemina"
            : /\/kitler/.test(path) ? "tablolar"
+           : /\/muzigin-icine/.test(path) ? "index"   // Müziğin İçine: şimdilik ana sayfa listesi
            : /page-platform/.test(cl) ? null
            : /page-index/.test(cl) ? "index"
            : /page-gun1/.test(cl) ? "gun1"
