@@ -71,3 +71,22 @@ Not: Ana sayfa listesindeki 9. parça (eskiden Badinerie'nin ikinci kesiti) Brah
 ## Müzik düğmesi görseli
 
 Franz Seidel – *Clara Schumann am Klavier* (suluboya, 1837) · Public domain · [Commons](https://commons.wikimedia.org/wiki/File:Franz_Seidel_-_Clara_Schumann_am_Klavier_(Aquarell_1837).jpg) — yuvarlak kırpıldı: `assets/muzik/clara-piyano.jpg`
+
+## Film klasikleri — her sayfaya 2 eser (18.10.2026, 🎬 işaretli, tam)
+
+Filmlere özel bestelenmiş modern film müzikleri (besteci telifi süren) **kullanılmadı**. Bunlar filmlerde kullanılmış, bestecisi kamu malı klasik eserlerin modern orkestra/bando kayıtlarıdır. 1923–1972 arası tarihî plak kayıtları ABD'de hâlâ korunabildiği için alınmadı.
+
+| Sayfa | Eser · film | İcra / Kayıt | Lisans | Kaynak |
+|---|---|---|---|---|
+| index/11 | R. Strauss – Also sprach Zarathustra (giriş) · 2001: A Space Odyssey | Philip Milman (şef), Lud and Schlatt's Musical Emporium | CC BY 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Richard_Strauss_-_Also_Sprach_Zarathustra_-_Phillip_Milman_-_Lud_and_Schlatts_Musical_Emporium.wav) |
+| index/12 | Mascagni – Cavalleria Rusticana: Intermezzo · Raging Bull | Fulda Symphonic Orchestra, şef Simon Schindler (2002) | EFF Open Audio License 1.0 | [Commons](https://commons.wikimedia.org/wiki/File:Pietro_Mascagni_-_Cavalleria_Rusticana_-_Intermezzo_Sinfonico.ogg) |
+| gun1/11 | Wagner – Valkürlerin Uçuşu · Apocalypse Now | Philip Milman, Lud and Schlatt's Musical Emporium | CC BY 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Ride_of_the_Valkyries.ogg) |
+| gun1/12 | Çaykovski – 1812 Uvertürü · V for Vendetta | U.S. Army Band, Col. Thomas Rotondi Jr. (2005) | Kamu malı (ABD devlet işi) | [Commons](https://commons.wikimedia.org/wiki/File:1812_Overture.ogg) |
+| gun2/11 | Brahms – 3. Senfoni: III. Poco allegretto · Goodbye Again | Musopen Symphony Orchestra | CC0 | [Commons](https://commons.wikimedia.org/wiki/File:Brahms,_Symphony_No._3_in_F_Major,_Op._90_-_III._Poco_allegretto.ogg) |
+| gun2/12 | Saint-Saëns – Hayvanlar Karnavalı: Akvaryum · Days of Heaven | Seattle Youth Symphony, şef Vilem Sokol; piyano Neil & Nancy O'Doan | EFF Open Audio License 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Saint-Saens_-_The_Carnival_of_the_Animals_-_07_Aquarium.ogg) |
+| felsefemina/11 | Delibes – Lakmé: Çiçek Düeti · The Hunger | Philip Milman, Lud and Schlatt's Musical Emporium | CC BY 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:PMM-Delibes-Flower-Duet-MASTER_V1.ogg) |
+| felsefemina/12 | J. Strauss II – Mavi Tuna · 2001: A Space Odyssey | U.S. Marine Band (yaklaşık 1972, nefesli düzenleme) | Kamu malı (ABD devlet işi) | [Commons](https://commons.wikimedia.org/wiki/File:%22An_der_sch%C3%B6nen,_blauen_Donau%22_performed_by_the_U.S._Marine_Band.flac) |
+| tablolar/11 | Grieg – Dağ Kralının Salonunda · M (Fritz Lang, 1931) | Musopen Symphony Orchestra | Kamu malı | [Commons](https://commons.wikimedia.org/wiki/File:Musopen_-_In_the_Hall_Of_The_Mountain_King.ogg) |
+| tablolar/12 | Rossini – William Tell Uvertürü · A Clockwork Orange | U.S. Marine Corps Band (Sedlak düzenlemesi, 2000) | Kamu malı (ABD devlet işi) | [Commons](https://commons.wikimedia.org/wiki/File:Gioachino_Rossini,_William_Tell_Overture_(military_band_version,_2000).ogg) |
+
+Atıf: **Philip Milman / Lud and Schlatt's Musical Emporium** (pmmusic.pro) · CC BY 3.0 — Zarathustra, Valkürlerin Uçuşu, Çiçek Düeti.
