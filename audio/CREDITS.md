@@ -90,3 +90,17 @@ Filmlere özel bestelenmiş modern film müzikleri (besteci telifi süren) **kul
 | tablolar/12 | Rossini – William Tell Uvertürü · A Clockwork Orange | U.S. Marine Corps Band (Sedlak düzenlemesi, 2000) | Kamu malı (ABD devlet işi) | [Commons](https://commons.wikimedia.org/wiki/File:Gioachino_Rossini,_William_Tell_Overture_(military_band_version,_2000).ogg) |
 
 Atıf: **Philip Milman / Lud and Schlatt's Musical Emporium** (pmmusic.pro) · CC BY 3.0 — Zarathustra, Valkürlerin Uçuşu, Çiçek Düeti.
+
+## FelseFemina — kadın bestecilere eklenenler (18.10.2026; liste 15 eser, yalnız kadın besteciler)
+
+Aynı gün FelseFemina'ya konan iki film klasiği (Delibes, J. Strauss) ana sayfa listesine taşındı (`index/13`, `index/14`; `felsefemina/11–12` dosyaları artık listede değil). Düğme yanında "Kadın bestecilerin müzikleri" başlığı görünür.
+
+| Dosya | Eser | İcra / Kayıt | Lisans | Kaynak |
+|---|---|---|---|---|
+| felsefemina/13 | Valborg Aulin – Piyano Sonatı Op.14, I. bölüm | Joina Canyet (piyano), ESMUC, 2019 | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:ValvorgAulin_SonataForPiano_op14_Esmuc.flac) |
+| felsefemina/14 | Pauline Viardot – Dernier aveu | ESMUC | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Viardot_6melodies_DernierAveu_vwv1104Esmuc.flac) |
+| felsefemina/15 | Pauline Viardot – Le vase brisé | ESMUC | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Viardot_6melodies_LeVaseBrise_Esmuc.flac) |
+| felsefemina/16 | Claudia Francesca Rusca – Canzone Prima à4 «La Borromea» (1630) | Phillipwserna | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Claudia_Francesca_Rusca_(1583-1676)_-_Canzone_Prima_%C3%A04_La_Borromea_(1630).ogg) |
+| felsefemina/17 | Claudia Francesca Rusca – Canzon Seconda à4 (1630) | Phillipwserna | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Claudia_Francesca_Rusca_(1583-1676)_-_Canzon_Seconda_%C3%A04_(1630).ogg) |
+
+Bekleyen (IMSLP, robot doğrulaması yüzünden otomatik indirilemedi): Clara Schumann Scherzo No.2 (Luis Kolodin, CC BY-SA 4.0), Fanny Hensel Notturno (Chris Breemer, CC0), Lili Boulanger Cortège ve Prélude (Kolodin), Amy Beach Dreaming (Andrys Basten, CC BY 4.0) ve From Blackbird Hills (Breemer, CC0), Mel Bonis Phoebé ve Sevilliana (Breemer, CC0), Chaminade Les Sylvains (Takashi Sato, CC BY 3.0).
