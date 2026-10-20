@@ -21,6 +21,8 @@ window.KITLER = [
     pdf: "/kitler/dosyalar/08-atina-okulu-kit.pdf", kare: "/kitler/dosyalar/08-atina-okulu-orijinal-eser.jpg", youtube: "AdZEipdZF40" },
   { no: 9, slug: "gece-devriyesi", ad: "Gece Devriyesi", ressam: "Rembrandt van Rijn", yil: "1642", kit: "yayinda", sayfa: "/kitler/gece-devriyesi.html",
     pdf: "/kitler/dosyalar/09-gece-devriyesi-kit.pdf", kare: "/kitler/dosyalar/09-gece-devriyesi-orijinal-eser.jpg", youtube: "fO6uJywA52A" },
+  { no: 11, slug: "arnolfininin-evlenmesi", ad: "Arnolfini'nin Evlenmesi", ressam: "Jan van Eyck", yil: "1434", kit: "yakinda", sayfa: null,
+    pdf: null, kare: null, youtube: "v-vRSfpDCJY" },
   { no: 15, slug: "sutcu-kiz", ad: "Sütçü Kız", ressam: "Johannes Vermeer", yil: "yaklaşık 1660", kit: "yayinda", sayfa: "/kitler/sutcu-kiz.html",
     pdf: "/kitler/dosyalar/15-sutcu-kiz-kit.pdf", kare: "/kitler/dosyalar/15-sutcu-kiz-orijinal-eser.jpg", youtube: "GfPowcyR1VA" }
 ];
