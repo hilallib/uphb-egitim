@@ -22,6 +22,31 @@
     });
   }
 
+  /* YZ Film Projeleri açılır menüsü (28.10.2026): tıkla/dokun ile aç-kapat, etkin sayfayı işaretle */
+  var here = location.pathname.replace(/\/index\.html$/, "/");
+  document.querySelectorAll(".nd-item, .mm-sublink").forEach(function (a) {
+    var p = a.getAttribute("href");
+    var on = here === p || (p === "/kitler.html" && here.indexOf("/kitler/") === 0);
+    if (!on) return;
+    a.classList.add("active");
+    var d = a.closest(".nav-drop"); if (d) d.querySelector(".nav-drop-btn").classList.add("active");
+    var m = document.getElementById("mmDropBtn"); if (m && a.classList.contains("mm-sublink")) m.classList.add("active");
+  });
+  document.querySelectorAll(".nav-drop").forEach(function (d) {
+    var b = d.querySelector(".nav-drop-btn");
+    b.addEventListener("click", function (ev) {
+      ev.stopPropagation();
+      var o = d.classList.toggle("open"); b.setAttribute("aria-expanded", o ? "true" : "false");
+    });
+  });
+  document.addEventListener("click", function () {
+    document.querySelectorAll(".nav-drop.open").forEach(function (d) { d.classList.remove("open"); d.querySelector(".nav-drop-btn").setAttribute("aria-expanded", "false"); });
+  });
+  var mmb = document.getElementById("mmDropBtn"), mms = document.getElementById("mmSub");
+  if (mmb && mms) mmb.addEventListener("click", function () {
+    var o = mms.classList.toggle("open"); mmb.classList.toggle("open", o); mmb.setAttribute("aria-expanded", o ? "true" : "false");
+  });
+
   /* ── Video 3D derinlik sahnesi ──
      Video + fallback aynı stage içinde tutulur. Böylece mevcut lazy-loading,
      poster ve GSAP panorama hareketi korunurken perspektif ayrı katmanda yaşar. */

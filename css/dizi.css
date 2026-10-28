@@ -1,0 +1,46 @@
+/* YZ Film Projeleri dizi sayfaları (muzik.css üzerine). 28.10.2026, WebTech
+   Her dizi kendi rengini --mi-blue / --mi-sky / --mi-line ile alır. */
+.dz-sifirdan-bire      { --mi-blue: #ff3fa4; --mi-sky: #ff9fd2; --mi-line: rgba(255,111,190,.30); }
+.dz-sofinin-soru-isigi { --mi-blue: #e39a2d; --mi-sky: #ffd08a; --mi-line: rgba(255,196,110,.28); }
+.dz-hildenin-yolculugu { --mi-blue: #3fae9b; --mi-sky: #9fe3d4; --mi-line: rgba(140,220,200,.28); }
+.dz-mitoloji-evreni    { --mi-blue: #c9692f; --mi-sky: #f2bf7a; --mi-line: rgba(242,180,110,.28); }
+.page-dz .hl { background: linear-gradient(180deg, #fff 8%, var(--mi-sky) 52%, var(--mi-blue) 115%); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 22px color-mix(in srgb, var(--mi-blue) 45%, transparent)); }
+.page-dz .btn-primary.mi-btn { background: linear-gradient(135deg, var(--mi-sky), var(--mi-blue)); color: #111; box-shadow: 0 10px 34px color-mix(in srgb, var(--mi-blue) 38%, transparent); }
+.page-dz .mi-hero .lead { margin-top: 10px; }
+
+/* dikey (Shorts) bölümler */
+.mi-list.dikey { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 20px; }
+.mi-ep.dikey .mi-img { aspect-ratio: 9 / 16; }
+.mi-ep.dikey h3 { font-size: 20px; }
+.mi-ep.dikey p { font-size: 14.5px; }
+.mi-list.dikey:has(> .mi-ep:only-child) { grid-template-columns: minmax(0, 330px) minmax(0, 1fr); }
+.mi-list.dikey > .mi-ep:only-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 330px) 1fr; max-width: 880px; margin: 0 auto; }
+.mi-list.dikey > .mi-ep:only-child .mi-body { justify-content: center; padding: 28px 32px; }
+.mi-list.dikey > .mi-ep:only-child h3 { font-size: clamp(26px, 3vw, 36px); }
+.mi-list.dikey > .mi-ep:only-child p { font-size: 16px; }
+@media (max-width: 700px) {
+  .mi-list.dikey:has(> .mi-ep:only-child) { grid-template-columns: 1fr; }
+  .mi-list.dikey > .mi-ep:only-child { grid-template-columns: 1fr; max-width: 420px; }
+  .mi-list.dikey { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+}
+.dz-alt { text-align: center; font-size: clamp(22px, 2.6vw, 30px); margin: 54px 0 0; color: var(--ink); }
+.dz-alt::after { content: ""; display: block; width: 60px; height: 2px; margin: 12px auto 0; background: var(--mi-blue); border-radius: 2px; }
+.dz-another-room-istanbul { --mi-blue: #b9773f; --mi-sky: #f0c999; --mi-line: rgba(240,200,150,.26); }
+.dz-another-room-istanbul .mi-ep h3 { font-size: 21px; }
+
+/* hareketli karakterler (yeşil perdeden ayıklanmış, saydam; sitenin zemini aynen kalır) */
+.dz-kahraman { display: flex; flex-direction: column; align-items: center; margin: 0 auto 6px; }
+.dz-k-sira { display: flex; justify-content: center; align-items: flex-end; flex-wrap: wrap; gap: 4px 6px; position: relative; }
+.dz-k { margin: 0; display: flex; flex-direction: column; align-items: center; position: relative; }
+.dz-k img { display: block; height: auto; filter: drop-shadow(0 10px 18px rgba(0,0,0,.45)); position: relative; z-index: 1; }
+.dz-k::after { content: ""; position: absolute; bottom: -4px; left: 50%; width: 70%; height: 14px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--mi-blue) 55%, transparent), transparent); }
+.dz-kahraman:not(.serit) .dz-k img { width: auto; height: clamp(200px, 26vw, 290px); }
+.dz-kahraman.serit { margin: 30px auto 0; max-width: 1180px; }
+.dz-kahraman.serit .dz-k img { width: auto; height: calc(var(--h, 1) * .8px); }
+.dz-kahraman.serit .dz-k-sira { gap: 4px 10px; padding-bottom: 6px; }
+.dz-k-baslik { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--mi-sky); margin: 0 0 10px; }
+.dz-k figcaption { font-size: 12.5px; color: var(--ink-dim); margin-top: 8px; position: relative; z-index: 1; }
+@media (max-width: 700px) {
+  .dz-kahraman:not(.serit) .dz-k img { height: 190px; }
+  .dz-kahraman.serit .dz-k img { height: calc(var(--h, 1) * .62px); }
+}
