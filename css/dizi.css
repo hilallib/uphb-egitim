@@ -71,3 +71,4 @@
   .dz-kahraman.karisik .dz-k img { height: calc(var(--h, 1) * .5px); }
   .dz-kahraman.karisik .dz-k[title="Hokka"] { margin: 0 -22px 0 -14px; }
 }
+.dz-logo { display: block; width: 104px; height: 104px; margin: 0 auto 16px; border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255,255,255,.12), 0 0 36px color-mix(in srgb, var(--mi-blue) 45%, transparent); }
