@@ -26,5 +26,7 @@ window.KITLER = [
   { no: 12, slug: "dunyevi-zevkler-bahcesi", ad: "Dünyevi Zevkler Bahçesi", ressam: "Hieronymus Bosch", yil: "1490–1500", kit: "yayinda", sayfa: "/kitler/dunyevi-zevkler-bahcesi.html",
     pdf: "/kitler/dosyalar/12-dunyevi-zevkler-bahcesi-kit.pdf", kare: "/kitler/dosyalar/12-dunyevi-zevkler-bahcesi-orijinal-eser.jpg", youtube: "EpSWFheuASc" },
   { no: 15, slug: "sutcu-kiz", ad: "Sütçü Kız", ressam: "Johannes Vermeer", yil: "yaklaşık 1660", kit: "yayinda", sayfa: "/kitler/sutcu-kiz.html",
-    pdf: "/kitler/dosyalar/15-sutcu-kiz-kit.pdf", kare: "/kitler/dosyalar/15-sutcu-kiz-orijinal-eser.jpg", youtube: "GfPowcyR1VA" }
+    pdf: "/kitler/dosyalar/15-sutcu-kiz-kit.pdf", kare: "/kitler/dosyalar/15-sutcu-kiz-orijinal-eser.jpg", youtube: "GfPowcyR1VA" },
+  { no: 18, slug: "cocuklarini-yiyen-saturn", ad: "Çocuklarını Yiyen Satürn", ressam: "Francisco Goya", yil: "1820–1823", kit: "yakinda", sayfa: null,
+    pdf: null, kare: null, youtube: "YSiE1KzIxxc" }
 ];
