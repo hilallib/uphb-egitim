@@ -2032,3 +2032,7 @@ body.holo-hover { cursor: pointer; }
 .mm-sublink { display: inline-flex; align-items: center; justify-content: center; gap: 10px; color: var(--ink); text-decoration: none; font-size: 17px; font-weight: 600; opacity: .9; }
 .mm-sublink img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 1.5px var(--orb, var(--turq)); }
 .mm-sublink.active { color: var(--turq); }
+/* telefon menüsünde uzun başlık tek satır, ikon yanında (02.11.2026) */
+.mm-drop-btn { white-space: nowrap; font-size: 21px; gap: 10px; }
+.mm-drop-btn .mm-orb { width: 32px; height: 32px; }
+@media (max-width: 360px) { .mm-drop-btn { font-size: 18px; } }
