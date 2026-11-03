@@ -25,6 +25,7 @@
 }
 .dz-alt { text-align: center; font-size: clamp(22px, 2.6vw, 30px); margin: 54px 0 0; color: var(--ink); }
 .dz-alt::after { content: ""; display: block; width: 60px; height: 2px; margin: 12px auto 0; background: var(--mi-blue); border-radius: 2px; }
+.dz-evvel-zaman        { --mi-blue: #2f8a5c; --mi-sky: #e6c88a; --mi-line: rgba(120,200,160,.26); }
 .dz-another-room-istanbul { --mi-blue: #b9773f; --mi-sky: #f0c999; --mi-line: rgba(240,200,150,.26); }
 .dz-another-room-istanbul .mi-ep h3 { font-size: 21px; }
 
