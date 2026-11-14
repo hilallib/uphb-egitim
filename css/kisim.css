@@ -2,20 +2,26 @@
 .ks-izgara { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
 .ks-kart {
   position: relative; display: block; padding: 0; border: 2px solid transparent; border-radius: 18px; overflow: hidden;
-  background: #0b0d1a; cursor: pointer; color: #fff; font: inherit; text-align: left; aspect-ratio: 4 / 5;
-  transition: transform .25s, border-color .25s, box-shadow .25s, filter .25s; filter: saturate(.75) brightness(.8);
+  background: #0b0d1a; cursor: pointer; color: #fff; text-decoration: none; aspect-ratio: 4 / 5;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
 }
-.ks-kart img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+.ks-kart img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--odak, 50%) 18%; }
 .ks-kart::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,7,16,.92) 0%, rgba(6,7,16,.35) 42%, rgba(6,7,16,0) 65%); }
-.ks-kart:hover, .ks-kart:focus-visible { transform: translateY(-4px); filter: none; }
-.ks-kart[aria-selected="true"] { filter: none; border-color: var(--ks); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ks) 30%, transparent), 0 14px 40px color-mix(in srgb, var(--ks) 35%, transparent); }
+.ks-kart:hover, .ks-kart:focus-visible { transform: translateY(-4px); border-color: var(--ks); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ks) 30%, transparent), 0 14px 40px color-mix(in srgb, var(--ks) 35%, transparent); }
+.ks-izgara[hidden] { display: none; }
 .ks-kart:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
 .ks-yazi { position: absolute; left: 14px; right: 12px; bottom: 14px; z-index: 1; display: flex; flex-direction: column; gap: 3px; }
 .ks-harf { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--ks); color: #111; font-size: 18px; font-weight: 800; margin-bottom: 4px; }
 .ks-ad { font-family: "Playfair Display", Georgia, serif; font-size: clamp(17px, 1.6vw, 22px); font-weight: 700; line-height: 1.15; }
 .ks-yazi small { color: rgba(255,255,255,.78); font-size: 12.5px; letter-spacing: .02em; }
 
-.ks-panel { margin-top: 34px; scroll-margin-top: 110px; }
+.ks-panel { margin-top: 10px; }
+.ks-geri { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--ks); color: #fff; text-decoration: none; font-weight: 600; font-size: 14px; }
+.ks-geri:hover { background: var(--ks); color: #111; }
+.ks-ust { position: relative; margin-top: 16px; border-radius: 22px; overflow: hidden; aspect-ratio: 16 / 5; border: 1px solid color-mix(in srgb, var(--ks) 45%, transparent); }
+.ks-ust img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block; }
+.ks-ust::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to right, rgba(6,7,16,.88) 0%, rgba(6,7,16,.4) 45%, rgba(6,7,16,0) 70%); }
+.ks-ust .ks-baslik { position: absolute; left: 28px; bottom: 22px; z-index: 1; flex-direction: column; align-items: flex-start; gap: 4px; }
 .ks-panel[hidden] { display: none; }
 .ks-baslik { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; font-size: clamp(24px, 2.6vw, 32px); margin: 0; }
 .ks-baslik b { color: var(--ks); }
@@ -32,7 +38,11 @@
   .ks-izgara { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 560px) {
+  .ks-ust { aspect-ratio: 16 / 9; }
+  .ks-ust .ks-baslik { left: 16px; bottom: 14px; }
   .ks-izgara { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .ks-kart:last-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
   .ks-ad { font-size: 17px; }
 }
+.ks-ac { align-self: flex-start; margin-top: 8px; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.28); font-size: 12px; font-weight: 600; transition: background .2s; }
+.ks-kart:hover .ks-ac { background: var(--ks); border-color: var(--ks); color: #111; }
