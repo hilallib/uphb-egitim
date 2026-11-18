@@ -73,3 +73,7 @@
   .dz-kahraman.karisik .dz-k[title="Hokka"] { margin: 0 -22px 0 -14px; }
 }
 .dz-logo { display: block; width: 104px; height: 104px; margin: 0 auto 16px; border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255,255,255,.12), 0 0 36px color-mix(in srgb, var(--mi-blue) 45%, transparent); }
+
+/* 18.11.2026: tek bölümde kapak 16:9 bütün görünsün (metin uzun olsa da kırpılmasın) */
+.mi-list.tek .mi-ep:not(.dikey) { align-items: center; }
+.mi-list.tek .mi-ep:not(.dikey) .mi-img { aspect-ratio: 16 / 9; min-height: 0; align-self: center; }
