@@ -28,5 +28,7 @@ window.KITLER = [
   { no: 15, slug: "sutcu-kiz", ad: "Sütçü Kız", ressam: "Johannes Vermeer", yil: "yaklaşık 1660", kit: "yayinda", sayfa: "/kitler/sutcu-kiz.html",
     pdf: "/kitler/dosyalar/15-sutcu-kiz-kit.pdf", kare: "/kitler/dosyalar/15-sutcu-kiz-orijinal-eser.jpg", youtube: "GfPowcyR1VA" },
   { no: 18, slug: "cocuklarini-yiyen-saturn", ad: "Çocuklarını Yiyen Satürn", ressam: "Francisco Goya", yil: "1820–1823", kit: "yakinda", sayfa: null,
-    pdf: null, kare: null, youtube: "YSiE1KzIxxc" }
+    pdf: null, kare: null, youtube: "YSiE1KzIxxc" },
+  { no: 19, slug: "maratnin-olumu", ad: "Marat'nın Ölümü", ressam: "Jacques-Louis David", yil: "1793", kit: "yakinda", sayfa: null,
+    pdf: null, kare: null, youtube: "LflobCFOxZA" }
 ];
